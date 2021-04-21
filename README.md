@@ -104,46 +104,9 @@
 
 
 
-백엔드 
-
-1. 디비 설계, VO class (회원정보 <- 주문내역, 토핑정보, 피자, 사이드/샐러드, 매장정보) : 1명 -> 변준영 
-2. DAO Class <- DAO interface(interface 설계는 같이!) : 1명 -> 임세홍
-3. MainServlet, Controllers(Controller interface를 implements한 것들), HandlerMapping : 2명 -> 오영수님, 조은비님
-
-각자 화면에 대한 Controller :
-
-조은비님
-
-- 로그인에 대한 Controller 
-- 회원가입에 대한 Controller 
-- 아이디/비밀번호 찾기에 대한 Controller 
-- 개인정보 수정에 대한 Controller 
-- 금액 결제 화면에 대한 Controller 
-
-오영수님
-
-- 메뉴화면에서 피자 객체 정보들을 넘겨주는 Controller 
-- 샐러드/사이드화면에 대한 Controller 
-- 나만의 피자 화면에서 토핑과 도우에 대한 정보를 다루는 Controller 
-- 주소/매장 선택 화면에 대한 Controller 
 
 
-
-1명이 DAO class 작성 -> reference작성(method명, return type, 이 method가 어떤 작업을 하는지, method에 필요한 parameter들)
-
-Controller class를 구현하는 사람은 DAO class의 method의 내부구조를 몰라도 reference만 보면 DB와 소통 할 수있다.
-
-
-
-| 테이블명 | Column                                                       |
-| -------- | ------------------------------------------------------------ |
-| 회원정보 | id(PK), 이름, 비밀번호, 주소, 이메일주소, 총 주문금액        |
-| 주문내역 | 주문번호(PK), 고객id(FK), 매장id(FK), 피자명, 주문유형, 결제금액 |
-| 피자     | 피자이름, 가격                                               |
-| 매장     | 매장id, 매장주소, 매장 전화번호, 매장 총 매출                |
-| 사이드   | id, 사이드이름, 가격                                         |
-
-## 간트 
+## 간트 차트
 ![image](https://user-images.githubusercontent.com/46814964/115572495-e7d5bc00-a2fa-11eb-9c2a-894987a824f3.png)
 
 
@@ -182,6 +145,47 @@ Controller class를 구현하는 사람은 DAO class의 method의 내부구조�
 | 23   |                  | 사이드, 샐러드 선택시 상세페이지로 이동   |          |        |
 | 24   |                  | 토핑, 도우 선택, 이미지 보이기   |          |        |
 | 25   |                  | 매장의 주소 검색 및 선택   |          |        |
+
+
+
+백엔드 
+
+1. 디비 설계, VO class (회원정보 <- 주문내역, 토핑정보, 피자, 사이드/샐러드, 매장정보) : 1명 -> 변준영 
+2. DAO Class <- DAO interface(interface 설계는 같이!) : 1명 -> 임세홍
+3. MainServlet, Controllers(Controller interface를 implements한 것들), HandlerMapping : 2명 -> 오영수님, 조은비님
+
+각자 화면에 대한 Controller :
+
+조은비님
+
+- 로그인에 대한 Controller 
+- 회원가입에 대한 Controller 
+- 아이디/비밀번호 찾기에 대한 Controller 
+- 개인정보 수정에 대한 Controller 
+- 금액 결제 화면에 대한 Controller 
+
+오영수님
+
+- 메뉴화면에서 피자 객체 정보들을 넘겨주는 Controller 
+- 샐러드/사이드화면에 대한 Controller 
+- 나만의 피자 화면에서 토핑과 도우에 대한 정보를 다루는 Controller 
+- 주소/매장 선택 화면에 대한 Controller 
+
+
+
+1명이 DAO class 작성 -> reference작성(method명, return type, 이 method가 어떤 작업을 하는지, method에 필요한 parameter들)
+
+Controller class를 구현하는 사람은 DAO class의 method의 내부구조를 몰라도 reference만 보면 DB와 소통 할 수있다.
+
+
+
+| 테이블명 | Column                                                       |
+| -------- | ------------------------------------------------------------ |
+| 회원정보 | id(PK), 이름, 비밀번호, 주소, 이메일주소, 총 주문금액        |
+| 주문내역 | 주문번호(PK), 고객id(FK), 매장id(FK), 피자명, 주문유형, 결제금액 |
+| 피자     | 피자이름, 가격                                               |
+| 매장     | 매장id, 매장주소, 매장 전화번호, 매장 총 매출                |
+| 사이드   | id, 사이드이름, 가격                                         |
 
 
 
