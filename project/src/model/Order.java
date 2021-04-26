@@ -1,4 +1,4 @@
-package project.model;
+package model;
 
 public class Order {
 	// Field
