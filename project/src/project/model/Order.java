@@ -1,0 +1,83 @@
+package project.model;
+
+public class Order {
+	// Field
+	private String orderId;
+	private String custId;
+	private String shopId;
+	private String orderDate;
+	private String orderAddr;
+	private int orderPrice;
+	
+	//Constructor
+	public Order() {
+	}
+	
+	public Order(String orderId, String custId, String shopId, String orderDate, String orderAddr, int orderPrice) {
+		super();
+		this.orderId = orderId;
+		this.custId = custId;
+		this.shopId = shopId;
+		this.orderDate = orderDate;
+		this.orderAddr = orderAddr;
+		this.orderPrice = orderPrice;
+	}
+
+	//Getter & Setter
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getCustId() {
+		return custId;
+	}
+
+	public void setCustId(String custId) {
+		this.custId = custId;
+	}
+
+	public String getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(String shopId) {
+		this.shopId = shopId;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getOrderAddr() {
+		return orderAddr;
+	}
+
+	public void setOrderAddr(String orderAddr) {
+		this.orderAddr = orderAddr;
+	}
+
+	public int getOrderPrice() {
+		return orderPrice;
+	}
+
+	public void setOrderPrice(int orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+
+	// toString
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", custId=" + custId + ", shopId=" + shopId + ", orderDate=" + orderDate
+				+ ", orderAddr=" + orderAddr + ", orderPrice=" + orderPrice + "]";
+	}
+	
+	
+}
