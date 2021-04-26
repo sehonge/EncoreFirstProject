@@ -1,4 +1,4 @@
-package servlet.member;
+package model;
 
 public interface OrderDao {
 	

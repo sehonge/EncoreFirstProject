@@ -23,7 +23,7 @@ public class Customer {
 		this.custAddr = custAddr;
 		this.custContact = custContact;
 		this.custEmail = custEmail;
-		this.custTotalPrice = custTotalPrice;
+		this.custTotalPrice = 0;
 	}
 	
 	public Customer(String custId, String custPw, String custName, String custAddr, String custContact,

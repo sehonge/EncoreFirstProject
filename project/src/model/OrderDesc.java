@@ -15,7 +15,7 @@ public class OrderDesc {
 		this.orderId = orderId;
 		this.menuId = menuId;
 		this.num = num;
-	}
+	}	
 
 	// Getter & Setter
 	public String getOrderId() {
