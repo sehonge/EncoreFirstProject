@@ -50,13 +50,39 @@ private DataSource ds;
 		closeAll(ps, conn);		
 		return;
 	}	
-
 	
 
 	@Override
 	public ArrayList<Menu> getAllPizza() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Menu> list = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			list = new ArrayList<Menu>();
+			conn = getConnection();
+			String query = "SELECT * FROM menu WHERE MENU_TYPE=?";
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, 1);
+			
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(new Menu(
+						rs.getString(1), 
+						rs.getInt(2), 
+						rs.getString(3), 
+						rs.getInt(4), 
+						rs.getString(5)
+						));
+			}
+			
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+		
+		return list;
 	}
 
 	@Override
@@ -73,12 +99,17 @@ private DataSource ds;
 
 	@Override
 	public Menu getPizza(String menuId) throws SQLException {
-		// TODO Auto-generated method stub
+		
+		
+		
 		return null;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws SQLException {
+		
+		MenuDaoImpl test = new MenuDaoImpl();
 
+		for(Menu m : test.getAllPizza())
+			System.out.println(m);
 	}
 }
