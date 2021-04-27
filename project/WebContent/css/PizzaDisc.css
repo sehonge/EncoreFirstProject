@@ -1,0 +1,308 @@
+@charset "UTF-8";
+<!-- header -->
+: root {
+	--text-color :#f0f4f5;
+	--background-color : #263343;
+	--accent-color : #d49466;
+
+}
+
+body{
+	margin : 0;
+	font-family: 'Sunflower', sans-serif;
+}
+
+
+.navbar a {
+	text-decoration: none;
+	color : var(--text-color);
+	
+}
+
+.navbar{
+	display : flex; 
+	justify-content: space-between;
+	align-items: center;
+	background-color : lightgrey;
+	padding : 8px 24px;
+}
+
+.navbar__logo{
+	font-weight : bold;
+	font-size : 35px;	
+	color : white;
+	
+}
+.navbar__logo i{
+	color : #d49466;
+	
+}
+
+.navbar__menu {
+	font-size : 20px;
+	display : flex;
+	list-style : none;
+	padding-left : 0;
+	
+}
+
+.navbar__menu li {
+	padding : 8px 12px;
+	
+}
+
+.navbar__menu li:hover{
+	cursor: pointer;
+	background-color : #91F8D0;
+	border-radius: 10px;
+	
+}
+
+.navbar__icons {
+	
+	list-style : none;
+	color : black;
+	display : flex;
+	padding-left : 0;
+	
+}
+
+.navbar__icons li{
+	font-size : 24px;
+	padding : 8px 12px;
+	
+}
+
+.navbar__toogleBtn {
+	display : none;
+	position : absolute;
+	right : 32px;
+	font-size : 24px;
+}
+
+
+@media screen and (max-width : 768px) {
+	.navbar {
+		flex-direction: column;
+		align-items: flex-start;
+		padding : 8px 24px;
+	}
+	
+	.navbar__menu {
+		display : none;	
+		flex-direction: column;
+		align-items: center;
+		width : 100%;
+	
+	}
+	
+	.navbar__menu li {
+		width : 100%;
+		text-align : center;
+	}
+	.navbar__icons {
+		display : none;
+		justify-content: center;
+		width : 100%;
+	}
+	
+	.navbar__toogleBtn{
+		display : block;
+	}
+	.navbar__menu.active,
+	.navbar__icons.active{
+		display : flex;
+	
+	}	
+}
+
+
+
+	<!-- RESET -->
+	*{
+		margin: 0 auto;
+		padding: 0;
+		font-size: 24px;
+		color: #fff;
+	}
+	
+	a{
+		text-decoration: none;
+	}
+	
+	li{
+		list-style: none;
+	}
+	.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
+	
+	#wrap{
+		margin: 0 auto;
+		width: 100%;
+	}
+	div, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
+		display: block;
+	}
+	
+	<!-- contents -->
+	#contents{
+		margin: auto;
+		text-align: center;
+	}
+	
+	<!-- 메뉴 바 -->
+	.menu_nav_wrap {
+		position: relative;
+        height: 80px; line-height: 0px;
+	}
+	.menu_nav_wrap .menu-nav{position: relative;}
+	.menu_nav_wrap .menu-nav ul {display: block; padding-inline-start: 40px; text-align: center; margin-top: 30px; margin-bottom: 50px;}
+	.menu_nav_wrap .menu-nav ul li {position:relative; display: inline-block; padding: 0px 30px 0px 30px;margin: 10px 0px 10px 0px;}
+	.menu_nav_wrap .menu-nav ul li:first-child {border-left: none;}
+	.menu_nav_wrap .menu-nav ul li a{color: #fff;}
+	.menu_nav_wrap .menu-nav ul li a:hover{color: red;}
+	.menu_nav_wrap .menu-nav ul li span {font-size: 25px; color: #777777;}
+
+}
+	
+	<!-- 음식 --> 
+	#food{
+		position: relative;
+		width: 1400px;
+		margin: 0 auto;
+	}
+	
+	#food .food_cut {width: 700px; float:left; padding-inline-start: 40px; text-align: left; padding-right: 50px;}
+	#food .food_cut img {padding-bottom: 13px; width: 700px;}
+	#food .food_cut span {font-size: 16px; color: #888888;}
+	
+	
+	<!-- 오른쪽 영역 지정 -->
+	#detail_wrap{
+		width: 700px;
+		float: right;
+	}
+	
+	
+	<!-- 타이틀 -->
+	#detail_wrap .title{
+		float: right;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	#detail_wrap .title .name{
+		font-size: 35px;
+		font-weight: bolder;
+		padding-top: 10px;
+	}
+	
+	#detail_wrap p{
+		font-size: 18px;
+		color: #888888;
+		margin-bottom: 3px;
+	}
+	
+	hr{
+		float: left;
+		border: 0;
+		width: 500px;
+		height: 2px;
+		background: #888888;
+	}
+	
+	
+
+	<!-- 사이즈 선택 -->
+	
+	label.radio {
+  		cursor: pointer;
+  		text-align: center;
+	}
+	
+	label.radio input {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    visibility: hidden;
+	    pointer-events: none
+	}
+	
+	label.radio span {
+	    padding: 10px 35px;
+	    border: 2px solid #ec4a4f;
+	    display: inline-block;
+	    color: #ec4a4f;
+	    font-weight: bold;
+	    font-size: 21px;
+	    border-radius: 35px;
+	    text-transform: uppercase;
+	}
+	
+	label.radio input:checked+span {
+	    padding: 10px 35px;
+   	    border-radius: 35px;
+	    border-color: #ec4a4f;
+	    background-color: #ec4a4f;
+   	    font-weight: bold;
+	    font-size: 21px;
+	    color: #fff
+	}
+	
+
+
+    <!-- 수량선택 -->
+	input{
+    	text-align: center;
+    } 
+    
+    
+    <!-- 사이드 음료 -->
+	table{
+		margin-left: auto; 
+		margin-right: auto; 
+		display: inline-block;
+	 	width:100px;
+	 	text-align: center;
+	 	<!-- table-layout: fixed; 테이블 >= 이미지 크기 -->
+	 }
+	 
+    table img{
+    	max-width: 100%; <!-- 테이블 사이즈에 이미지 맞추기 -->
+    }
+    
+    th{
+    	width: 125px;
+    	height: 50px;
+    }
+    
+	td{
+		text-align: center;
+	}
+    
+    
+    <!-- 담기 버튼 https://codepen.io/kjbrum/pen/wBBLXx-->
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+	
