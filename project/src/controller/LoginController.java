@@ -21,10 +21,9 @@ public class LoginController implements Controller{
 			String err = "errmsg.jsp";
 			
 			try {
-				Customer rvo = CustomerDaoImpl.getInstance().showCustomer(id);
+				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
-				if(CustomerDaoImpl.getInstance().matchIdPassword(id,password)) {
-					
+				if(rvo != null) {
 					session.setAttribute("vo", rvo); //통신이 끊기기 전 남는 애들
 					path = "Index.jsp";
 				}else {
