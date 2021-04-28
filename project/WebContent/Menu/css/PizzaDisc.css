@@ -135,88 +135,93 @@ body{
 	}
 	.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
 	
-	#wrap{
-		margin: 0 auto;
-		width: 100%;
-	}
-	div, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
-		display: block;
-	}
-	
-	<!-- contents -->
-	#contents{
-		margin: auto;
-		text-align: center;
-	}
 	
 	<!-- 메뉴 바 -->
-	.menu_nav_wrap {
+	.menu_wrap{
 		position: relative;
         height: 80px; line-height: 0px;
 	}
-	.menu_nav_wrap .menu-nav{position: relative;}
-	.menu_nav_wrap .menu-nav ul {display: block; padding-inline-start: 40px; text-align: center; margin-top: 30px; margin-bottom: 50px;}
-	.menu_nav_wrap .menu-nav ul li {position:relative; display: inline-block; padding: 0px 30px 0px 30px;margin: 10px 0px 10px 0px;}
-	.menu_nav_wrap .menu-nav ul li:first-child {border-left: none;}
-	.menu_nav_wrap .menu-nav ul li a{color: #fff;}
-	.menu_nav_wrap .menu-nav ul li a:hover{color: red;}
-	.menu_nav_wrap .menu-nav ul li span {font-size: 25px; color: #777777;}
+	.menu_wrap .menu{position: relative;}
+	.menu_wrap .menu ul {display: block; text-align: center; margin-top: 30px; margin-bottom: 50px;}
+	.menu_wrap .menu ul li {position:relative; display: inline-block; padding: 0px 30px 0px 30px;margin: 10px 0px 10px 0px;}
+	.menu_wrap .menu ul li:first-child {border-left: none;}
+	.menu_wrap .menu ul li a{color: #fff;}
+	.menu_wrap .menu ul li a:hover{color: red;}
+	.menu_wrap .menu ul li span {font-size: 25px; color: #777777;}
 
 }
 	
-	<!-- 음식 --> 
-	#food{
+	<!-- 음식 사진 --> 
+	#section {
+		margin: 0 auto;
+		width: 1400px; 
 		position: relative;
-		width: 1400px;
-		margin: 0 auto;
 	}
 	
-	#food .food_cut {width: 700px; float:left; padding-inline-start: 40px; text-align: left; padding-right: 50px;}
-	#food .food_cut img {padding-bottom: 13px; width: 700px;}
-	#food .food_cut span {font-size: 16px; color: #888888;}
-	
-	
-	<!-- 오른쪽 영역 지정 -->
-	#detail_wrap{
+	#article1{
 		width: 700px;
+		float: left;
+		position: relative;
+		
+	}
+	#article2{
+		width: 550px;
 		float: right;
+		position: relative;
+		
 	}
 	
+	<!--padding-inline-start: 100px; -->
+	#article1 .imgcut {display: block; text-align: left; padding-right: 50px;}
+	#article1 .imgcut img {position:relative; display: inline-block; padding-bottom: 13px; width: 700px; height: 700px;}
+	#article1 .imgcut span {font-size: 16px; color: #888888;}
 	
+
+
 	<!-- 타이틀 -->
-	#detail_wrap .title{
-		float: right;
-		margin: 0 auto;
-		padding: 0;
+	#article2 .title{
+		
 	}
 	
-	#detail_wrap .title .name{
+	#article2 .title .name{
 		font-size: 35px;
 		font-weight: bolder;
 		padding-top: 10px;
 	}
 	
-	#detail_wrap p{
-		font-size: 18px;
-		color: #888888;
-		margin-bottom: 3px;
+	#article2 p{
+		font-size: 20px;
+		color: #777777;
+		margin-top: 6px;
+		margin-bottom: 10px;
 	}
 	
-	hr{
+	#article2 hr{
 		float: left;
 		border: 0;
-		width: 500px;
-		height: 2px;
-		background: #888888;
+		width: 570px;
+		height: 3px;
+		background: #808080;
+		margin-bottom: 15px;
 	}
 	
 	
 
 	<!-- 사이즈 선택 -->
+	#article2 .size{
+		
+	}
+	
+	h2{
+		color: #404040; 
+		margin-bottom: 10px;
+		padding-top: 15px;
+	}
 	
 	label.radio {
   		cursor: pointer;
   		text-align: center;
+	    padding-right: 20px;
 	}
 	
 	label.radio input {
@@ -224,7 +229,7 @@ body{
 	    top: 0;
 	    left: 0;
 	    visibility: hidden;
-	    pointer-events: none
+	    pointer-events: none;
 	}
 	
 	label.radio span {
@@ -234,15 +239,16 @@ body{
 	    color: #ec4a4f;
 	    font-weight: bold;
 	    font-size: 21px;
-	    border-radius: 35px;
+	    width: 170px;
+	    border-radius: 15px;
 	    text-transform: uppercase;
 	}
 	
 	label.radio input:checked+span {
-	    padding: 10px 35px;
-   	    border-radius: 35px;
+   	    border-radius: 15px;
 	    border-color: #ec4a4f;
 	    background-color: #ec4a4f;
+	    width: 170px;
    	    font-weight: bold;
 	    font-size: 21px;
 	    color: #fff
@@ -251,41 +257,90 @@ body{
 
 
     <!-- 수량선택 -->
-	input{
-    	text-align: center;
+	#article2 .qty {
+
     } 
-    
+	
+    #article2 .qty input{
+    	width: 400px;
+    	height: 20px;
+    	font-size: 18px;
+    	border-radius: 7px;
+    	text-align: center;
+    }
     
     <!-- 사이드 음료 -->
-	table{
+    #article2 .side{}
+	#article2 .side table{
 		margin-left: auto; 
 		margin-right: auto; 
 		display: inline-block;
-	 	width:100px;
+	 	width: 130px;
 	 	text-align: center;
+	 	border-spacing: 7px;
+	 	padding-bottom: 20px;
 	 	<!-- table-layout: fixed; 테이블 >= 이미지 크기 -->
 	 }
 	 
-    table img{
-    	max-width: 100%; <!-- 테이블 사이즈에 이미지 맞추기 -->
+    #article2 .side table img{
+    	text-align: center;
+    	width: 130px; <!-- max-width: 100%; 테이블 사이즈에 이미지 맞추기 -->
     }
     
-    th{
-    	width: 125px;
+    #article2 .side th{
+    	width: 130px;
     	height: 50px;
     }
     
-	td{
+	#article2 .side td{
 		text-align: center;
 	}
     
     
-    <!-- 담기 버튼 https://codepen.io/kjbrum/pen/wBBLXx-->
-   	 
-   	 
-   	 
-   	 
-   	 
+    <!-- 담기 버튼 -->
+    #article2 .c .cost_box{
+   		width: 550px; 
+   		height: 74px; 
+   		inline-height: 74px; 
+   		background-color: #f9f9f9;
+    }
+    
+     #article2 .c .cost_box .costall{
+    	line-height: 1.5;
+   		color: black; 
+   		font-weight: bold;
+   		font-size: 18px;
+   		padding-left: 20px; 
+   		padding-right: 50px;
+    }
+    
+    #article2 .c .cost_box .cost{
+		line-height: 1.5;
+ 		display: inline-block;
+  		vertical-align: middle;
+     	font-size: 25px;
+     	color: black; 
+     	font-weight: bold;
+    }
+   
+	#article2 .c .cost_box a {
+	  float: right;
+	  width: 150px;
+	  height: 50px;
+	  line-height: 50px;
+	  text-align: center;
+	  background-color: #ec4a4f;
+	  border: none;
+	  color: white;
+	  border-radius: 10px;
+	}
+	
+	#article2 .c .cost_box a span{
+	  
+	  font-size: 18px;
+	  font-weight: bold;
+	}
+	 
    	 
    	 
    	 
