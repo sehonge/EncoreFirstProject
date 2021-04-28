@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#quick {
+
+  position: absolute;
+  right: 0;
+  top: 130px;
+  height: 200px;
+  background: linear-gradient(to top, white, lightgray);
+  border-radius: 10px;
+  z-index : 1;
+}
+
+#quick ul li{
+	list-style: none;
+	padding-right: 20px;
+	
+}
+#quick ul li a{
+	text-decoration: none;	
+	color : black;
+	
+}
+
