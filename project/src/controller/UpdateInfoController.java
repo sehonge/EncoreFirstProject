@@ -21,7 +21,7 @@ public class UpdateInfoController implements Controller{
 		//2.
 		Customer pvo = new Customer(id, pw, name, address, contact, email);
 		
-		String path="update.jsp"; // 기본 path
+		String path="updateInfo.jsp"; // 기본 path
 		try{			
 			CustomerDaoImpl.getInstance().updateInfo(pvo);
 			HttpSession session  = request.getSession();
@@ -29,7 +29,7 @@ public class UpdateInfoController implements Controller{
 			if(session.getAttribute("vo")!=null) {
 				session.setAttribute("vo", pvo);
 				System.out.println(pvo);
-				path = "update_result.jsp"; // 이동할 path
+				path = "index.jsp"; // 이동할 path
 			}
 		}catch(Exception e) {
 			
