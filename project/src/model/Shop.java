@@ -2,7 +2,7 @@ package model;
 
 public class Shop {
 	// Field
-	private String shopId;
+	private int shopId;
 	private String shopName;
 	private String shopAddr;
 	private String shopContact;
@@ -11,7 +11,7 @@ public class Shop {
 	public Shop() {
 	}
 	
-	public Shop(String shopId, String shopName, String shopAddr, String shopContact) {
+	public Shop(int shopId, String shopName, String shopAddr, String shopContact) {
 		super();
 		this.shopId = shopId;
 		this.shopName = shopName;
@@ -20,11 +20,11 @@ public class Shop {
 	}
 
 	// Getter & Setter
-	public String getShopId() {
+	public int getShopId() {
 		return shopId;
 	}
 
-	public void setShopId(String shopId) {
+	public void setShopId(int shopId) {
 		this.shopId = shopId;
 	}
 

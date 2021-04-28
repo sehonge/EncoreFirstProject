@@ -2,9 +2,9 @@ package model;
 
 public class Order {
 	// Field
-	private String orderId;
+	private int orderId;
 	private String custId;
-	private String shopId;
+	private int shopId;
 	private String orderDate;
 	private String orderAddr;
 	private int orderPrice;
@@ -13,7 +13,7 @@ public class Order {
 	public Order() {
 	}
 	
-	public Order(String orderId, String custId, String shopId, String orderDate, String orderAddr, int orderPrice) {
+	public Order(int orderId, String custId, int shopId, String orderDate, String orderAddr, int orderPrice) {
 		super();
 		this.orderId = orderId;
 		this.custId = custId;
@@ -24,11 +24,11 @@ public class Order {
 	}
 
 	//Getter & Setter
-	public String getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 
@@ -40,11 +40,11 @@ public class Order {
 		this.custId = custId;
 	}
 
-	public String getShopId() {
+	public int getShopId() {
 		return shopId;
 	}
 
-	public void setShopId(String shopId) {
+	public void setShopId(int shopId) {
 		this.shopId = shopId;
 	}
 
