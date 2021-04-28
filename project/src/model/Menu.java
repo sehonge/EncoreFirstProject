@@ -8,21 +8,23 @@ public class Menu {
 	private int menuPrice;
 	private String menuSize;
 	private String menuDesc;
+	private String pictureUrl;
 	
 	// Constructor
 	public Menu() {
 	}
 	
-	public Menu(String menuId, int menuType, String menuName, int menuPrice, String menuDesc) {
+	public Menu(String menuId, int menuType, String menuName, int menuPrice, String menuDesc, String pictureUrl) {
 		super();
 		this.menuId = menuId;
 		this.menuType = menuType;
 		this.menuName = menuName;
 		this.menuPrice = menuPrice;
 		this.menuDesc = menuDesc;
+		this.pictureUrl = pictureUrl;		
 	}
 	
-	public Menu(String menuId, int menuType, String menuName, int menuPrice, String menuSize, String menuDesc) {
+	public Menu(String menuId, int menuType, String menuName, int menuPrice, String menuSize, String menuDesc, String pictureUrl) {
 		super();
 		this.menuId = menuId;
 		this.menuType = menuType;
@@ -30,6 +32,7 @@ public class Menu {
 		this.menuPrice = menuPrice;
 		this.menuSize = menuSize;
 		this.menuDesc = menuDesc;
+		this.pictureUrl = pictureUrl;
 	}
 
 	// Getter&Setter
@@ -81,10 +84,18 @@ public class Menu {
 		this.menuDesc = menuDesc;
 	}
 
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+
 	//toString
 	@Override
 	public String toString() {
 		return "Menu [menuId=" + menuId + ", menuType=" + menuType + ", menuName=" + menuName + ", menuPrice="
-				+ menuPrice + ", menuSize=" + menuSize + ", menuDesc=" + menuDesc + "]";
-	}	
+				+ menuPrice + ", menuSize=" + menuSize + ", menuDesc=" + menuDesc + ", pictureUrl=" + pictureUrl + "]";
+	}
 }

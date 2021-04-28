@@ -84,29 +84,37 @@ INSERT INTO SHOP (SHOP_ID, SHOP_NAME, SHOP_ADDR, SHOP_CONTACT)
 ​
 ## 피자 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P001-R', 1, '포테이토 피자 R', '15000', 'R', '포테이토 피자 R사이즈 입니다.', "DEFAULT URL"); 
+			VALUES('P001-R', 1, '트러플 피자 R', '15000', 'R', '트러플 피자 R사이즈 입니다.', "img/trouple.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P001-L', 1, '포테이토 피자 L', '20000', 'L', '포테이토 피자 L사이즈 입니다.', "DEFAULT URL");
+			VALUES('P001-L', 1, '트러플 피자 L', '20000', 'L', '트러플 피자 L사이즈 입니다.', "img/trouple.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P002-R', 1, '치즈 피자 R', '15000', 'R', '치즈 피자 R사이즈 입니다.', "DEFAULT URL"); 
+			VALUES('P002-R', 1, '스테이크 피자 R', '18000', 'R', '스테이크 피자 R사이즈 입니다.', "img/stake.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P002-L', 1, '치즈 피자 L', '20000', 'L', '치즈 피자 L사이즈 입니다.', "DEFAULT URL");
+			VALUES('P002-L', 1, '스테이크 피자 L', '25000', 'L', '스테이크 피자 L사이즈 입니다.', "img/stake.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P003-R', 1, '하와이안 피자 R', '15000', 'R', '하와이안 피자 R사이즈 입니다.', "DEFAULT URL"); 
+			VALUES('P003-R', 1, '칠리크랩 피자 R', '17000', 'R', '칠리크랩 피자 R사이즈 입니다.', "img/chilicrab.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P003-L', 1, '하와이안 피자 L', '20000', 'L', '하와이안 피자 L사이즈 입니다.', "DEFAULT URL");    
+			VALUES('P003-L', 1, '칠리크랩 피자 L', '24000', 'L', '칠리크랩 피자 L사이즈 입니다.', "img/chilicrab.jpg");
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P004-R', 1, '블랙킹 피자 R', '17000', 'R', '블랙킹 피자 R사이즈 입니다.', "img/black_king.jpg"); 
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P004-L', 1, '블랙킹 피자 L', '24000', 'L', '블랙킹 피자 L사이즈 입니다.', "img/black_king.jpg");
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P005-R', 1, '글로벌4 피자 R', '17000', 'R', '글로벌4 피자 R사이즈 입니다.', "img/global4.jpg"); 
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P005-L', 1, '글로벌4 피자 L', '24000', 'L', '글로벌4 피자 L사이즈 입니다.', "img/global4.jpg");
 ## 사이드 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('S001', 2, '콜라 1.5L', '2000',  '콜라 1.5L 입니다.', "DEFAULT URL"); 
+			VALUES('S001', 2, '크림 스파게티', '2000',  '콜라 1.5L 입니다.', "img/cream_spaghetti.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('S002', 2, '토마토 파스타', '5000', '토마토 파스타 입니다.', "DEFAULT URL");    
+			VALUES('S002', 2, '토마토 스파게티', '5000', '토마토 파스타 입니다.', "img/tomato_spaghetti.jpg");    
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('S003', 2, '로제 파스타', '5500', '로제 파스타 입니다.', "DEFAULT URL");
+			VALUES('S003', 2, '갈릭 윙', '5500', '갈릭 윙 입니다.', "img/garlic_wing.jpg");
 ​
 ## 토핑 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T001', 3, '새우 토핑', '2000',  '새우 토핑 입니다.', "DEFAULT URL"); 
+			VALUES('T001', 3, '새우 토핑', '2000',  '새우 토핑 입니다.', "img/shrimp.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T002', 3, '스테이크 토핑', '2000', '스테이크 토핑 입니다.', "DEFAULT URL");    
+			VALUES('T002', 3, '옥수수 토핑', '2000', '옥수수 토핑 입니다.', "img/corn.jpg");    
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T003', 3, '고구마 토핑', '2000', '고구마 토핑 입니다.', "DEFAULT URL");       
+			VALUES('T003', 3, '베이컨 토핑', '2000', '베이컨 토핑 입니다.', "img/bacon.jpg");       

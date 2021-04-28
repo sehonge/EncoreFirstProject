@@ -18,6 +18,7 @@ private DataSource ds;
 			System.out.println("DataSource lookup... OK");
 		} catch(Exception e) {
 			System.out.println("DataSource lookup... Fail");
+			System.out.println(e);
 		}
 	}
 	
