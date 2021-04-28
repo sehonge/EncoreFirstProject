@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,8 +46,8 @@
 				<div class="menu-nav">
 					<ul>
 						<li><a href="PizzaMenu.jsp"><span>피자</span></a></li>
-						<li><a href="SideMenu.jsp"><span>사이드/음료</span></a></li>
-						<li><a href="Custom.jsp"><span>나만의 피자</span></a></li>
+						<li><a href="side.do"><span>사이드/음료</span></a></li>
+						<li><a href="custom.do"><span>나만의 피자</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -57,42 +58,42 @@
 				<div class="food">
 					<ul>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/tomato_spaghetti.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/tomato_spaghetti.jpg"></a></div>
 							<div class="food_name">토마토파스타</div>
 							<div class="food_price">
 								<span class="price">8,900원</span>
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/cream_spaghetti.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/cream_spaghetti.jpg"></a></div>
 							<div class="food_name">크림파스타</div>
 							<div class="food_price">
 								<span class="price">8,900원</span>
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/garlic_wing.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/garlic_wing.jpg"></a></div>
 							<div class="food_name">갈릭&허브 윙스</div>
 							<div class="food_price">
 								<span class="price">8,900원</span>
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/corn.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/corn.jpg"></a></div>
 							<div class="food_name">프레쉬 코운슬로</div>
 							<div class="food_price">
 								<span class="price">2,400원</span>
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/coke.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/coke.jpg"></a></div>
 							<div class="food_name">코카콜라 1.25L</div>
 							<div class="food_price">
 								<span class="price">2,400원</span>
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="SideDisc.jsp"><img alt="foodimage" src="img/cider.jpg"></a></div>
+							<div class="food_img"><a href="sidedisc.do"><img alt="foodimage" src="img/cider.jpg"></a></div>
 							<div class="food_name">스프라이트 1.5L</div>
 							<div class="food_price">
 								<span class="price">2,400원</span>

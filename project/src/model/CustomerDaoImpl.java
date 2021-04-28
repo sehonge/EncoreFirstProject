@@ -55,8 +55,8 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	
 	@Override
-	public boolean matchIdPassword(String id, String password) throws SQLException {
-		boolean ret = false;
+	public Customer signIn(String id, String password) throws SQLException {
+		Customer ret = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -69,7 +69,16 @@ public class CustomerDaoImpl implements CustomerDao{
 			ps.setString(2, password);
 			
 			rs = ps.executeQuery();
-			if(rs.next()) ret = true;
+			if(rs.next()) 
+				ret = new Customer(
+						rs.getString(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getInt(7)
+						);
 			
 		} finally {
 			closeAll(rs, ps, conn);
@@ -80,7 +89,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	
 	@Override
-	public boolean SignUp(String id, String password, String name, String address, String phoneNumber, String email)
+	public boolean signUp(String id, String password, String name, String address, String phoneNumber, String email)
 			throws SQLException {
 		boolean ret = false;
 		Connection conn = null;
