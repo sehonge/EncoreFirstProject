@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.sql.DataSource;
 
@@ -19,7 +21,7 @@ public class OrderDaoImpl implements OrderDao {
 	private static OrderDaoImpl dao = new OrderDaoImpl();
 	
 	private OrderDaoImpl() {
-		
+		/*
 		try {
 			Class.forName(ServerInfo.DRIVER_NAME);
 			System.out.println("드라이버 로딩 성공");
@@ -27,8 +29,8 @@ public class OrderDaoImpl implements OrderDao {
 			System.out.print("드라이버 로딩 실패 ");
 			System.out.println(e);
 		}
-		
-		//ds = DataSourceManager.getInstance().getConnection();
+		*/
+		ds = DataSourceManager.getInstance().getConnection();
 	}
 	
 	public static OrderDaoImpl getInstance() {
@@ -38,8 +40,8 @@ public class OrderDaoImpl implements OrderDao {
 	public Connection getConnection() throws SQLException {
 		System.out.println("디비연결...");
 		
-		return DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASS);
-		//return ds.getConnection();
+		//return DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASS);
+		return ds.getConnection();
 	}
 	
 	public void closeAll(PreparedStatement ps, Connection conn) throws SQLException{
@@ -61,28 +63,55 @@ public class OrderDaoImpl implements OrderDao {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int totalPrice = 0;
+		HashMap<String, Integer> orderList = new HashMap<String, Integer>();
+		int orderIndex = -1;
+		ResultSet rs = null;
 		
 		try {
 			conn = getConnection();
 			
 			for(Menu menu : list) {
 				totalPrice += menu.getMenuPrice();
+				String menuId = menu.getMenuId();
+				if(orderList.containsKey(menuId))
+					orderList.replace(menuId, orderList.get(menuId) + 1);
+				else orderList.put(menuId, 1);
 			}
 			
-			String query = "INSERT INTO tb_order VALUES(?, ?, ?, ?)";
+			String query = "INSERT INTO tb_order (CUST_ID, SHOP_ID, ORDER_ADDR, ORDER_PRICE) VALUES(?, ?, ?, ?)";
 			ps = conn.prepareStatement(query);
 			
-			ps.setString(2, customer.getCustId());
-			ps.setString(3, shop.getShopId());
-			ps.setString(5, customer.getCustAddr());
-			ps.setInt(6, totalPrice);
+			ps.setString(1, customer.getCustId());
+			ps.setInt(2, shop.getShopId());
+			ps.setString(3, customer.getCustAddr());
+			ps.setInt(4, totalPrice);
 			
 			ps.executeUpdate();
+			
 			flag = true;
 		} finally {
 			closeAll(ps, conn);
 		}
 		
+		try {
+			conn = getConnection();
+			
+			String query = "SELECT COUNT(*) FROM tb_order";
+			ps = conn.prepareStatement(query);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) orderIndex = rs.getInt(1);
+			
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+		
+		Iterator<String> iter = orderList.keySet().iterator();
+		while(iter.hasNext()) {
+			String key = iter.next();
+			order_desc(key, orderList.get(key), orderIndex);
+		}
 		spendMoney(customer.getCustId(), totalPrice);
 		
 		return flag;
@@ -130,14 +159,51 @@ public class OrderDaoImpl implements OrderDao {
 		
 		return ret;
 	}
-		
 	
-	public static void main(String[] args) {
+	@Override
+	public boolean order_desc(String menuId, int num, int orderId) throws SQLException {
+		
+		boolean flag = false;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			conn = getConnection();
+			
+			String query = "INSERT INTO order_desc VALUES(?, ?, ?)";
+			ps = conn.prepareStatement(query);
+			
+			ps.setInt(1, orderId);
+			ps.setString(2, menuId);
+			ps.setInt(3, num);
+			
+			ps.executeUpdate();
+			
+			flag = true;
+		} finally {
+			closeAll(ps, conn);
+		}
+		
+		return flag;
+	}	
+		
+	/*
+	public static void main(String[] args) throws SQLException {
 		
 		OrderDaoImpl test = new OrderDaoImpl();
 		
-		//System.out.println(test.makeOrder(null, null, null));
+		ArrayList<Menu> arr = new ArrayList<Menu>();
+		arr.add(MenuDaoImpl.getInstance().getPizza("P001-L"));
+		arr.add(MenuDaoImpl.getInstance().getPizza("P002-R"));
+		arr.add(MenuDaoImpl.getInstance().getPizza("P002-R"));
+		
+		System.out.println(test.makeOrder(
+				arr, 
+				CustomerDaoImpl.getInstance().showCustomer("encore"), 
+				ShopDaoImpl.getInstance().showShop(2)));
 
 	}
 
+	*/
+	
 }
