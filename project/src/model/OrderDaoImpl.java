@@ -57,21 +57,86 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public boolean makeOrder(ArrayList<Menu> list, Customer customer, Shop shop) throws SQLException {
 		
+		boolean flag = false;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int totalPrice = 0;
 		
+		try {
+			conn = getConnection();
+			
+			for(Menu menu : list) {
+				totalPrice += menu.getMenuPrice();
+			}
+			
+			String query = "INSERT INTO tb_order VALUES(?, ?, ?, ?)";
+			ps = conn.prepareStatement(query);
+			
+			ps.setString(2, customer.getCustId());
+			ps.setString(3, shop.getShopId());
+			ps.setString(5, customer.getCustAddr());
+			ps.setInt(6, totalPrice);
+			
+			ps.executeUpdate();
+			flag = true;
+		} finally {
+			closeAll(ps, conn);
+		}
 		
+		spendMoney(customer.getCustId(), totalPrice);
 		
-		return false;
+		return flag;
 	}
 
 	@Override
 	public boolean spendMoney(String custId, int money) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean ret = false;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int totalPrice = 0;
+		
+		try {
+			conn = getConnection();
+			String query = "SELECT CUST_TOTAL_PRICE FROM customer WHERE CUST_ID=?";
+			ps = conn.prepareStatement(query);
+			System.out.println("PreparedStatement 생성.. getMoney");
+			
+			ps.setString(1, custId);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) totalPrice = rs.getInt(1);
+						
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+		
+		try {
+			conn = getConnection();
+			String query = "UPDATE customer SET CUST_TOTAL_PRICE=? WHERE CUST_ID=?";
+			ps = conn.prepareStatement(query);
+			System.out.println("PreparedStatement 생성.. addMoney");
+			
+			ps.setInt(1, totalPrice + money);
+			ps.setString(2, custId);
+			
+			ps.executeUpdate();
+			
+			ret = true;
+		} finally {
+			closeAll(ps, conn);
+		}
+		
+		return ret;
 	}
 		
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		OrderDaoImpl test = new OrderDaoImpl();
+		
+		//System.out.println(test.makeOrder(null, null, null));
 
 	}
 
