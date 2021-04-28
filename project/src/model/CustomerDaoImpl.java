@@ -195,7 +195,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public boolean updateInfo(String custId, String custAddr, String custContact) throws SQLException {
+	public boolean updateInfo(Customer cust) throws SQLException {
 		boolean ret = false;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -206,9 +206,9 @@ public class CustomerDaoImpl implements CustomerDao{
 			ps = conn.prepareStatement(query);
 			System.out.println("PreparedStatement 생성.. updateInfo");
 			
-			ps.setString(1, custAddr);
-			ps.setString(2, custContact);
-			ps.setString(3, custId);
+			ps.setString(1, cust.getCustAddr());
+			ps.setString(2, cust.getCustContact());
+			ps.setString(3, cust.getCustId());
 			
 			ps.executeUpdate();
 			ret = true;
