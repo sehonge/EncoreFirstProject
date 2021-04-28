@@ -1,15 +1,15 @@
 /**
- * 피자 상세페이지]
- * 1. 사이즈 선택 : 둘 중 하나만 클릭
- * 2. 수량선택 : +- 수량 증가 감소
+ * 피자 상세페이지
+ * 1. 사이즈 선택 : 금액
+ * 2. 수량선택 : +- 버튼에 따라서 수량 증가 감소
+ * 3. 사이드/음료 : 클릭시 총합 금액 증가 /9개까지 구매가능!
+ * 4. 총합 = 피자(-M사이즈)*수량+사이드/음료
  */
-
-//1. 사이즈 선택  (출처 https://bbbootstrap.com/snippets/select-course-radio-options-card-59736723)
-$(document).ready(function () {
-	$('.radio-group .radio').click(function () {
-		$('.selected .fa').removeClass('fa-check');
-		$('.radio').removeClass('selected');
-		$(this).addClass('selected');
-	});
-});
+	
+//1. 사이즈 금액
+	if ($('input[value=L]:checked').length > 0) {
+	    cost+= 27900
+	}else{
+		cost+= 21900
+	}
 
