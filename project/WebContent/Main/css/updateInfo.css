@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+
+.columns {
+	display : flex;
+	justify-content: center;
+	align-content: center;
+	height : 70%;
+	width : 100%;
+	margin : 0 auto;
+	
+}
+.menu{
+	white-space:nowrap;
+	display : flex;
+	height : 100%;
+	
+}
+
+.menu li {
+	white-space: pre;
+}
+
+.menu ul {
+	list-style: none;
+	
+}
+.menu ul li a:hover{
+	color : #78EFAD;
+}
+
+#menu1 {
+	padding-right :100px;
+	padding-bottom: 5px;
+	border-bottom : 2px solid black; 
+	
+	
+}
+.menu li a {
+	text-decoration: none;
+	color : black;
+	
+}
+
+
+
+.registerFrm {
+	
+ 	padding-top : 100px;
+ 	padding-left: 200px;
+ 	display : flex;
+    flex-direction : column;
+	
+	
+	
+}
+
+.logo {
+	color : #78EFAD;
+	
+}
+#wrapper {
+    position: relative;
+    height: 100%;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 460px;
+}
+
+h3 {
+	padding-right : 20px;
+	margin : 19px 0 8px;
+	font-size : 14px;
+	font-weight: 700;
+}
+
+.id_box{
+	padding-right : 110px;
+}
+
+.pass_box{
+	padding-right: 40px;
+	
+}
+.step_url{
+	position : absolute;
+	top : 16px;
+	right : 13px;
+	font-size : 15px;
+	color : #8080c0;
+	
+}
+
+#pswdImg{
+	width : 18px;
+	height :20px;
+	display : inline-block;
+	position: absolute;
+	top : 50%;
+	right : 16px;
+	margin-top: -10px;
+	cursor : pointer;
+	
+}
+
+select {
+	width : 100%;
+	height : 29px;
+	font-size : 15px;
+	background : #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+	background-size : 20px 8px;
+	-webkit-appearance : none;
+	display : inline-block;
+	text-align : start;
+	border : none;
+	cursor : default;
+	
+	
+}
+
+.error_next_box {
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
+}
+
+#alertTxt {
+    position: absolute;
+    top: 19px;
+    right: 38px;
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
+.btn_area {
+    margin: 30px 0 91px;
+}
+
+#registerBtn {
+    width: 70%;
+    padding: 21px 0 17px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    background-color: #78EFAD;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+#checkButton{
+	font-family : auto;
+	background-color : white;
+	border : 1px solid #78EFAD;
+	border-radius: 3px;
+	
+}
+
+#checkButton:hover{
+    cursor:pointer;
+	
+}
+
+
