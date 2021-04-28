@@ -50,15 +50,43 @@ $(function(){
 	//scroll
 	
 	
-	function startRequest() {
-		var id = document.registerFrm.id.value; // alert(id);
-		resultView = document.getElementById("idCheckResult");
+});// ready
 
-		if (id.length < 4) {
-			resultView.innerHTML = "<font color = red> ID는 4글자 이상이어야 합니다. </font>";
-			return;
+// 비동기
+	var xhr;
+	var resultView;
+	var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{4,}$/;
+	// 시작/^(영어)(숫자)(특수문자)/끝 
+	// (?=. 뒤따라오나요? 
+	// [A-Za-z\d$@$!%*#?&] 중 하나를 {몇개 이상?}
+	
+	function startRequest() {
+		var custId = document.registerFrm.custId.value; 
+		// alert(custId);
+		resultView = document.getElementById("idCheckResult");
+		
+		if (!pattern.test(custId)) {
+			resultView.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자를 입력해야합니다. </font>"
 			
+			
+			return;
 		}
+		
+		
+		
+
+		
+		
+		
+		
+		
+			
+			
+		
+		 
+		
+
+		
 		
 		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
 		xhr = new XMLHttpRequest();
@@ -68,7 +96,7 @@ $(function(){
 		
     	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-		xhr.send("id="+id); // Parameter 명 정하기.
+		xhr.send("custId="+custId); // Parameter 명 정하기.
 	}
 	
 	
@@ -92,16 +120,6 @@ $(function(){
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
-});// ready
 
 
 function passCheck() {
@@ -116,8 +134,7 @@ function passCheck() {
 	}
 }
 
-	var xhr;
-	var resultView;
+
 	
 	
 
@@ -208,11 +225,11 @@ function passCheck() {
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
-							<input type="text" id="id" maxlength="16" onkeyup="startRequest()" required>
+							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
 							<input type="button" value="ID Check" id="checkButton" onclick="startRequest()">
-							<span id="idCheckResult"></span>
-						</span>		
-						<span class="error_next_box"></span>
+							
+						</span>
+						<div id="idCheckResult"></div>		
 					</div>
 					
 					<div>
@@ -247,10 +264,10 @@ function passCheck() {
 	 				
 	 				<div>
 	 					<h3>
-	 						<label for="phoneNo">휴대전화</label>
+	 						<label for="phoneNo">휴대전화 (-까지 입력해주세요.)</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="11" placeholder="전화번호 입력 - 빼고" required>
+	 						<input type="tel" id="mobile" maxlength="11" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}" required>
 	 					</span>
 	 				</div>
 	 				

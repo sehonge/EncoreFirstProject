@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,8 +42,8 @@
 		<div class="menu">
 			<ul>
 				<li><a href="PizzaMenu.jsp"><span>피자</span></a></li>
-				<li><a href="SideMenu.jsp"><span>사이드/음료</span></a></li>
-				<li><a href="Custom.jsp"><span>나만의 피자</span></a></li>
+				<li><a href="side.do"><span>사이드/음료</span></a></li>
+				<li><a href="custom.do"><span>나만의 피자</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -69,7 +70,7 @@
 			<!-- 주문 버튼 -->
 			<div class="size">
 				<h2 align="left" style="color: #404040; margin-bottom: 10px; padding-top: 15px;">옵션 선택</h2>
-				<label class="radio"><input type="radio" name="size" value="L"><span>8900원</span></label>
+				<label class="radio"><input type="radio" name="size" value="L" checked="checked"><span>8900원</span></label>
 			</div>
 			
 			<!-- 수량선택 -->
@@ -111,7 +112,7 @@
 			<div class="c">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="cost"><span class="costall">총 금액</span>8900원</span>
-					<a href="#" class="button"><span>담기</span></a>
+					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>

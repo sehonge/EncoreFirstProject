@@ -24,6 +24,8 @@ public class HandlerMapping {
 			controller = new MakeOrderController();
 		}else if(command.equals("login.do")) {
 			controller = new LoginController();
+		}else if(command.equals("pizzaMenu.do")) {
+			controller = new PizzaMenuController();
 		}
 		
 		
