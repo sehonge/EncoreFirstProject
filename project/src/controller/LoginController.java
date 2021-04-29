@@ -25,7 +25,7 @@ public class LoginController implements Controller{
 				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
 				if(rvo != null) {
-					session.setAttribute("rvo", rvo); // Customer °´Ã¼¸¦ ¸¸µé¾î³õÀÚ.
+					session.setAttribute("rvo", rvo); // Customer ê°ì²´ë¥¼ ë§Œë“¤ì–´ë†“ì.
 					path = URLEncoder.encode("Index.jsp","UTF-8");
 					
 				}else {
@@ -34,6 +34,6 @@ public class LoginController implements Controller{
 	        } catch (SQLException e) {
 	        	path = URLEncoder.encode("login.jsp","UTF-8");
 	        }
-			return new ModelAndView(path, true);
+			return new ModelAndView(path, true); // encoding ERROR post ë°©ì‹ìœ¼ë¡œ ë³´ë‚´ê¸°.
 		}
 }
