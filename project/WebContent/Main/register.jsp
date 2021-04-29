@@ -71,22 +71,7 @@ $(function(){
 			
 			return;
 		}
-		
-		
-		
 
-		
-		
-		
-		
-		
-			
-			
-		
-		 
-		
-
-		
 		
 		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
 		xhr = new XMLHttpRequest();
@@ -108,10 +93,10 @@ $(function(){
 				resultView = document.getElementById("idCheckResult");
 
 				if(flag == 'true') {
-					resultView.innerHTML = "<font color = #D88019><b> 해당 ID 사용 불가 </b></font>";
+					resultView.innerHTML = "<font color = #D88019><b> 이미 존재하는 ID입니다. </b></font>";
 					
 				}else {
-					resultView.innerHTML = "<font color = #00E200><b> 해당 ID 사용 가능 </b></font>";
+					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
 				}
 				
 				
