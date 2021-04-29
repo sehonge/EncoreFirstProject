@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +23,7 @@
 				<li><a href="#">마이페이지</a></li>
 				<li><a href="#">회원가입</a></li>
 				<li><a href="#">장바구니</a></li>
+				<li><a href="#"></a></li>
 			</ul>
 			
 			
@@ -45,8 +45,8 @@
 				<div class="menu-nav">
 					<ul>
 						<li><a href="PizzaMenu.jsp"><span>피자</span></a></li>
-						<li><a href="side.do"><span>사이드/음료</span></a></li>
-						<li><a href="custom.do"><span>나만의 피자</span></a></li>
+						<li><a href="SideMenu.jsp"><span>사이드/음료</span></a></li>
+						<li><a href="Custom.jsp"><span>나만의 피자</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 				<div class="food">
 					<ul>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_blackking.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_blackking.jpg"></a></div>
 							<div class="food_name">블랙킹타이거쉬림프</div>
 							<div class="food_price">
 								<span class="price">
@@ -71,7 +71,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_global4.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_global4.jpg"></a></div>
 							<div class="food_name">글로벌 레전드4</div>
 							<div class="food_price">
 								<div class="price_box">
@@ -87,7 +87,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_chilicrab.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_chilicrab.jpg"></a></div>
 							<div class="food_name">시리얼 칠리크랩</div>
 							<div class="food_price">
 								<div class="price_box">
@@ -103,7 +103,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_stake.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_stake.jpg"></a></div>
 							<div class="food_name">블랙앵거스 스테이크</div>
 							<div class="food_price">
 								<div class="price_box">
@@ -119,7 +119,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_starchef.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_starchef.jpg"></a></div>
 							<div class="food_name">스타 셰프 시그니처</div>
 							<div class="food_price">
 								<div class="price_box">
@@ -135,7 +135,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_cheesecake.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_cheesecake.jpg"></a></div>
 							<div class="food_name">치즈케이크 블랙타이거</div>
 							<div class="food_price">
 								<div class="price_box">
@@ -151,7 +151,7 @@
 							</div>
 						</li>
 						<li>
-							<div class="food_img"><a href="pizzaDisc.do"><img alt="foodimage" src="img/pizza_trouple.jpg"></a></div>
+							<div class="food_img"><a href="PizzaDisc.jsp"><img alt="foodimage" src="img/pizza_trouple.jpg"></a></div>
 							<div class="food_name">스타 셰프 트러플 바질</div>
 							<div class="food_price">
 								<div class="price_box">
