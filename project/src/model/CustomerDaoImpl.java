@@ -21,9 +21,9 @@ public class CustomerDaoImpl implements CustomerDao{
 		/*
 		try {
 			Class.forName(ServerInfo.DRIVER_NAME);
-			System.out.println("드라이버 로딩 성공");
+			System.out.println("?��?��?���? 로딩 ?���?");
 		} catch (ClassNotFoundException e) {
-			System.out.print("드라이버 로딩 실패 ");
+			System.out.print("?��?��?���? 로딩 ?��?�� ");
 			System.out.println(e);
 		}
 		*/
@@ -35,7 +35,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	}	
 
 	public Connection getConnection() throws SQLException {
-		System.out.println("디비연결...");
+		System.out.println("?��비연�?...");
 		
 		//return DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASS);
 		return ds.getConnection();
@@ -86,10 +86,9 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 		return ret;
 	}
-
 	
 	@Override
-	public boolean signUp(String id, String password, String name, String address, String phoneNumber, String email)
+	public boolean SignUp(String id, String password, String name, String address, String phoneNumber, String email)
 			throws SQLException {
 		boolean ret = false;
 		Connection conn = null;
@@ -99,7 +98,7 @@ public class CustomerDaoImpl implements CustomerDao{
 			conn = getConnection();
 			String query = "INSERT INTO customer VALUES(?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(query);
-			System.out.println("PreparedStatement 생성.. SignUp");
+			System.out.println("PreparedStatement ?��?��.. SignUp");
 			
 			ps.setString(1, id);
 			ps.setString(2, password);
@@ -213,7 +212,7 @@ public class CustomerDaoImpl implements CustomerDao{
 			conn = getConnection();
 			String query = "UPDATE customer SET CUST_ADDR=?, CUST_CONTACT=? WHERE CUST_ID=?";
 			ps = conn.prepareStatement(query);
-			System.out.println("PreparedStatement 생성.. updateInfo");
+			System.out.println("PreparedStatement ?��?��.. updateInfo");
 			
 			ps.setString(1, cust.getCustAddr());
 			ps.setString(2, cust.getCustContact());
@@ -227,6 +226,28 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 		return ret;
 	}
+	
+	public boolean isExist(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+				
+		try {
+			conn = getConnection();
+			String query = "SELECT * FROM customer WHERE CUST_ID=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			return rs.next();						
+			
+			
+		}finally {
+			closeAll(rs, ps, conn);
+		}
+		
+	}	
 
 	/*
 	public static void main(String[] args) throws SQLException {
@@ -234,7 +255,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		CustomerDaoImpl test = new CustomerDaoImpl();
 		System.out.println(test.findId("encore@gmail.com"));
 		
-		System.out.println(test.SignUp("sehonge1602", "1234", "임세홍", "서울시", "01052341230", "h@naver.com"));
+		System.out.println(test.SignUp("sehonge1602", "1234", "?��?��?��", "?��?��?��", "01052341230", "h@naver.com"));
 		
 		System.out.println(test.matchIdPassword("date", "1234"));
 		
@@ -242,7 +263,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 		System.out.println(test.showCustomer("encore"));
 		
-		System.out.println(test.updateInfo("encore", "경기도", "010-1111-2222"));
+		System.out.println(test.updateInfo("encore", "경기?��", "010-1111-2222"));
 		
 	}
 	*/
