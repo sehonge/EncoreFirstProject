@@ -68,6 +68,7 @@ public class MenuDaoImpl implements MenuDao {
 			String query = "SELECT * FROM menu WHERE MENU_TYPE=?";
 			ps = conn.prepareStatement(query);
 			ps.setInt(1, 1);
+			System.out.println("getAllPizza()");
 			
 			rs = ps.executeQuery();
 			while(rs.next()) {
