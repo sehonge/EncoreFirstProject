@@ -1,5 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!--  ret을 받아와서 true, false에 따른 결과값 도출. -->
+
+<!-- 
+<c:choose>
+
+	<c:when test="${ret == 'true'}">
+		<script>
+		<b>${vo.name}님 로그인 성공!!</b><br>
+			location.href="Index.jsp"
+		</script>
+	</c:when>
+	
+	<c:otherwise>
+		<script>
+			alert("회원가입 부터 진행하시기 바랍니다!");
+			location.href="register.jsp";
+		</script>
+	</c:otherwise>
+	
+</c:choose>
+ -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,11 +66,58 @@ $(function(){
 		$("#quick").stop();
 		$("#quick").animate( { "top" : scrollTop });
 		});
-	
-	
-	
-
 });// ready
+
+
+// 비동기로 구현해야 할 것 같은 느낌.
+// login 실패시 -> login.jsp 아래에 존재하지 않는 아이디입니다 를 추가후 
+// 비동기로 구현..? 
+	var xhr;
+	var resultView;		
+
+		
+	function startRequest() {
+		var custId = document.loginFrm.custId.value; 
+		alert(custId);
+		resultView = document.getElementById("loginCheckResult");
+		
+
+		
+		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		
+		xhr.open("post","loginCheck.do", true);
+		
+    	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+
+		xhr.send("custId="+custId); // Parameter 명 정하기.
+	} // startRequest
+	
+	
+	function callback (){
+		if(xhr.readyState == 4 ){
+			if ( xhr.status == 200 ){
+				var flag = xhr.responseText; // String 으로 넘어온다는거. ret
+				
+				resultView = document.getElementById("loginCheckResult");
+
+				if(flag == 'true') {
+					resultView.innerHTML = "존재하는 회원입니다!";
+					
+				}else {
+					resultView.innerHTML = "<font color=red><b> 존재하지 않는 회원입니다. <br> 회원가입을 먼저 진행해주세요. </b></font>";
+				}
+				
+				
+				
+			} // status 
+		} // readyState
+		
+	} // callback
+
+
+
 
 
 </script>
@@ -132,30 +205,32 @@ $(function(){
 				</ul>
 			</div>
 			
-	  	<form action="login.do" class="wrap">
+	  	<form action="login.do" class="wrap" name="loginFrm">
 	  	
 	        <div class="login">
 	         
 	            <div class="login_id">
 	            	<br><br>
 	                <h4>ID</h4>
-	                <input type="text" name="id" id="" placeholder="아이디" required>
+	                <input type="text" name="custId" id="" placeholder="아이디" required>
+	                <div id="loginCheckResult"> </div>
 	            </div>
 	            <div class="login_pw">
 	                <h4>Password</h4>
-	                <input type="password" name="password" id="" placeholder="Password">
+	                <input type="password" name="custPw" id="" placeholder="Password">
 	            </div>
 	            <div class="login_etc">
 	                <div class="checkbox">
 	                <input type="checkbox" name="" id=""> Remember Me?
 	                </div>
 	                <div class="forgot_pw">
-	                <a href="findPw.jsp">Forgot Password?</a>
-	                <a href="findId.jsp">Forget ID?</a>
-	            </div>
+	                	<a href="findPw.jsp">Forgot Password?</a>
+	                	<a href="findId.jsp">Forget ID?</a>
+	            	</div>
 	            </div>
 	            <div class="submit">
-	                <input type="submit" value="submit">
+	                <p><input type="submit" value="login"></p>
+	                <p><input type="button" value="Check" onclick="startRequest()"></p>
 	            </div>
 	        </div>
     	</form>

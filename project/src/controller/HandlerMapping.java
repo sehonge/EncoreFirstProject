@@ -7,7 +7,7 @@ public class HandlerMapping {
 		return factory;
 	}
 	
-	// 수정필요
+	// �닔�젙�븘�슂
 	public  Controller  createController(String command) {
 		Controller controller = null;
 		if(command.equals("findId.do")) {
@@ -24,8 +24,14 @@ public class HandlerMapping {
 			controller = new MakeOrderController();
 		}else if(command.equals("login.do")) {
 			controller = new LoginController();
+		}else if(command.equals("loginCheck.do")) {
+			controller = new LoginCheckController();
 		}else if(command.equals("pizzaMenu.do")) {
 			controller = new PizzaMenuController();
+		}else if(command.equals("sideMenu.do")) {
+			controller = new SideMenuController();
+		}else if(command.equals("pizzaDisc.do")) {
+			controller = new PizzaDiscController();
 		}
 		
 		

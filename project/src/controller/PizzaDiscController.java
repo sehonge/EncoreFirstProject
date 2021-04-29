@@ -1,24 +1,23 @@
 package controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Menu;
 import model.MenuDaoImpl;
 
-public class PizzaMenuController implements Controller {
+public class PizzaDiscController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ArrayList<Menu> list = MenuDaoImpl.getInstance().getAllPizza();
+		String menuId = request.getParameter("menuId"); 
 		
-		request.setAttribute("list", list);
+		Menu pizza = MenuDaoImpl.getInstance().getPizza(menuId);
 		
-		return new ModelAndView("Menu/PizzaMenu.jsp");
+		request.setAttribute("pizza", pizza);
+		
+		return new ModelAndView("Menu/PizzaDisc.jsp");
 	}
-
 	
 }

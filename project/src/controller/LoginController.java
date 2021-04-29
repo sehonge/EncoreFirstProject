@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.sql.SQLException;
 
 
@@ -15,26 +17,25 @@ public class LoginController implements Controller{
 		@Override
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
-			String id = request.getParameter("id");
-			String password = request.getParameter("password");
+			PrintWriter out= response.getWriter();
+			String id = request.getParameter("custId");
+			String password = request.getParameter("custPw");
 			String path = "";
-			String login = "login.jsp";
-			String err = "errmsg.jsp";
-			
+			String err ="errmsg.jsp";
 			try {
 				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
 				if(rvo != null) {
-					session.setAttribute("vo", rvo);
-					path = "Index.jsp";
+					session.setAttribute("rvo", rvo); // Customer 객체를 만들어놓자.
+					path = URLEncoder.encode("Index.jsp","UTF-8");
+					
 				}else {
-					request.setAttribute("errmsg.jsp", err);
-					path = "login.jsp";
+					path = URLEncoder.encode("register.jsp","UTF-8");
+//>>>>>>> upstream/main
 	            }
 	        } catch (SQLException e) {
-	        	request.setAttribute("errmsg.jsp", err);
-	        	path = "login.jsp";
+	        	path = URLEncoder.encode("login.jsp","UTF-8");
 	        }
-			return new ModelAndView(path);
+			return new ModelAndView(path, true); // encoding ERROR post 방식으로 보내기.
 		}
 }

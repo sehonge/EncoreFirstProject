@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/PizzaDisc.js"></script>
 <link rel="stylesheet" type="text/css" href="css/Custom.css">
 <link rel="shortcut icon" href="#">
-<script type="text/javascript" src="js/Custom.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -42,8 +41,8 @@
 		<div class="menu">
 			<ul>
 				<li><a href="PizzaMenu.jsp"><span>피자</span></a></li>
-				<li><a href="side.do"><span>사이드/음료</span></a></li>
-				<li><a href="custom.do"><span>나만의 피자</span></a></li>
+				<li><a href="SideMenu.jsp"><span>사이드/음료</span></a></li>
+				<li><a href="Custom.jsp"><span>나만의 피자</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -53,8 +52,7 @@
 		<!-- 피자 이미지 -->
 		<div id="article1" class="clearfix">
 			<div class="imgcut">
-				<img id="dough_L" alt="foodimage" src="img/dough_L.png">
-				<img id="dough_M" alt="foodimage" src="img/dough_M.png">
+				<img alt="foodimage" src="img/dough.jpg">
 			</div>
 		</div>
 				
@@ -71,8 +69,8 @@
 			<div class="size">
 				<h2 align="left">사이즈 선택</h2>
 				<!-- label안에 input을 넣으면 텍스트를 클릭해도 선택이 된다! -->
-				<label class="radio"><input id="L" type="radio" name="size" value="L"><span>L(+6900원)</span></label>
-				<label class="radio"><input id="M" type="radio" name="size" value="M"><span>M</span></label>
+				<label class="radio"><input type="radio" name="size" value="L"><span>L(+6900원)</span></label>
+				<label class="radio"><input type="radio" name="size" value="M"><span>M</span></label>
 			</div>
 			
 			<!-- 토핑 -->
@@ -81,10 +79,10 @@
 				<table>
 					<thead>
 						<tr>
-							<th><img alt="foodimage" src="img/topping_stake.png"></th>
-							<th><img alt="foodimage" src="img/topping_lobster.png"></th>
-							<th><img alt="foodimage" src="img/topping_squid.png"></th>
-							<th><img alt="foodimage" src="img/topping_mushroom.png"></th>
+							<th><img alt="foodimage" src="img/topping_stake.jpg"></th>
+							<th><img alt="foodimage" src="img/topping_lobster.jpg"></th>
+							<th><img alt="foodimage" src="img/topping_squid.jpg"></th>
+							<th><img alt="foodimage" src="img/topping_mushroom.jpg"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -114,7 +112,7 @@
 			<div class="c">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="cost"><span class="costall">총 금액</span>27,900원</span>
-					<a href="bascket.do" class="button"><span>담기</span></a>
+					<a href="#" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
