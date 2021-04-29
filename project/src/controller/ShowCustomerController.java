@@ -15,7 +15,7 @@ public class ShowCustomerController implements Controller {
 		try {
 			
 			request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
-			path = "updateInfo.jsp"; // 이동할 path
+			path = "Mypage.jsp"; // 이동할 path
 
 		} catch (Exception e) {
 

@@ -11,5 +11,7 @@ public interface CustomerDao {
 	Customer showCustomer(String custId) throws SQLException; // id?�� ?��?��?��?�� customer 반환
 	boolean updateInfo(Customer cust) throws SQLException; // ?��?��값으�? 받�? customer 값으�? �??��
 	boolean isExist(String id) throws SQLException;
+	boolean idCheck(String id) throws SQLException; 
+	boolean emailCheck(String email) throws SQLException;
 	
 }
