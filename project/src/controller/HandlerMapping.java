@@ -32,6 +32,10 @@ public class HandlerMapping {
 			controller = new SideMenuController();
 		}else if(command.equals("pizzaDisc.do")) {
 			controller = new PizzaDiscController();
+		}else if(command.equals("idCheck.do")) {
+			controller = new IdCheckController();
+		}else if(command.equals("emailCheck.do")) {
+			controller = new EmailCheckController();
 		}
 		
 		

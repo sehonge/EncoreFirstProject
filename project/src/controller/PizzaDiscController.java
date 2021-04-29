@@ -13,6 +13,8 @@ public class PizzaDiscController implements Controller {
 		
 		String menuId = request.getParameter("menuId"); 
 		
+		System.out.println(menuId);
+		
 		Menu pizza = MenuDaoImpl.getInstance().getPizza(menuId);
 		
 		request.setAttribute("pizza", pizza);

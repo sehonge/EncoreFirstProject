@@ -21,20 +21,19 @@ public class LoginController implements Controller{
 			String id = request.getParameter("custId");
 			String password = request.getParameter("custPw");
 			String path = "";
-			String err ="errmsg.jsp";
+			
 			try {
 				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
 				if(rvo != null) {
 					session.setAttribute("rvo", rvo); // Customer 객체를 만들어놓자.
-					path = URLEncoder.encode("Index.jsp","UTF-8");
+					path = "Main/Index.jsp";
 					
 				}else {
-					path = URLEncoder.encode("register.jsp","UTF-8");
-//>>>>>>> upstream/main
+					path = "Main/register.jsp";
 	            }
 	        } catch (SQLException e) {
-	        	path = URLEncoder.encode("login.jsp","UTF-8");
+	        	path = "Main/login.jsp";
 	        }
 			return new ModelAndView(path, true); // encoding ERROR post 방식으로 보내기.
 		}

@@ -78,7 +78,7 @@ $(function(){
 		
 		<ul class="navbar__menu">
 			<li><a href="../pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
@@ -100,7 +100,7 @@ $(function(){
 		     <ul class="menu_wrap">
 		          <li><a href="Index.jsp">Home</a></li>
 		          <li><a href="../pizzamenu.do">메뉴</a></li>
-		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+		          <li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 		          <li><a href="register.jsp">회원가입</a></li>
 		          <li><a href="#">장바구니</a></li>
 		     </ul>

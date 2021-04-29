@@ -1,36 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/SideDisc.js"></script>
-<link rel="stylesheet" type="text/css" href="css/SideDisc.css">
+<link rel="stylesheet" type="text/css" href="Menu/css/SideDisc.css">
 <link rel="shortcut icon" href="#">
 </head>
 <body>
-	<!-- header -->
+	<!-- nav -->
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
-			<a href="Index.jsp">8자피자</a>
+			<a href="Main/Index.jsp">8자피자</a>
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="#">메뉴</a></li>
-			<li><a href="#">마이페이지</a></li>
-			<li><a href="#">회원가입</a></li>
+			<li><a href="pizzaMenu.do">메뉴</a></li>
+			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
-			<li><a href="#"></a></li>
 		</ul>
 		
-		
-		<ul class="navbar__icons">
-			<li><a href="#"><i class="fas fa-shopping-basket"></i></a></li>
-			<li><a href="#"><i class="fas fa-bars"></i></a></li>
-		</ul>
-		
+		<div class="menu_btn"><a href="#">       
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
+        </a>
+        </div>
+        
+		<div class="menu_bg"></div>
+		<div class="sidebar_menu">
+    	<div class="close_btn">
+    	<a href="#">       
+         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
+        </a>
+        </div>
+		     <ul class="menu_wrap">
+		          <li><a href="Index.jsp">Home</a></li>
+		          <li><a href="pizzaMenu.do">메뉴</a></li>
+		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+		          <li><a href="register.jsp">회원가입</a></li>
+		          <li><a href="#">장바구니</a></li>
+		     </ul>
+		</div>
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
 		</a>
@@ -40,9 +54,9 @@
 	<div class="menu_wrap">
 		<div class="menu">
 			<ul>
-				<li><a href="PizzaMenu.jsp"><span>피자</span></a></li>
-				<li><a href="SideMenu.jsp"><span>사이드/음료</span></a></li>
-				<li><a href="Custom.jsp"><span>나만의 피자</span></a></li>
+				<li><a href="PizzaMenu.do"><span>피자</span></a></li>
+				<li><a href="sideMenu.do"><span>사이드/음료</span></a></li>
+				<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -52,7 +66,7 @@
 		<!-- 피자 이미지 -->
 		<div id="article1" class="clearfix">
 			<div class="imgcut">
-				<img alt="foodimage" src="img/tomato_spaghetti.jpg">
+				<img alt="foodimage" src="${list.pictureUrl}">
 				<span>* 위 사진은 이미지컷으로 실제 제품과 다를 수 있습니다.</span>
 			</div>
 		</div>
@@ -61,15 +75,15 @@
 		<div id="article2" class="clearfix">
 			<!-- 피자 타이틀 -->
 			<div class="title">
-				<div class="name">토마토 스파게티</div>
-				<p>풍미 가득한 치즈가 한가득</p>
+				<div class="name">${list.menuName}</div>
+				<p>${list.menuDesc}</p>
 				<hr/>
 			</div>
 			
 			<!-- 주문 버튼 -->
 			<div class="size">
 				<h2 align="left" style="color: #404040; margin-bottom: 10px; padding-top: 15px;">옵션 선택</h2>
-				<label class="radio"><input type="radio" name="size" value="L"><span>8900원</span></label>
+				<label class="radio"><input type="radio" name="size" value="L" checked="checked"><span>${list.menuPrice} 원</span></label>
 			</div>
 			
 			<!-- 수량선택 -->
@@ -110,8 +124,8 @@
 			<!-- 결제 -->
 			<div class="c">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
-					<span class="cost"><span class="costall">총 금액</span>8900원</span>
-					<a href="#" class="button"><span>담기</span></a>
+					<span class="cost"><span class="costall">총 금액</span>${list.menuPrice} 원</span>
+					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
