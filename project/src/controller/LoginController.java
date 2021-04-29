@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,26 +16,24 @@ public class LoginController implements Controller{
 		@Override
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
-			String id = request.getParameter("id");
-			String password = request.getParameter("password");
+			PrintWriter out= response.getWriter();
+			String id = request.getParameter("custId");
+			String password = request.getParameter("custPw");
 			String path = "";
-			String login = "login.jsp";
-			String err = "errmsg.jsp";
 			
 			try {
 				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
 				if(rvo != null) {
-					session.setAttribute("vo", rvo); //ÌÜµÏã†Ïù¥ ÎÅäÍ∏∞Í∏∞ Ï†Ñ ÎÇ®Îäî Ïï†Îì§
-					path = "Index.jsp";
+					session.setAttribute("rvo", rvo); // Customer ∞¥√º∏¶ ∏∏µÈæÓ≥ı¿⁄.
+					path = URLEncoder.encode("Index.jsp","UTF-8");
+					
 				}else {
-					request.setAttribute("errmsg.jsp", err); //Îã®Î∞úÏÑ± Ïï†Îì§
-					path = "login.jsp";
+					path = URLEncoder.encode("register.jsp","UTF-8");
 	            }
 	        } catch (SQLException e) {
-	        	request.setAttribute("errmsg.jsp", err);
-	        	path = "login.jsp";
+	        	path = URLEncoder.encode("login.jsp","UTF-8");
 	        }
-			return new ModelAndView(path);
+			return new ModelAndView(path, true);
 		}
 }
