@@ -221,7 +221,7 @@ function passCheck() {
 		
 		<form action="update.do" class="registerFrm" name="registerFrm">
 			<div class="logo">
-				<h1><i class="fas fa-pizza-slice"></i> 8자피자 회원가입</h1>
+				<h1><i class="fas fa-pizza-slice"></i> 회원정보수정</h1>
 			</div>
 			
 					<div>
@@ -267,7 +267,7 @@ function passCheck() {
 	 						<label for="phoneNo">휴대전화</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="11" placeholder="-빼고 입력해주세요." required>
+	 						<input type="tel" id="mobile" maxlength="11" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}" required>
 	 					</span>
 	 				</div>
 	 				

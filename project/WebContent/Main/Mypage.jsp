@@ -19,10 +19,11 @@
 	
 </c:choose>
  -->
-<!-- 
+
 <c:choose>
-	<c:when test="${!empty vo}">
-		<a href="showCustomer.do?id=${vo.id}">마이페이지</a>
+	<c:when test="${!empty rvo}">
+		<script>			
+		</script>
 	</c:when>
 	
 	<c:otherwise>
@@ -32,8 +33,7 @@
 		</script>
 	</c:otherwise>
 </c:choose>
- -->
-
+ 
 
 <!--  vo 객체를 여기다가 쏴주면 
 	추후 진행 --> 
@@ -66,7 +66,6 @@ $(function(){
 	             	$('.sidebar_menu').hide(); 
 	             }); 
 	                     });
-	    
 
 	}); //click
 	
@@ -151,29 +150,45 @@ $(function(){
 	 	<li><h2>퀵메뉴</h2></li>
 	 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
 	 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+	 	<li><a href="showCustomer.do?id=${rvo.custId}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
 	 </div>
 	
 	<div class="columns">
-		<div class="menu">
+			<div class="menu">
 				<ul><br>
 					<li><h4><span id="menu1">회원 공간</span></h4></li>
 					<li><a href="updateInfo.do"> 회원정보수정 </a></li>
 					<li><a href="#"> 장바구니 </a></li>
 					<li><a href="pizzamenu.do"> 메뉴 </a></li>
 				</ul>
-			</div>	
+			</div>			
 			
-			
-			
-		<div class="wrap">
-			여기에 이제 마이페이지 내용들.
-			${info.id}
-			${info.pw}
-			${info.odod}
-		</div>
+			<div class="wrap1">
+				<ul>
+					<li><h4><span id="menu2"> 주문내역 및 장바구니 </span></h4></li>
+				<li>아아</li>
+				<li>유유</li>				
+				<li>${rvo.custId}</li>
+				<li>${rvo.custpw}</li>
+				<li>${rvo.custname}</li>
+				<li>${rvo.custaddr}</li>
+				<li>${rvo.custcontact}</li>
+				<li>${rvo.custemail}</li>
+					
+				</ul>
+			</div>
 		
+	</div>
+	
+	<div class ="columns2">
+		<div class ="wrap2">
+			<ul>
+				<li><h4><span id="menu3"> 마이페이지 </span></h4></li>
+			</ul>
+		</div>
+	
+	
 	</div>
 	
 	

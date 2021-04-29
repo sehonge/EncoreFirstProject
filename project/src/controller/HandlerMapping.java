@@ -26,8 +26,7 @@ public class HandlerMapping {
 			controller = new LoginController();
 		}else if(command.equals("loginCheck.do")) {
 			controller = new LoginCheckController();
-		}
-		else if(command.equals("pizzaMenu.do")) {
+		}else if(command.equals("pizzaMenu.do")) {
 			controller = new PizzaMenuController();
 		}
 		
