@@ -144,7 +144,6 @@ body{
 	.contents{
 		margin: auto;
 		text-align: center;
-		width: 1400px;
 	}
 	
 	<!-- 메뉴 바 -->
@@ -154,7 +153,7 @@ body{
 	}
 	.menu_nav_wrap .menu-nav{}
 	.menu_nav_wrap .menu-nav ul {display: block; padding-inline-start: 40px; text-align: center; margin-top: 40px; margin-bottom: 60px;}
-	.menu_nav_wrap .menu-nav ul li {position:relative; display: inline; padding: 0px 30px 0px 30px; margin: 10px 0px 10px 0px;}
+	.menu_nav_wrap .menu-nav ul li {position:relative; display: inline; padding: 0px 30px 0px 30px;margin: 10px 0px 10px 0px;}
 	.menu_nav_wrap .menu-nav ul li:first-child {border-left: none;}
 	.menu_nav_wrap .menu-nav ul li a{color: #fff;}
 	.menu_nav_wrap .menu-nav ul li a:hover{color: red;}
@@ -162,23 +161,17 @@ body{
 
 }
 	<!-- contents -->
-	#article{
-		style="width: 1700px;	margin: 0 auto;
-	}
-	#article .food{
-		 width: 100%;
+	.food{
+
 	}
 	.food ul {display: table; margin-left: auto; margin-right: auto;}
-	.food ul li {display: inline-block; width: 350px; padding-bottom: 50px; margin-left: 30px;}
-	.food ul li:first-child {margin-left: 0;}
-	.food ul li:nth-child(4n+1) {margin-left: 0;}
+	.food ul li {display: inline-block; width: 350px; padding-right: 30px; padding-bottom: 50px;}
 	.food ul li img {width: 350px; height: 350px;}
-	.food ul li div.food_name {text-align:center; font-size: 25px; font-weight: bold; padding-top: 10px; padding-bottom: 10px;}
-	.food ul li div.food_price {text-align:center;}
-	.food ul li div.food_price .price {font-size: 18px; padding-right: 20px;}
-	.food ul li div.food_price .price .size_L {color: red; font-weight: bold; padding-left: 20px;}
+	.food ul li div.food_name {font-size: 25px; font-weight: bold; padding-top: 10px; padding-bottom: 10px;}
+	.food ul li div.food_price .price {font-size: 18px; padding-right: 50px;}
+	.food ul li div.food_price .price .size_L {color: red; font-weight: bold;}
 	.food ul li div.food_price .price .size_M {color: red; font-weight: bold;}
-
+	
 	
 	
 	
