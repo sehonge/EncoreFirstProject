@@ -25,8 +25,8 @@
 		
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.jsp">회원가입</a></li>
+			<li><a href="Main/showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="Main/register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
@@ -44,9 +44,9 @@
         </div>
 		     <ul class="menu_wrap">
 		          <li><a href="Index.jsp">Home</a></li>
-		          <li><a href="pizzaMenu.do">메뉴</a></li>
-		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		          <li><a href="register.jsp">회원가입</a></li>
+		          <li><a href="../pizzaMenu.do">메뉴</a></li>
+		          <li><a href="Main/showCustomer.do?id=${vo.id}">마이페이지</a></li>
+		          <li><a href="Main/register.jsp">회원가입</a></li>
 		          <li><a href="#">장바구니</a></li>
 		     </ul>
 		</div>
@@ -76,7 +76,7 @@
 					<ul>		
 						<c:forEach items="${list}" var="list">
 							<li>
-								<div class="food_img"><a href="pizzadisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
+								<div class="food_img"><a href="pizzaDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
 								<div class="food_name">${list.menuName}</div>
 								<div class="food_price">
 									<span class="price">

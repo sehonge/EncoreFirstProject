@@ -23,7 +23,7 @@
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
 			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.jsp">회원가입</a></li>
+			<li><a href="Main/register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
@@ -43,7 +43,7 @@
 		          <li><a href="Index.jsp">Home</a></li>
 		          <li><a href="pizzaMenu.do">메뉴</a></li>
 		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		          <li><a href="register.jsp">회원가입</a></li>
+		          <li><a href="Main/register.jsp">회원가입</a></li>
 		          <li><a href="#">장바구니</a></li>
 		     </ul>
 		</div>
@@ -68,7 +68,7 @@
 		<!-- 피자 이미지 -->
 		<div id="article1" class="clearfix">
 			<div class="imgcut">
-				<img alt="foodimage" src="${list.pictureUrl}">
+				<img alt="foodimage" src="${pizza.pictureUrl}">
 				<span>* 위 사진은 이미지컷으로 실제 제품과 다를 수 있습니다.</span>
 			</div>
 		</div>
@@ -77,8 +77,8 @@
 		<div id="article2" class="clearfix">
 			<!-- 피자 타이틀 -->
 			<div class="title">
-				<div class="name">${list.menuName}</div>
-				<p>${list.menuDesc}</p>
+				<div class="name">${pizza.menuName}</div>
+				<p>${pizza.menuDesc}</p>
 				<hr/>
 			</div>
 			
@@ -107,10 +107,10 @@
 				<table>
 					<thead>
 						<tr>
-							<th><img alt="foodimage" src="img/tomato_spaghetti.jpg"></th>
-							<th><img alt="foodimage" src="img/cream_spaghetti.jpg"></th>
-							<th><img alt="foodimage" src="img/garlic_wing.jpg"></th>
-							<th><img alt="foodimage" src="img/corn.jpg"></th>
+							<th><img alt="foodimage" src="Menu/img/tomato_spaghetti.jpg"></th>
+							<th><img alt="foodimage" src="Menu/img/cream_spaghetti.jpg"></th>
+							<th><img alt="foodimage" src="Menu/img/garlic_wing.jpg"></th>
+							<th><img alt="foodimage" src="Menu/img/corn.jpg"></th>
 						</tr>
 					</thead>
 					<tbody>

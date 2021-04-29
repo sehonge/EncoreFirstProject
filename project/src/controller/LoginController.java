@@ -26,13 +26,13 @@ public class LoginController implements Controller{
 				HttpSession session =request.getSession();
 				if(rvo != null) {
 					session.setAttribute("rvo", rvo); // Customer 객체를 만들어놓자.
-					path = URLEncoder.encode("Index.jsp","UTF-8");
+					path = "Main/Index.jsp";
 					
 				}else {
-					path = URLEncoder.encode("register.jsp","UTF-8");
+					path = "Main/register.jsp";
 	            }
 	        } catch (SQLException e) {
-	        	path = URLEncoder.encode("login.jsp","UTF-8");
+	        	path = "Main/login.jsp";
 	        }
 			return new ModelAndView(path, true); // encoding ERROR post 방식으로 보내기.
 		}
