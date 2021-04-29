@@ -11,10 +11,11 @@ public class ShowCustomerController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 
-		String path = "index.jsp"; // 기본 path
+		String path = "index.jsp"; // �⺻ path
 		try {
 			
 			request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
+
 			path = "Mypage.jsp"; // 이동할 path
 
 		} catch (Exception e) {
