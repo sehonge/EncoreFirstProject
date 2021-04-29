@@ -30,6 +30,8 @@ public class HandlerMapping {
 			controller = new PizzaMenuController();
 		}else if(command.equals("sideMenu.do")) {
 			controller = new SideMenuController();
+		}else if(command.equals("pizzaDisc.do")) {
+			controller = new PizzaDiscController();
 		}
 		
 		

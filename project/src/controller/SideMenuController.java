@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,13 +13,11 @@ public class SideMenuController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		String menuId = request.getParameter("menuId"); 
+		ArrayList<Menu> list = MenuDaoImpl.getInstance().getAllSide();
 		
-		Menu pizza = MenuDaoImpl.getInstance().getPizza(menuId);
+		request.setAttribute("list", list);
 		
-		request.setAttribute("pizza", pizza);
-		
-		return new ModelAndView("Menu/PizzaDisc.jsp");
+		return new ModelAndView("Menu/SideMenu.jsp");
 	}
 	
 }
