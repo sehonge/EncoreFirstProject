@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.SQLException;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,10 +25,10 @@ public class LoginController implements Controller{
 				Customer rvo = CustomerDaoImpl.getInstance().signIn(id, password);
 				HttpSession session =request.getSession();
 				if(rvo != null) {
-					session.setAttribute("vo", rvo); //통신이 끊기기 전 남는 애들
+					session.setAttribute("vo", rvo);
 					path = "Index.jsp";
 				}else {
-					request.setAttribute("errmsg.jsp", err); //단발성 애들
+					request.setAttribute("errmsg.jsp", err);
 					path = "login.jsp";
 	            }
 	        } catch (SQLException e) {
