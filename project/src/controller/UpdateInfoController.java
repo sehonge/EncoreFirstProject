@@ -29,7 +29,7 @@ public class UpdateInfoController implements Controller{
 			if(session.getAttribute("vo")!=null) {
 				session.setAttribute("vo", pvo);
 				System.out.println(pvo);
-				path = "index.jsp"; // 이동할 path
+				path = "Mypage.jsp"; // 이동할 path
 			}
 		}catch(Exception e) {
 			

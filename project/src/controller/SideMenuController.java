@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.Menu;
 import model.MenuDaoImpl;
 
-public class PizzaMenuController implements Controller {
+public class SideMenuController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ArrayList<Menu> list = MenuDaoImpl.getInstance().getAllPizza();
+		ArrayList<Menu> list = MenuDaoImpl.getInstance().getAllSide();
 		
 		request.setAttribute("list", list);
 		
-		return new ModelAndView("Menu/PizzaMenu.jsp");
+		return new ModelAndView("Menu/SideMenu.jsp");
 	}
-
 	
 }

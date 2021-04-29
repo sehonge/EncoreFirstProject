@@ -248,6 +248,46 @@ public class CustomerDaoImpl implements CustomerDao{
 		}
 		
 	}	
+	
+	public boolean idCheck(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			String query = "SELECT cust_id FROM customer WHERE cust_id=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, id);
+
+			rs = ps.executeQuery();
+
+			return rs.next();
+
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+	}
+
+	public boolean emailCheck(String email) throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			String query = "SELECT cust_email FROM customer WHERE cust_email=?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+
+			rs = ps.executeQuery();
+
+			return rs.next();
+
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+	}
 
 	/*
 	public static void main(String[] args) throws SQLException {
