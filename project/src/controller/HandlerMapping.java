@@ -36,6 +36,8 @@ public class HandlerMapping {
 			controller = new IdCheckController();
 		}else if(command.equals("emailCheck.do")) {
 			controller = new EmailCheckController();
+		}else if(command.equals("pickUpAddress.do")) {
+			controller = new PickUpAddressController();
 		}
 		
 		
