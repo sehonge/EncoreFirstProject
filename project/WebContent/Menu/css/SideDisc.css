@@ -1,11 +1,16 @@
 @charset "UTF-8";
 <!-- header -->
+@charset "UTF-8";
+
+<!-- header -->
 : root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
-
+	
+	
 }
+
 
 body{
 	margin : 0;
@@ -19,6 +24,8 @@ body{
 	
 }
 
+
+
 .navbar{
 	display : flex; 
 	justify-content: space-between;
@@ -26,6 +33,7 @@ body{
 	background-color : lightgrey;
 	padding : 8px 24px;
 }
+
 
 .navbar__logo{
 	font-weight : bold;
@@ -58,20 +66,8 @@ body{
 	
 }
 
-.navbar__icons {
-	
-	list-style : none;
-	color : black;
-	display : flex;
-	padding-left : 0;
-	
-}
 
-.navbar__icons li{
-	font-size : 24px;
-	padding : 8px 12px;
-	
-}
+
 
 .navbar__toogleBtn {
 	display : none;
@@ -115,6 +111,7 @@ body{
 	
 	}	
 }
+
 
 
 
