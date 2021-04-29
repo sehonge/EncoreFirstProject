@@ -36,6 +36,8 @@ public class HandlerMapping {
 			controller = new IdCheckController();
 		}else if(command.equals("emailCheck.do")) {
 			controller = new EmailCheckController();
+		}else if(command.equals("sideDisc.do")) {
+			controller = new SideDiscController();
 		}
 		
 		

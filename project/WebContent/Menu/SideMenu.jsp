@@ -74,7 +74,7 @@
 					<ul>
 						<c:forEach items="${list}" var="list">
 							<li>
-								<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
+								<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
 								<div class="food_name">${list.menuName}</div>
 								<div class="food_price">
 									<span class="price">
@@ -84,7 +84,7 @@
 							</li>	
 						</c:forEach>
 						<%-- <li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/${list.pictureUrl}i.jpg"></a></div>
+							<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/${list.pictureUrl}i.jpg"></a></div>
 							<div class="food_name">토마토파스타</div>
 							<div class="food_price">
 								<span class="price">8,900원</span>
