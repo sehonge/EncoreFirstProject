@@ -40,23 +40,6 @@
 <script src="js/index.js" defer></script>
 <script type="text/javascript">
 $(function(){
-	$('.menu_btn').click(function(ev){
-		
-	    $('.menu_bg').show(); 
-	    $('.sidebar_menu').show().animate({
-				 right:0 
-	   });
-
-		 $('.close_btn>a').on('click', function(){
-	         $('.menu_bg').hide(); 
-	         $('.sidebar_menu').animate({
-	             right: '-' + 50 + '%'},function(){
-	             	$('.sidebar_menu').hide(); 
-	             }); 
-	                     });
-	    
-
-	}); //click
 	
 	$(window).scroll(function(){
 		var scrollTop = $(document).scrollTop();
@@ -67,57 +50,6 @@ $(function(){
 		$("#quick").animate( { "top" : scrollTop });
 		}); 
 	//scroll
-	
-	
-	function startRequest() {
-		var id = document.registerFrm.id.value; // alert(id);
-		resultView = document.getElementById("idCheckResult");
-
-		if (id.length < 4) {
-			resultView.innerHTML = "<font color = red> ID는 4글자 이상이어야 합니다. </font>";
-			return;
-			
-		}
-		
-		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = callback;
-		
-		xhr.open("post","idCheck.do", true);
-		
-    	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-
-		xhr.send("id="+id);
-	}
-	
-	
-	function callback (){
-		if(xhr.readyState == 4 ){
-			if ( xhr.status == 200 ){
-				var flag = xhr.responseText; // String 으로 넘어온다는거.
-				
-				resultView = document.getElementById("idCheckResult");
-
-				if(flag == 'true') {
-					resultView.innerHTML = "<font color = #D88019><b> 해당 ID 사용 불가 </b></font>";
-					
-				}else {
-					resultView.innerHTML = "<font color = #00E200><b> 해당 ID 사용 가능 </b></font>";
-				}
-				
-				
-				
-			}
-		}
-		
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 
 });// ready
@@ -134,22 +66,67 @@ function passCheck() {
 		return false;
 	}
 }
+// 비동기 구현
+var xhr;
+var resultView;
 
-	var xhr;
-	var resultView;
+function startRequest() {
+	var id = document.registerFrm.id.value; // alert(id);
+	resultView = document.getElementById("idCheckResult");
+
+	if (id.length < 4) {
+		resultView.innerHTML = "<font color = red> ID는 4글자 이상이어야 합니다. </font>";
+		return;
+		
+	}
 	
+	// if가 true가 아니라면 비동기 통신으로 로직을 전개.
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = callback;
 	
+	xhr.open("post","idCheck.do", true);
+	
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+
+	xhr.send("id="+id);
+}
+
+
+function callback (){
+	if(xhr.readyState == 4 ){
+		if ( xhr.status == 200 ){
+			var flag = xhr.responseText; // String 으로 넘어온다는거.
+			
+			resultView = document.getElementById("idCheckResult");
+
+			if(flag == 'true') {
+				resultView.innerHTML = "<font color = #D88019><b> 해당 ID 사용 불가 </b></font>";
+				
+			}else {
+				resultView.innerHTML = "<font color = #00E200><b> 해당 ID 사용 가능 </b></font>";
+			}
+			
+			
+			
+		}
+	}
+	
+}
 
 
 </script>
 
 </head>
 <style type="text/css">
+
 @import url("css/header.css");
-@import url("css/hamburger.css");
+
 @import url("css/sidebar.css");
+
 @import url("css/registerBody.css");
+
 @import url("css/footer.css");
+
 @import url("css/updateInfo.css");
 
 </style>
@@ -169,28 +146,6 @@ function passCheck() {
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
-		<div class="menu_btn"><a href="#">       
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
-        </a>
-        </div>
-
-
-		<div class="menu_bg"></div>
-		<div class="sidebar_menu">
-    	<div class="close_btn"><a href="#">       
-         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
-         </a>
-		     </div>
-		     <ul class="menu_wrap">
-		          <li><a href="Index.jsp">Home</a></li>
-		          <li><a href="pizzamenu.do">메뉴</a></li>
-		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		          <li><a href="register.jsp">회원가입</a></li>
-		          <li><a href="#">장바구니</a></li>
-		     </ul>
-		</div>
-
-
 		
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -229,7 +184,7 @@ function passCheck() {
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
-							<input type="text" id="id" maxlength="16" onkeyup="startRequest()" value="${vo.custId}" disabled>
+							<input type="text" id="id" maxlength="16" onkeyup="startRequest()" value="${rvo.custId}" disabled>
 						</span>		
 						<span class="error_next_box"></span>
 					</div>
@@ -239,7 +194,7 @@ function passCheck() {
 							<label for="password"> 비밀번호, 비밀번호 확인 </label>
 						</h3>
 						<span class="pass_box">
-							<input type="password" id="password" name="password" maxlength="20" required value="${vo.custPw}" disabled>
+							<input type="password" id="password" name="password" maxlength="20" required value="${rvo.custPw}" disabled>
 						</span>
 					</div>
 					
@@ -248,7 +203,7 @@ function passCheck() {
 							<label for="name">이름</label>
 						</h3>
 						<span class="name_box">
-							<input type="text" id="name" maxlength="20" value="${vo.custName}" disabled>
+							<input type="text" id="name" maxlength="20" value="${rvo.custName}" disabled>
 						</span>
 						<span class="error_next_box"></span>
 					</div>
@@ -276,7 +231,7 @@ function passCheck() {
 	 						<label for="email">E-Mail</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="email" id="email" name="email" value="${vo.custEmail}"disabled>
+	 						<input type="email" id="email" name="email" value="${rvo.custEmail}"disabled>
 	 						
 	 					</span>
 	 				</div>
