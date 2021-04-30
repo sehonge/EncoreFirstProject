@@ -15,23 +15,7 @@
 <script src="js/index.js" defer></script>
 <script type="text/javascript">
 	$(function() {
-		$('.menu_btn').click(function(ev) {
-
-			$('.menu_bg').show();
-			$('.sidebar_menu').show().animate({
-				right : 0
-			});
-
-			$('.close_btn>a').on('click', function() {
-				$('.menu_bg').hide();
-				$('.sidebar_menu').animate({
-					right : '-' + 50 + '%'
-				}, function() {
-					$('.sidebar_menu').hide();
-				});
-			});
-
-		}); //click
+		
 
 	});// ready
 
@@ -70,13 +54,11 @@
 
 @import url("css/columns.css");
 
-@import url("css/hamburger.css");
-
 @import url("css/footer.css");
 
-@import url("css/sidebar.css");
-
 @import url("css/search.css");
+
+@import url("css/sidebar.css");
 </style>
 
 
@@ -93,26 +75,7 @@
 			<li><a href="#">장바구니</a></li>
 		</ul>
 
-		<div class="menu_btn">
-			<a href="#"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
-			</a>
-		</div>
 
-
-		<div class="menu_bg"></div>
-		<div class="sidebar_menu">
-			<div class="close_btn">
-				<a href="#"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
-				</a>
-			</div>
-			<ul class="menu_wrap">
-				<li><a href="Index.jsp">Home</a></li>
-				<li><a href="pizzamenu.do">메뉴</a></li>
-				<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-				<li><a href="register.jsp">회원가입</a></li>
-				<li><a href="#">장바구니</a></li>
-			</ul>
-		</div>
 
 		<div id="quick">
 			<ul>
