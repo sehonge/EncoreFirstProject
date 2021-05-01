@@ -161,7 +161,7 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	@Override
-	public Menu getPizza(String menuId) throws SQLException {
+	public Menu getMenu(String menuId) throws SQLException {
 		
 		Menu ret = null;
 		Connection conn = null;

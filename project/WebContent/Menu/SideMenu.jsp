@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
@@ -73,7 +74,7 @@
 					<ul>
 						<c:forEach items="${list}" var="list">
 							<li>
-								<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
+								<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
 								<div class="food_name">${list.menuName}</div>
 								<div class="food_price">
 									<span class="price">
@@ -83,7 +84,7 @@
 							</li>	
 						</c:forEach>
 						<%-- <li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/${list.pictureUrl}i.jpg"></a></div>
+							<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/${list.pictureUrl}i.jpg"></a></div>
 							<div class="food_name">토마토파스타</div>
 							<div class="food_price">
 								<span class="price">8,900원</span>

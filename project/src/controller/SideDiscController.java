@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Menu;
 import model.MenuDaoImpl;
 
-public class PizzaDiscController implements Controller {
+public class SideDiscController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -15,11 +15,11 @@ public class PizzaDiscController implements Controller {
 		
 		System.out.println(menuId);
 		
-		Menu pizza = MenuDaoImpl.getInstance().getMenu(menuId);
+		Menu side = MenuDaoImpl.getInstance().getMenu(menuId);
 		
-		request.setAttribute("pizza", pizza);
+		request.setAttribute("side", side);
 		
-		return new ModelAndView("Menu/PizzaDisc.jsp");
+		return new ModelAndView("Menu/SideDisc.jsp");
 	}
 	
 }

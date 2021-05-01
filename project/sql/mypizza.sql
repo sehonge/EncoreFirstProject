@@ -84,25 +84,34 @@ INSERT INTO SHOP (SHOP_NAME, SHOP_ADDR, SHOP_CONTACT)
 ​
 ## 피자 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P001-R', 1, '트러플 피자 R', '15000', 'R', '트러플 피자 R사이즈 입니다.', "Menu/img/pizza_trouple.jpg"); 
+			VALUES('P001-R', 1, '트러플 피자', '15000', 'R', '#바질페스토로 즐기는 스테이크의 진한 풍미!', "Menu/img/pizza_trouple.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P001-L', 1, '트러플 피자 L', '20000', 'L', '트러플 피자 L사이즈 입니다.', "Menu/img/pizza_trouple.jpg");
+			VALUES('P001-L', 1, '트러플 피자', '20000', 'L', '#바질페스토로 즐기는 스테이크의 진한 풍미!', "Menu/img/pizza_trouple.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P002-R', 1, '스테이크 피자 R', '18000', 'R', '스테이크 피자 R사이즈 입니다.', "Menu/img/pizza_stake.jpg"); 
+			VALUES('P002-R', 1, '스테이크 피자', '18000', 'R', '#직화 스테이크와 통새우의 만남', "Menu/img/pizza_stake.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P002-L', 1, '스테이크 피자 L', '25000', 'L', '스테이크 피자 L사이즈 입니다.', "Menu/img/pizza_stake.jpg");
+			VALUES('P002-L', 1, '스테이크 피자', '25000', 'L', '#직화 스테이크와 통새우의 만남', "Menu/img/pizza_stake.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P003-R', 1, '칠리크랩 피자 R', '17000', 'R', '칠리크랩 피자 R사이즈 입니다.', "Menu/img/pizza_chilicrab.jpg"); 
+			VALUES('P003-R', 1, '칠리크랩 피자', '17000', 'R', '#씨푸드부터 시리얼까지 언더더씨!', "Menu/img/pizza_chilicrab.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P003-L', 1, '칠리크랩 피자 L', '24000', 'L', '칠리크랩 피자 L사이즈 입니다.', "Menu/img/pizza_chilicrab.jpg");
+			VALUES('P003-L', 1, '칠리크랩 피자', '24000', 'L', '#씨푸드부터 시리얼까지 언더더씨!', "Menu/img/pizza_chilicrab.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P004-R', 1, '블랙킹 피자 R', '17000', 'R', '블랙킹 피자 R사이즈 입니다.', "Menu/img/pizza_blackking.jpg"); 
+			VALUES('P004-R', 1, '블랙킹 피자', '17000', 'R', '#새로운 레전드를 세우다', "Menu/img/pizza_blackking.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P004-L', 1, '블랙킹 피자 L', '24000', 'L', '블랙킹 피자 L사이즈 입니다.', "Menu/img/pizza_blackking.jpg");
+			VALUES('P004-L', 1, '블랙킹 피자', '24000', 'L', '#새로운 레전드를 세우다', "Menu/img/pizza_blackking.jpg");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P005-R', 1, '글로벌4 피자 R', '17000', 'R', '글로벌4 피자 R사이즈 입니다.', "Menu/img/pizza_global4.jpg"); 
+			VALUES('P005-R', 1, '글로벌4 피자', '17000', 'R', '#한국,미국,호주,프랑스! 레전드의 만남', "Menu/img/pizza_global4.jpg"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
-			VALUES('P005-L', 1, '글로벌4 피자 L', '24000', 'L', '글로벌4 피자 L사이즈 입니다.', "Menu/img/pizza_global4.jpg");
+			VALUES('P005-L', 1, '글로벌4 피자', '24000', 'L', '#한국,미국,호주,프랑스! 레전드의 만남', "Menu/img/pizza_global4.jpg");
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P006-R', 1, '스타셰프 피자', '18000', 'R', '#드라이에이징 스테이크와 크림 소스의 조화!', "Menu/img/pizza_starchef.jpg"); 
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P006-L', 1, '스타셰프 피자', '25000', 'L', '#드라이에이징 스테이크와 크림 소스의 조화!', "Menu/img/pizza_starchef.jpg");
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P007-R', 1, '블랙 타이거 쉬림프 피자', '18000', 'R', '#바다와 육지의 대왕이 하나로', "Menu/img/pizza_blacktiger.jpg"); 
+INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_SIZE, MENU_DESC, PICTURE_URL) 
+			VALUES('P007-L', 1, '블랙 타이거 쉬림프 피자', '25000', 'L', '#바다와 육지의 대왕이 하나로', "Menu/img/pizza_blacktiger.jpg");
+			
 ## 사이드 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
 			VALUES('S001', 2, '크림 스파게티', '2000',  '콜라 1.5L 입니다.', "Menu/img/cream_spaghetti.jpg"); 
