@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
 
+
 .columns{
 	display : flex;
 	justify-content : center;
 	padding : 20px;
+	background : linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, lightgray);
+	background-size : 400% 400%;
 	
 }
 

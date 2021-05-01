@@ -60,7 +60,7 @@
 			<div class="menu_nav_wrap">
 				<div class="menu-nav">
 					<ul>
-						<li><a href="PizzaMenu.do"><span>피자</span></a></li>
+						<li><a href="pizzaMenu.do"><span>피자</span></a></li>
 						<li><a href="sideMenu.do"><span>사이드/음료</span></a></li>
 						<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 					</ul>
@@ -83,48 +83,6 @@
 								</div>
 							</li>	
 						</c:forEach>
-						<%-- <li>
-							<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/${list.pictureUrl}i.jpg"></a></div>
-							<div class="food_name">토마토파스타</div>
-							<div class="food_price">
-								<span class="price">8,900원</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/cream_spaghetti.jpg"></a></div>
-							<div class="food_name">크림파스타</div>
-							<div class="food_price">
-								<span class="price">8,900원</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/garlic_wing.jpg"></a></div>
-							<div class="food_name">갈릭&허브 윙스</div>
-							<div class="food_price">
-								<span class="price">8,900원</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/corn.jpg"></a></div>
-							<div class="food_name">프레쉬 코운슬로</div>
-							<div class="food_price">
-								<span class="price">2,400원</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/coke.jpg"></a></div>
-							<div class="food_name">코카콜라 1.25L</div>
-							<div class="food_price">
-								<span class="price">2,400원</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="sidedisc.do?menuId=${list.menuId}"><img alt="foodimage" src="img/cider.jpg"></a></div>
-							<div class="food_name">스프라이트 1.5L</div>
-							<div class="food_price">
-								<span class="price">2,400원</span>
-							</div>
-						</li> --%>
 					</ul>
 				</div>	
 			</article>

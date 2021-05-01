@@ -25,7 +25,7 @@
 		
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="Main/showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="Main/register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
@@ -44,8 +44,8 @@
         </div>
 		     <ul class="menu_wrap">
 		          <li><a href="Index.jsp">Home</a></li>
-		          <li><a href="../pizzaMenu.do">메뉴</a></li>
-		          <li><a href="Main/showCustomer.do?id=${vo.id}">마이페이지</a></li>
+		          <li><a href="pizzaMenu.do">메뉴</a></li>
+		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
 		          <li><a href="Main/register.jsp">회원가입</a></li>
 		          <li><a href="#">장바구니</a></li>
 		     </ul>
@@ -85,116 +85,6 @@
 								</div>
 							</li>	
 						</c:forEach>
-						<!-- <li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_blackking.jpg"></a></div>
-							<div class="food_name">블랙킹타이거쉬림프</div>
-							<div class="food_price">
-								<span class="price">
-									<span class="size_L">L</span>
-									27,900원~ 
-								</span>
-								<span class="price">
-									<span class="size_M">M</span>
-									21,900원~ 
-								</span>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_global4.jpg"></a></div>
-							<div class="food_name">글로벌 레전드4</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_chilicrab.jpg"></a></div>
-							<div class="food_name">시리얼 칠리크랩</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_stake.jpg"></a></div>
-							<div class="food_name">블랙앵거스 스테이크</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_starchef.jpg"></a></div>
-							<div class="food_name">스타 셰프 시그니처</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_cheesecake.jpg"></a></div>
-							<div class="food_name">치즈케이크 블랙타이거</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="food_img"><a href="pizzadisc.do"><img alt="foodimage" src="img/pizza_trouple.jpg"></a></div>
-							<div class="food_name">스타 셰프 트러플 바질</div>
-							<div class="food_price">
-								<div class="price_box">
-									<span class="price">
-										<span class="size_L">L</span>
-										27,900원~ 
-									</span>
-									<span class="price">
-										<span class="size_M">M</span>
-										21,900원~ 
-									</span>
-								</div>
-							</div>
-						</li> -->
 					</ul>
 				</div>	
 			</article>
