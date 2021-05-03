@@ -83,7 +83,10 @@ public class MenuDaoImpl implements MenuDao {
 						));
 			}
 			
-		} finally {
+		} catch (Exception e) {
+			System.out.println(e);
+		} 
+		finally {
 			closeAll(rs, ps, conn);
 		}
 		

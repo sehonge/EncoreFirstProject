@@ -12,12 +12,14 @@ public class PizzaDiscController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String menuId = request.getParameter("menuId"); 
+		String menuIdR = menuId.substring(0, menuId.length() - 1) + 'R';
+		System.out.println(menuId + " " + menuIdR);
 		
-		System.out.println(menuId);
+		Menu pizzaL = MenuDaoImpl.getInstance().getMenu(menuId);		
+		Menu pizzaR = MenuDaoImpl.getInstance().getMenu(menuIdR);
 		
-		Menu pizza = MenuDaoImpl.getInstance().getMenu(menuId);
-		
-		request.setAttribute("pizza", pizza);
+		request.setAttribute("pizzaL", pizzaL);
+		request.setAttribute("pizzaR", pizzaR);
 		
 		return new ModelAndView("Menu/PizzaDisc.jsp");
 	}

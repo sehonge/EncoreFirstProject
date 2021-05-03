@@ -19,7 +19,7 @@ $(document).ready(function(){
             });
  
         /*M을 클릭했을 때 dough_M을 보여줌*/
-        $("#M").click(function(){
+        $("#R").click(function(){
             $("#dough_M").show();
             $("#dough_L").hide();
         });
