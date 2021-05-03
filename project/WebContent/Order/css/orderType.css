@@ -1,0 +1,84 @@
+@charset "UTF-8";
+body{
+   	margin: 0 auto;
+   	width: 100%;
+   	
+}
+
+
+.container1,.container2{
+	position:relative;
+	width: 33%;
+	float:left;
+	margin: 0 1%;
+}
+.container1{
+	margin-left:15%;
+}
+.overlay1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color:  #91F8D0;
+}
+
+.overlay2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color:  #91F8D0;
+}
+
+.container1:hover .overlay1,
+.container2:hover .overlay2{
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+}
+
+.text1,.text2{
+  color: black;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#delivery{
+	display:block;
+	width:100%;
+	height:auto;
+	padding: 10% 10%;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	font-size:30px;
+	font-family: 'Sunflower', sans-serif;
+}
+
+#pickup{
+	display:block;
+	width:100%;
+	height:auto;
+	padding: 10% 10%;
+	border-radius: 10px;
+	border: 1px solid #aaa;
+	font-size:30px;
+	font-family: 'Sunflower', sans-serif;
+}
