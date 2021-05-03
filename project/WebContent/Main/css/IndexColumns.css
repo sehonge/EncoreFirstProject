@@ -2,7 +2,7 @@
 
 .hover_effect_box {
     width: 800px;
-    height: 40vh;
+    height: 90%;
     margin: 10px;
     border: 10px solid #f3f3f3;
     overflow: hidden;
@@ -22,7 +22,7 @@
  .hover_effect_box .caption
  , .hover_effect_box .mask  {
     width: 800px;
-    height: 266px;
+    height: 100%;
     position: absolute;
     overflow: hidden;
     top: 0;

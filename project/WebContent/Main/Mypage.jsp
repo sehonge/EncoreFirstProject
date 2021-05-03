@@ -52,22 +52,7 @@
 <script src="js/index.js" defer></script>
 <script type="text/javascript">
 $(function(){
-	$('.menu_btn').click(function(ev){
-		
-	    $('.menu_bg').show(); 
-	    $('.sidebar_menu').show().animate({
-				 right:0 
-	   });
 
-		 $('.close_btn>a').on('click', function(){
-	         $('.menu_bg').hide(); 
-	         $('.sidebar_menu').animate({
-	             right: '-' + 50 + '%'},function(){
-	             	$('.sidebar_menu').hide(); 
-	             }); 
-	                     });
-
-	}); //click
 	
 	$(window).scroll(function(){
 		var scrollTop = $(document).scrollTop();
@@ -111,7 +96,7 @@ $(function(){
 		
 		<ul class="navbar__menu">
 			<li><a href="#">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
@@ -140,7 +125,7 @@ $(function(){
 			<div class="menu">
 				<ul><br>
 					<li><h4><span id="menu1">회원 공간</span></h4></li>
-					<li><a href="updateInfo.do"> 회원정보수정 </a></li>
+					<li><a href="updateInfo.jsp"> 회원정보수정 </a></li>
 					<li><a href="#"> 장바구니 </a></li>
 					<li><a href="pizzamenu.do"> 메뉴 </a></li>
 				</ul>

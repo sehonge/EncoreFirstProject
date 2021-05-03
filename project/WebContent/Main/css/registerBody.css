@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 
+body {
+	background : linear-gradient(-90deg, #23A6D5,lightgray);
+	background-size : 400% 400%;
+}
+
+
 .columns {
 	display : flex;
 	justify-content: center;
