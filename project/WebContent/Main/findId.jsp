@@ -42,6 +42,10 @@
 				var custId = xhr.responseText;
 				resultView = document.getElementById("idResultView");
 				resultView.innerHTML = "<font color='green'><B>"+custId+"</b></font>";
+				if (custId.length == "0"){
+					resultView.innerHTML = "<font color='red'><B> 입력하신 E-mail의 ID는 존재하지 않습니다.</b></font>";
+
+				}
 				
 			}
 		}

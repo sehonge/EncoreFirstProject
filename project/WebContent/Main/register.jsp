@@ -54,8 +54,6 @@ $(function(){
 			
 			return;
 		}
-
-		
 		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = callback;
@@ -65,7 +63,8 @@ $(function(){
     	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
 		xhr.send("custId="+custId); // Parameter 명 정하기.
-	}
+		
+	} /// request 
 	
 	
 	function callback (){
@@ -87,8 +86,49 @@ $(function(){
 			}
 		}
 		
-	}
+	} // callback
+	
+	
+	
+	function startRequest2() {
+		var custEmail = document.registerFrm.email.value; 
+		// alert(custId);
+		resultView = document.getElementById("idCheckResult");
+	
+		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
+		xhr2 = new XMLHttpRequest();
+		xhr2.onreadystatechange = callback2;
+		
+		xhr2.open("post","emailCheck.do", true);
+		
+    	xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
+		xhr2.send("email="+custEmail); // Parameter 명 정하기.
+		
+	} /// request2
+	
+	
+	function callback2 (){
+		if(xhr2.readyState == 4 ){
+			if ( xhr2.status == 200 ){
+				var flag = xhr2.responseText; // String 으로 넘어온다는거.
+				
+				resultView = document.getElementById("emailCheckResult");
+
+				if(flag == 'true') {
+					resultView.innerHTML = "<font color = red><b> 이미 존재하는 E-Mail입니다. </b></font>";
+					
+				}else {
+					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 E-Mail입니다. </b></font>";
+				}
+				
+				
+				
+			}
+		}
+		
+	} // callback2
+		
 
 function passCheck() {
 	//비밀번호가 일치하지 않으면 페이지 이동 안되도록...
@@ -107,7 +147,7 @@ function passCheck() {
 		resultView.innerHTML="<font color = #00E200><b> 두 비밀번호가 동일합니다.</b></font>";
 	}
 	
-}
+} // passCheck
 
 function phoneCheck(){
 	var pattern= /[0-9]{3}-[0-9]{4}-[0-9]{3}/;
@@ -126,7 +166,9 @@ function phoneCheck(){
 		resultView.innerHTML = "<font color = #00E200><b> 올바른 전화번호 양식입니다. </b></font>";
 	} 
 		
-}
+} // phoneCheck
+
+
 
 	
 	
@@ -248,9 +290,9 @@ function phoneCheck(){
 	 					</h3>
 	 					<span class="mobile_box">
 	 						<input type="email" id="email" placeholder="E-Mail" name="email" required>
-	 						<input type="button" value="email Check" onclick="" id="checkButton">
-	 						
+	 						<input type="button" value="email Check" onclick="startRequest2()" id="checkButton">
 	 					</span>
+	 					<div id="emailCheckResult"></div>
 	 				</div>
 	 				
 	 				<div class="btn_area">
