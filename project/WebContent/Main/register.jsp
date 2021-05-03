@@ -250,8 +250,8 @@ function callback (){
 						</h3>
 						<span class="id_box">
 							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
-							<span id="idCheckResult2"></span>
 							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">
+							<span id="idCheckResult2"></span>
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>

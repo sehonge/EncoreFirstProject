@@ -38,7 +38,10 @@ public class HandlerMapping {
 			controller = new EmailCheckController();
 		}else if(command.equals("sideDisc.do")) {
 			controller = new SideDiscController();
+		}else if(command.equals("logout.do")) {
+			controller = new LogoutController();
 		}
+		
 		
 		
 		return controller;

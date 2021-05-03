@@ -32,9 +32,9 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String contextPath = request.getContextPath();
 		
-		String command = requestURI.substring(contextPath.length()+1);// *.do
-		System.out.println(command);
-		String path = "index.jsp"; // 기본 페이지
+		String command = requestURI.substring(contextPath.length()+6);// *.do
+		System.out.println("command : " + command);
+		String path = ""; // 기본 페이지
 		ModelAndView mv = null;
 		
 		Controller controller   = HandlerMapping.getInstance().createController(command);
@@ -42,6 +42,7 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 			mv = controller.execute(request, response);
 			path = mv.getPath();
+			
 			System.out.println("path : " + path);
 			
 		}catch(Exception e) {			
