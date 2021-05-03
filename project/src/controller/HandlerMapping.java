@@ -24,8 +24,6 @@ public class HandlerMapping {
 			controller = new MakeOrderController();
 		}else if(command.equals("login.do")) {
 			controller = new LoginController();
-		}else if(command.equals("loginCheck.do")) {
-			controller = new LoginCheckController();
 		}else if(command.equals("pizzaMenu.do")) {
 			controller = new PizzaMenuController();
 		}else if(command.equals("sideMenu.do")) {
@@ -40,6 +38,8 @@ public class HandlerMapping {
 			controller = new SideDiscController();
 		}else if(command.equals("customMenu.do")) {
 			controller = new CustomPizzaController();
+		}else if(command.equals("basket.do")) {
+			controller = new BasketController();
 		}
 		
 		
