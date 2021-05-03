@@ -116,23 +116,9 @@ $(function(){
 	</div>
 	
 	
-	<div class="columns">
-		<div class="menu">
-				<ul><br>
-					<li><h4><span id="menu1">회원 공간</span></h4></li>
-					<li><a href="login.jsp"> 로그인 </a></li>
-					<li><a href="register.jsp"> 회원가입 </a></li>
-					<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a>
-					<li><a href="findId.jsp"> 아이디 찾기 </a></li>
-					<li><a href="findPw.jsp"> PW 찾기 </a></li>
-					<li><a href="updateInfo.jsp"> 회원정보수정 </a></li>
-				</ul>
-			</div>
-			
+	<div class="columns">			
 	  	<form action="../login.do" class="wrap" name="loginFrm">
-	  	
 	        <div class="login">
-	         
 	            <div class="login_id">
 	            	<br><br>
 	                <h4>ID</h4>
