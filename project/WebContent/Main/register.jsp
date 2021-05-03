@@ -58,7 +58,7 @@ $(function(){
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = callback;
 		
-		xhr.open("post","idCheck.do", true);
+		xhr.open("post","../idCheck.do", true);
 		
     	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -99,7 +99,7 @@ $(function(){
 		xhr2 = new XMLHttpRequest();
 		xhr2.onreadystatechange = callback2;
 		
-		xhr2.open("post","emailCheck.do", true);
+		xhr2.open("post","../emailCheck.do", true);
 		
     	xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
