@@ -25,12 +25,13 @@ public class RegisterController implements Controller {
 		String path = "";
 		
 		Customer pvo = new Customer(id, password, name, address, phoneNumber, email);
-		
+		System.out.println(pvo);
 		try {
 			if(CustomerDaoImpl.getInstance().SignUp(id, password, name, address, phoneNumber, email)) {
 				AddressDaoImpl.getInstance().addAddress(address, id);
 				request.setAttribute("success.jsp", success);
 				path = "login.jsp";
+				System.out.println("next : " + path);
 			}else {
 				request.setAttribute("registererrmsg.jsp", err); //단발성 애들
 				path = "register.jsp";
