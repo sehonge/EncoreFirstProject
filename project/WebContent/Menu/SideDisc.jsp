@@ -1,12 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/SideDisc.js"></script>
+<script type="text/javascript">
+	//사이드 가격 계산하기
+	function calc(){		
+		var amount = $("#qty").val();
+	 	console.log(amount);
+	 	
+ 	  	var side = ${side.menuPrice};
+ 	  	console.log(amount);
+ 	  	
+		if(document.getElementById('size').checked){
+	  		var cost = side*amount;
+		  	$("#cost").html(cost+"원 입니다.");
+		}else{
+		   alert("사이드 종류와 수량을 입력해주세요!");
+		}
+	};
+</script>
 <link rel="stylesheet" type="text/css" href="Menu/css/SideDisc.css">
 <link rel="shortcut icon" href="#">
 </head>
@@ -54,7 +71,7 @@
 	<div class="menu_wrap">
 		<div class="menu">
 			<ul>
-				<li><a href="PizzaMenu.do"><span>피자</span></a></li>
+				<li><a href="pizzaMenu.do"><span>피자</span></a></li>
 				<li><a href="sideMenu.do"><span>사이드/음료</span></a></li>
 				<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 			</ul>
@@ -66,7 +83,7 @@
 		<!-- 피자 이미지 -->
 		<div id="article1" class="clearfix">
 			<div class="imgcut">
-				<img alt="foodimage" src="${list.pictureUrl}">
+				<img alt="foodimage" src="${side.pictureUrl}">
 				<span>* 위 사진은 이미지컷으로 실제 제품과 다를 수 있습니다.</span>
 			</div>
 		</div>
@@ -75,56 +92,29 @@
 		<div id="article2" class="clearfix">
 			<!-- 피자 타이틀 -->
 			<div class="title">
-				<div class="name">${list.menuName}</div>
-				<p>${list.menuDesc}</p>
+				<div class="name">${side.menuName}</div>
+				<p>${side.menuDesc}</p>
 				<hr/>
 			</div>
 			
 			<!-- 주문 버튼 -->
 			<div class="size">
 				<h2 align="left" style="color: #404040; margin-bottom: 10px; padding-top: 15px;">옵션 선택</h2>
-				<label class="radio"><input type="radio" name="size" value="L" checked="checked"><span>${list.menuPrice} 원</span></label>
+				<label class="radio"><input type="radio" id="size" name="size" value="L" checked="checked" onchange="calc()"><span>${side.menuPrice}원</span></label>
 			</div>
 			
 			<!-- 수량선택 -->
 			<div class="qty">
 				<h2>수량 선택</h2>
-                <input type="number" id="qty_input" value="1" min="1" max="9">
+                <input type="number" id="qty" value="1" min="1" max="9" onchange="calc()"
+                style="width: 400px; height:50px; text-align: center; border-radius:50px; font-size: 20px;">
 			</div>
 				
-			<!-- 사이드/음료 -->
-			<div class="side">
-				<h2>사이드/음료</h2>
-				<table>
-					<thead>
-						<tr>
-							<th><img alt="foodimage" src="img/tomato_spaghetti.jpg"></th>
-							<th><img alt="foodimage" src="img/cream_spaghetti.jpg"></th>
-							<th><img alt="foodimage" src="img/garlic_wing.jpg"></th>
-							<th><img alt="foodimage" src="img/corn.jpg"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>토마토파스타</td>
-							<td>크림파스타</td>
-							<td>갈릭&허브 윙스</td>
-							<td>코운슬로</td>
-						</tr>
-						<tr>
-							<td>8,900원</td>
-							<td>8,900원</td>
-							<td>8,900원</td>
-							<td>2,400원</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 			
 			<!-- 결제 -->
-			<div class="c">
+			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
-					<span class="cost"><span class="costall">총 금액</span>${list.menuPrice} 원</span>
+					<span class="costall">총 금액</span><span id="cost">${side.menuPrice}원 입니다.</span>
 					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>

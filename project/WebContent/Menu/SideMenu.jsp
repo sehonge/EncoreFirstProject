@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +67,6 @@
 				</div>
 			</div>
 			
-			
 			<!-- 콘텐츠 -->
 			<article id="article" style="width: 1700px;	margin: 0 auto;">
 				<div class="food">
@@ -76,11 +75,6 @@
 							<li>
 								<div class="food_img"><a href="sideDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
 								<div class="food_name">${list.menuName}</div>
-								<div class="food_price">
-									<span class="price">
-										${list.menuPrice}원~
-									</span>
-								</div>
 							</li>	
 						</c:forEach>
 					</ul>

@@ -1,12 +1,11 @@
-<%@page import="jdk.internal.misc.FileSystemOption"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="shortcut icon" href="#">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -26,7 +25,11 @@
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
 			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+<<<<<<< HEAD
+			<li><a href="register.jsp">회원가입</a></li>
+=======
 			<li><a href="Main/register.jsp">회원가입</a></li>
+>>>>>>> 546fd7a45f948a9c593c226bbfb0086306855ecf
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
@@ -46,7 +49,11 @@
 		          <li><a href="Index.jsp">Home</a></li>
 		          <li><a href="pizzaMenu.do">메뉴</a></li>
 		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+<<<<<<< HEAD
+		          <li><a href="register.jsp">회원가입</a></li>
+=======
 		          <li><a href="Main/register.jsp">회원가입</a></li>
+>>>>>>> 546fd7a45f948a9c593c226bbfb0086306855ecf
 		          <li><a href="#">장바구니</a></li>
 		     </ul>
 		</div>
@@ -62,7 +69,7 @@
 			<div class="menu_nav_wrap">
 				<div class="menu-nav">
 					<ul>
-						<li><a href="PizzaMenu.do"><span>피자</span></a></li>
+						<li><a href="pizzaMenu.do"><span>피자</span></a></li>
 						<li><a href="sideMenu.do"><span>사이드/음료</span></a></li>
 						<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 					</ul>
@@ -73,16 +80,11 @@
 			<!-- 콘텐츠 -->
 			<article id="article" style="width: 1700px;	margin: 0 auto;">
 				<div class="food">
-					<ul>		
-						<c:forEach items="${list}" var="list">
+					<ul>
+						<c:forEach items="${list}" var="list" varStatus="vs" step="2">
 							<li>
 								<div class="food_img"><a href="pizzaDisc.do?menuId=${list.menuId}"><img alt="foodimage" src="${list.pictureUrl}"></a></div>
 								<div class="food_name">${list.menuName}</div>
-								<div class="food_price">
-									<span class="price">
-										${list.menuPrice}원~
-									</span>
-								</div>
 							</li>	
 						</c:forEach>
 					</ul>
