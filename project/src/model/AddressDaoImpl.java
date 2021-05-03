@@ -36,7 +36,7 @@ private DataSource ds;
 	}	
 
 	public Connection getConnection() throws SQLException {
-		System.out.println("?��비연�?...");
+		System.out.println("connecting...");
 		
 		//return DriverManager.getConnection(ServerInfo.URL, ServerInfo.USER, ServerInfo.PASS);
 		return ds.getConnection();

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.AddressDaoImpl;
 import model.Customer;
 import model.CustomerDaoImpl;
 
@@ -26,8 +27,8 @@ public class RegisterController implements Controller {
 		Customer pvo = new Customer(id, password, name, address, phoneNumber, email);
 		
 		try {
-			HttpSession session =request.getSession();
 			if(CustomerDaoImpl.getInstance().SignUp(id, password, name, address, phoneNumber, email)) {
+				AddressDaoImpl.getInstance().addAddress(address, id);
 				request.setAttribute("success.jsp", success);
 				path = "login.jsp";
 			}else {
