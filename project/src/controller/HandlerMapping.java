@@ -38,6 +38,8 @@ public class HandlerMapping {
 			controller = new EmailCheckController();
 		}else if(command.equals("sideDisc.do")) {
 			controller = new SideDiscController();
+		}else if(command.equals("customMenu.do")) {
+			controller = new CustomPizzaController();
 		}
 		
 		

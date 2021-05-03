@@ -89,10 +89,13 @@ $(function(){
 </head>
 <style type="text/css">
 @import url("css/header.css");
+
 @import url("css/columns.css");
-@import url("css/hamburger.css");
+
 @import url("css/sidebar.css");
+
 @import url("css/footer.css");
+
 @import url("css/mypage.css");
 
 
@@ -113,27 +116,6 @@ $(function(){
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
-		<div class="menu_btn"><a href="#">       
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
-        </a>
-        </div>
-
-
-		<div class="menu_bg"></div>
-		<div class="sidebar_menu">
-    	<div class="close_btn"><a href="#">       
-         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
-         </a>
-		     </div>
-		     <ul class="menu_wrap">
-		          <li><a href="Index.jsp">Home</a></li>
-		          <li><a href="pizzamenu.do">메뉴</a></li>
-		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		          <li><a href="register.jsp">회원가입</a></li>
-		          <li><a href="#">장바구니</a></li>
-		     </ul>
-		</div>
-
 
 		
 		
@@ -162,19 +144,22 @@ $(function(){
 					<li><a href="#"> 장바구니 </a></li>
 					<li><a href="pizzamenu.do"> 메뉴 </a></li>
 				</ul>
+				
 			</div>			
 			
 			<div class="wrap1">
 				<ul>
-					<li><h4><span id="menu2"> 주문내역 및 장바구니 </span></h4></li>
-				<li>아아</li>
-				<li>유유</li>				
-				<li>${rvo.custId}</li>
-				<li>${rvo.custpw}</li>
-				<li>${rvo.custname}</li>
-				<li>${rvo.custaddr}</li>
-				<li>${rvo.custcontact}</li>
-				<li>${rvo.custemail}</li>
+					<li><h4><span id="menu2"><i class="fas fa-pizza-slice"></i> 마이페이지 </span></h4></li>
+					<li>아이디 : ${rvo.custId}</li>
+					<li>이름 : ${rvo.custName}</li>
+					<li>주소 : ${rvo.custAddr}</li>
+					<li>연락처 : ${rvo.custContact}</li>
+					<li>이메일 : ${rvo.custEmail}</li>
+				</ul>
+				
+				<ul>
+					<li><h4><span id="menu3"> 주문내역 및 장바구니 </span></h4></li>
+					
 					
 				</ul>
 			</div>
@@ -183,9 +168,7 @@ $(function(){
 	
 	<div class ="columns2">
 		<div class ="wrap2">
-			<ul>
-				<li><h4><span id="menu3"> 마이페이지 </span></h4></li>
-			</ul>
+		
 		</div>
 	
 	

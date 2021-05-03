@@ -21,23 +21,6 @@
 <script src="js/index.js" defer></script>
 <script type="text/javascript">
 $(function(){
-	$('.menu_btn').click(function(ev){
-		
-	    $('.menu_bg').show(); 
-	    $('.sidebar_menu').show().animate({
-				 right:0 
-	   });
-
-		 $('.close_btn>a').on('click', function(){
-	         $('.menu_bg').hide(); 
-	         $('.sidebar_menu').animate({
-	             right: '-' + 50 + '%'},function(){
-	             	$('.sidebar_menu').hide(); 
-	             }); 
-	                     });
-	    
-
-	}); //click
 	
 	$(window).scroll(function(){
 		var scrollTop = $(document).scrollTop();
@@ -66,7 +49,7 @@ $(function(){
 		resultView = document.getElementById("idCheckResult");
 		
 		if (!pattern.test(custId)) {
-			resultView.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자를 입력해야합니다. </font>"
+			resultView.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자, 영문의 조합 입니다. </font>"
 			
 			
 			return;
@@ -93,7 +76,7 @@ $(function(){
 				resultView = document.getElementById("idCheckResult");
 
 				if(flag == 'true') {
-					resultView.innerHTML = "<font color = #D88019><b> 이미 존재하는 ID입니다. </b></font>";
+					resultView.innerHTML = "<font color = red><b> 이미 존재하는 ID입니다. </b></font>";
 					
 				}else {
 					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
@@ -110,15 +93,40 @@ $(function(){
 function passCheck() {
 	//비밀번호가 일치하지 않으면 페이지 이동 안되도록...
 	//메세지 띄워주고
+	
+	var resultView;
 	var f = document.registerFrm;
 	if(f.password.value != f.repassword.value){
-		alert("비밀번호가 일치하지 않습니다");
-		f.repassword.value="";
+		resultView = document.getElementById("passCheckResult");		
 		f.repassword.focus();
+		resultView.innerHTML="<font color = red><b> 비밀번호를 확인해주세요. </b></font>";
 		return false;
 	}
+	else {
+		resultView = document.getElementById("passCheckResult");
+		resultView.innerHTML="<font color = #00E200><b> 두 비밀번호가 동일합니다.</b></font>";
+	}
+	
 }
 
+function phoneCheck(){
+	var pattern= /[0-9]{3}-[0-9]{4}-[0-9]{3}/;
+	var custPhone = document.registerFrm.custNumber.value;
+	var resultView;
+	
+	
+	if (!pattern.test(custPhone)) {
+		resultView = document.getElementById("phoneCheckResult");
+		resultView.innerHTML = "<font color = red><b> 올바른 전화번호 양식을 입력해주세요! </b></font>";
+		return;
+	
+	}
+	else{
+		resultView = document.getElementById("phoneCheckResult");
+		resultView.innerHTML = "<font color = #00E200><b> 올바른 전화번호 양식입니다. </b></font>";
+	} 
+		
+}
 
 	
 	
@@ -129,9 +137,11 @@ function passCheck() {
 </head>
 <style type="text/css">
 @import url("css/header.css");
-@import url("css/hamburger.css");
+
 @import url("css/sidebar.css");
+
 @import url("css/registerBody.css");
+
 @import url("css/footer.css");
 
 </style>
@@ -149,37 +159,13 @@ function passCheck() {
 			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
-		</ul>
-		
-		<div class="menu_btn"><a href="#">       
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
-        </a>
-        </div>
-
-
-		<div class="menu_bg"></div>
-		<div class="sidebar_menu">
-    	<div class="close_btn"><a href="#">       
-         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
-         </a>
-		     </div>
-		     <ul class="menu_wrap">
-		          <li><a href="Index.jsp">Home</a></li>
-		          <li><a href="../pizzaMenu.do">메뉴</a></li>
-		          <li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		          <li><a href="register.jsp">회원가입</a></li>
-		          <li><a href="#">장바구니</a></li>
-		     </ul>
-		</div>
-
-
-		
+		</ul>	
 		
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
 		</a>
 	</nav>
-	
+			
 	 <div id="quick">
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
@@ -200,7 +186,7 @@ function passCheck() {
 				</ul>
 			</div>
 		
-		<form action="register.do" class="registerFrm" name="registerFrm">
+		<form action="../register.do" class="registerFrm" name="registerFrm">
 			<div class="logo">
 				<h1><i class="fas fa-pizza-slice"></i> 8자피자 회원가입</h1>
 			</div>
@@ -211,8 +197,7 @@ function passCheck() {
 						</h3>
 						<span class="id_box">
 							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
-							<input type="button" value="ID Check" id="checkButton" onclick="startRequest()">
-							
+							<input type="button" value="중복확인" id="checkButton" onclick="startRequest()">
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>
@@ -222,10 +207,10 @@ function passCheck() {
 							<label for="password"> 비밀번호, 비밀번호 확인 </label>
 						</h3>
 						<span class="pass_box">
-							<input type="password" id="password" name="password" maxlength="20" required>
-							<input type="password" id="repassword" name="repassword" maxlength="20" placeholder="비밀번호 확인" required>
+							<input type="password" id="password" name="password" maxlength="20"required>
+							<input type="password" id="repassword" name="repassword" maxlength="20" placeholder="비밀번호 확인" onkeyup="passCheck()" required>
 						</span>
-						<span class="error_next_box"></span>
+						<div id="passCheckResult"></div>		
 					</div>
 					
 					<div>
@@ -252,8 +237,9 @@ function passCheck() {
 	 						<label for="phoneNo">휴대전화 (-까지 입력해주세요.)</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="11" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}" required>
+	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="custNumber" onkeyup="phoneCheck()" required>
 	 					</span>
+	 					<div id="phoneCheckResult"></div>
 	 				</div>
 	 				
 	 				<div>

@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <script>
-	alert("ID를 한번 다시 확인해주세요!")
+	alert("정보를 한번 다시 확인해주세요!")
 	location.href="login.jsp";
+	
+	
 </script>
 <title>login error!</title>
 </head>

@@ -15,6 +15,9 @@
 	display : flex;
 	height : 30%;
 	justify-content: center;
+	background : linear-gradient(-45deg, #23A6D5,lightgray);
+	background-size : 400% 400%;
+	
 	
 }
 
@@ -37,6 +40,9 @@
 	height : 30%;
 	display : flex;
 	justify-content: center;
+	background : linear-gradient(-90deg, #23A6D5,lightgray);
+	background-size : 400% 400%;
+	
 	
 }
 
@@ -56,6 +62,7 @@
 	justify-content: center;
 	background: linear-gradient(to top,  white, lightgray);
 	white-space: nowrap;
+
 	
 }
 
