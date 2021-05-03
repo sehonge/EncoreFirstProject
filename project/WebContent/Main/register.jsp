@@ -38,7 +38,7 @@ $(function(){
 // 비동기
 	var xhr;
 	var resultView;
-	var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{4,}$/;
+	var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d$@$!%*#?&]{4,}$/;
 	// 시작/^(영어)(숫자)(특수문자)/끝 
 	// (?=. 뒤따라오나요? 
 	// [A-Za-z\d$@$!%*#?&] 중 하나를 {몇개 이상?}
@@ -46,47 +46,23 @@ $(function(){
 	function startRequest() {
 		var custId = document.registerFrm.custId.value; 
 		// alert(custId);
-		resultView = document.getElementById("idCheckResult");
+		
+		resultView2 = document.getElementById("idCheckResult2");
 		
 		if (!pattern.test(custId)) {
-			resultView.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자, 영문의 조합 입니다. </font>"
-			
-			
+			resultView2.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자, 영문의 조합 입니다. </font>"
 			return;
+		} else{
+			resultView2.innerHTML = "<font color = #00E200> 중복을 확인해주세요. </font>"
+			
 		}
-		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = callback;
-		
-		xhr.open("post","../idCheck.do", true);
-		
-    	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-		xhr.send("custId="+custId); // Parameter 명 정하기.
+		
 		
 	} /// request 
 	
 	
-	function callback (){
-		if(xhr.readyState == 4 ){
-			if ( xhr.status == 200 ){
-				var flag = xhr.responseText; // String 으로 넘어온다는거.
-				
-				resultView = document.getElementById("idCheckResult");
-
-				if(flag == 'true') {
-					resultView.innerHTML = "<font color = red><b> 이미 존재하는 ID입니다. </b></font>";
-					
-				}else {
-					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
-				}
-				
-				
-				
-			}
-		}
-		
-	} // callback
+	
 	
 	
 	
@@ -169,6 +145,42 @@ function phoneCheck(){
 } // phoneCheck
 
 
+// 중복확인 
+function IdCheck() {
+	
+	var custId = document.registerFrm.custId.value; 
+	
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = callback;
+	
+	xhr.open("post","idCheck.do", true);
+	
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+
+	xhr.send("custId="+custId); // Parameter 명 정하기.
+	
+}
+function callback (){
+	if(xhr.readyState == 4 ){
+		if ( xhr.status == 200 ){
+			var flag = xhr.responseText; // String 으로 넘어온다는거.
+			
+			resultView = document.getElementById("idCheckResult");
+
+			if(flag == 'true') {
+				resultView.innerHTML = "<font color = red><b> 이미 존재하는 ID입니다. </b></font>";
+				
+			}else {
+				resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
+			}
+			
+			
+			
+		}
+	}
+	
+} // callback
+
 
 	
 	
@@ -239,7 +251,8 @@ function phoneCheck(){
 						</h3>
 						<span class="id_box">
 							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
-							<input type="button" value="중복확인" id="checkButton" onclick="startRequest()">
+							<span id="idCheckResult2"></span>
+							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>
