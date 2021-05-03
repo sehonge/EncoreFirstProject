@@ -52,7 +52,8 @@ ORDER_ADDR VARCHAR(100) NOT NULL,
 ORDER_PRICE int NOT NULL,
 primary KEY (ORDER_ID),
 foreign key (CUST_ID) references CUSTOMER(CUST_ID) ON DELETE cascade,
-foreign key (SHOP_ID) references SHOP(SHOP_ID) ON DELETE  cascade
+foreign key (SHOP_ID) references SHOP(SHOP_ID) ON DELETE  cascade,
+foreign key (ORDER_ADDR) references ADDRESS(ORDER_ADDR) ON DELETE  cascade
 );
 ​
 CREATE TABLE ORDER_DESC(
@@ -61,6 +62,13 @@ MENU_ID VARCHAR(10) NOT NULL,
 NUM INT NOT NULL,
 foreign key (ORDER_ID) references TB_ORDER(ORDER_ID) ON DELETE cascade,
 foreign key (MENU_ID) references MENU(MENU_ID) ON DELETE  cascade
+);
+
+CREATE TABLE ADDRESS(
+ORDER_ADDR VARCHAR(100) NOT NULL,
+CUST_ID VARCHAR(20) NOT NULL,
+primary KEY (ORDER_ADDR),
+foreign key (CUST_ID) references CUSTOMER(CUST_ID) ON DELETE cascade
 );
 ​
 ​

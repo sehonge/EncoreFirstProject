@@ -21,9 +21,9 @@ public class CustomerDaoImpl implements CustomerDao{
 		/*
 		try {
 			Class.forName(ServerInfo.DRIVER_NAME);
-			System.out.println("?��?��?���? 로딩 ?���?");
+			System.out.println("DB Loading Success");
 		} catch (ClassNotFoundException e) {
-			System.out.print("?��?��?���? 로딩 ?��?�� ");
+			System.out.print("DB Loading Failed");
 			System.out.println(e);
 		}
 		*/
