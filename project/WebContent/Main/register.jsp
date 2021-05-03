@@ -153,7 +153,7 @@ function IdCheck() {
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
 	
-	xhr.open("post","idCheck.do", true);
+	xhr.open("post","../idCheck.do", true);
 	
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -250,9 +250,10 @@ function callback (){
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
-							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
+							<input type="text" id="custId" name="custId" maxlength="16" onkeyup="startRequest()" required>
+							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">	
 							<span id="idCheckResult2"></span>
-							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">
+							
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>
@@ -273,7 +274,7 @@ function callback (){
 							<label for="name">이름</label>
 						</h3>
 						<span class="name_box">
-							<input type="text" id="name" maxlength="20">
+							<input type="text" id="name" name="name" maxlength="20">
 						</span>
 						<span class="error_next_box"></span>
 					</div>
@@ -283,7 +284,7 @@ function callback (){
 	 						<label for="address">주소</label>
 	 					</h3>
 	 					<span>
-	 						<input type="text">
+	 						<input type="text" id="address" name="address">
 	 					</span>
 	 				</div>
 	 				
@@ -292,7 +293,7 @@ function callback (){
 	 						<label for="phoneNo">휴대전화 (-까지 입력해주세요.)</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="custNumber" onkeyup="phoneCheck()" required>
+	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="mobile" onkeyup="phoneCheck()" required>
 	 					</span>
 	 					<div id="phoneCheckResult"></div>
 	 				</div>

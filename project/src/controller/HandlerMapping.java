@@ -42,7 +42,7 @@ public class HandlerMapping {
 			controller = new BasketController();
 		}else if(command.equals("pickUpAddress.co")) {
 			controller = new PickupController();
-		}else if(command.equals("register.co")) {
+		}else if(command.equals("register.do")) {
 			controller = new RegisterController();
 		}
 		
