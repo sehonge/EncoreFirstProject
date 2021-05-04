@@ -86,8 +86,8 @@ $(function(){
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="pizzamenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
@@ -105,8 +105,8 @@ $(function(){
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
 	 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+	 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+	 	<li><a href="../showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
 	 </div>
 	
@@ -116,23 +116,9 @@ $(function(){
 	</div>
 	
 	
-	<div class="columns">
-		<div class="menu">
-				<ul><br>
-					<li><h4><span id="menu1">회원 공간</span></h4></li>
-					<li><a href="login.jsp"> 로그인 </a></li>
-					<li><a href="register.jsp"> 회원가입 </a></li>
-					<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a>
-					<li><a href="findId.jsp"> 아이디 찾기 </a></li>
-					<li><a href="findPw.jsp"> PW 찾기 </a></li>
-					<li><a href="updateInfo.jsp"> 회원정보수정 </a></li>
-				</ul>
-			</div>
-			
-	  	<form action="login.do" class="wrap" name="loginFrm">
-	  	
+	<div class="columns">			
+	  	<form action="../login.do" class="wrap" name="loginFrm">
 	        <div class="login">
-	         
 	            <div class="login_id">
 	            	<br><br>
 	                <h4>ID</h4>

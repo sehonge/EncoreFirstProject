@@ -56,6 +56,7 @@ $(function(){
 			resultView2.innerHTML = "<font color = #00E200> 중복을 확인해주세요. </font>"
 			
 		}
+
 		
 		
 	} /// request 
@@ -74,7 +75,7 @@ $(function(){
 		xhr2 = new XMLHttpRequest();
 		xhr2.onreadystatechange = callback2;
 		
-		xhr2.open("post","emailCheck.do", true);
+		xhr2.open("post","../emailCheck.do", true);
 		
     	xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -152,7 +153,7 @@ function IdCheck() {
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
 	
-	xhr.open("post","idCheck.do", true);
+	xhr.open("post","../idCheck.do", true);
 	
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -208,8 +209,8 @@ function callback (){
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="pizzamenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>	
@@ -223,8 +224,8 @@ function callback (){
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
 	 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+	 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+	 	<li><a href="../showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
 	 </div>
 	
@@ -239,7 +240,7 @@ function callback (){
 				</ul>
 			</div>
 		
-		<form action="register.do" class="registerFrm" name="registerFrm">
+		<form action="../register.do" class="registerFrm" name="registerFrm">
 			<div class="logo">
 				<h1><i class="fas fa-pizza-slice"></i> 8자피자 회원가입</h1>
 			</div>
@@ -249,9 +250,16 @@ function callback (){
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
+<<<<<<< HEAD
 							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
 							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">
 							<span id="idCheckResult2"></span>
+=======
+							<input type="text" id="custId" name="custId" maxlength="16" onkeyup="startRequest()" required>
+							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">	
+							<span id="idCheckResult2"></span>
+							
+>>>>>>> upstream/main
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>
@@ -272,7 +280,7 @@ function callback (){
 							<label for="name">이름</label>
 						</h3>
 						<span class="name_box">
-							<input type="text" id="name" maxlength="20">
+							<input type="text" id="name" name="name" maxlength="20">
 						</span>
 						<span class="error_next_box"></span>
 					</div>
@@ -282,7 +290,7 @@ function callback (){
 	 						<label for="address">주소</label>
 	 					</h3>
 	 					<span>
-	 						<input type="text">
+	 						<input type="text" id="address" name="address">
 	 					</span>
 	 				</div>
 	 				
@@ -291,7 +299,7 @@ function callback (){
 	 						<label for="phoneNo">휴대전화 (-까지 입력해주세요.)</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="custNumber" onkeyup="phoneCheck()" required>
+	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="mobile" onkeyup="phoneCheck()" required>
 	 					</span>
 	 					<div id="phoneCheckResult"></div>
 	 				</div>

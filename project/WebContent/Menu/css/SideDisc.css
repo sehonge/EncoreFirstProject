@@ -236,22 +236,21 @@ body{
 	    color: #ec4a4f;
 	    font-weight: bold;
 	    font-size: 21px;
-	    width: 170px;
-	    border-radius: 15px;
+	    width: 325px;
+	    border-radius: 30px;
 	    text-transform: uppercase;
 	}
 	
 	label.radio input:checked+span {
-   	    border-radius: 15px;
+   	    border-radius: 30px;
 	    border-color: #ec4a4f;
 	    background-color: #ec4a4f;
-	    width: 170px;
+	    width: 325px;
    	    font-weight: bold;
 	    font-size: 21px;
 	    color: #fff
 	}
 	
-
 
     <!-- 수량선택 -->
 	#article2 .qty {
@@ -259,47 +258,22 @@ body{
     } 
 	
     #article2 .qty input{
-    	width: 400px;
+    	width: 325px;
     	height: 20px;
     	font-size: 18px;
     	border-radius: 7px;
     	text-align: center;
     }
+
     
-    <!-- 사이드 음료 -->
-    #article2 .side{}
-	#article2 .side table{
-		margin-left: auto; 
-		margin-right: auto; 
-		display: inline-block;
-	 	width: 130px;
-	 	text-align: center;
-	 	border-spacing: 7px;
-	 	padding-bottom: 20px;
-	 	<!-- table-layout: fixed; 테이블 >= 이미지 크기 -->
-	 }
-	 
-    #article2 .side table img{
-    	text-align: center;
-    	width: 130px; <!-- max-width: 100%; 테이블 사이즈에 이미지 맞추기 -->
+    
+    <!-- 담기 버튼 -->  
+    .c{
+   		padding-top: 50px;
     }
-    
-    #article2 .side th{
-    	width: 130px;
-    	height: 50px;
-    }
-    
-	#article2 .side td{
-		text-align: center;
-	}
-    
-    
-    <!-- 담기 버튼 -->
-    #article2 .c .cost_box{
-   		width: 550px; 
-   		height: 74px; 
-   		inline-height: 74px; 
-   		background-color: #f9f9f9;
+     
+    #article2 .c .cost_box{ 	
+  		width: 550px; height: 74px; background-color: #f9f9f9;
     }
     
      #article2 .c .cost_box .costall{
@@ -333,10 +307,10 @@ body{
 	}
 	
 	#article2 .c .cost_box a span{
-	  
-	  font-size: 18px;
+	  font-size: 20px;
 	  font-weight: bold;
 	}
+	 
 	 
    	 
    	 

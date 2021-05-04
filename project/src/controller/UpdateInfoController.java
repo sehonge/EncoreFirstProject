@@ -11,6 +11,7 @@ public class UpdateInfoController implements Controller{
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+<<<<<<< HEAD
 		// String id = request.getParameter("id");
 		HttpSession session1  = request.getSession();
 		// System.out.println(session1.getAttribute("rvo"));
@@ -19,10 +20,17 @@ public class UpdateInfoController implements Controller{
 		String id = cs.getCustId();
 		System.out.println("ID는 "+id);
 		
+=======
+		HttpSession session = request.getSession();
+		Customer cs = (Customer) session.getAttribute("rvo");
+
+		String id = cs.getCustId();
+>>>>>>> upstream/main
 		String pw = cs.getCustPw();
 		String name = cs.getCustName();
 		String address = request.getParameter("address");
 		String contact = request.getParameter("contact");
+<<<<<<< HEAD
 		String email =  cs.getCustEmail();
 		
 		//2.
@@ -37,11 +45,25 @@ public class UpdateInfoController implements Controller{
 			
 			if(session.getAttribute("rvo")!=null) {
 				session.setAttribute("rvo", pvo);
+=======
+		String email = cs.getCustEmail();
+
+		// 2.
+		Customer pvo = new Customer(id, pw, name, address, contact, email);
+
+		String path = "updateInfo.jsp"; // 기본 path
+		try {
+			CustomerDaoImpl.getInstance().updateInfo(pvo);
+			session = request.getSession();
+
+			if (session.getAttribute("vo") != null) {
+				session.setAttribute("vo", pvo);
+>>>>>>> upstream/main
 				System.out.println(pvo);
 				path = "Mypage.jsp"; // 이동할 path
 			}
-		}catch(Exception e) {
-			
+		} catch (Exception e) {
+
 		}
 		return new ModelAndView(path , true);
 	}
