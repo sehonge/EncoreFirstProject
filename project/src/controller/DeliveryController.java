@@ -21,10 +21,13 @@ public class DeliveryController implements Controller{
 		@Override
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
-			ArrayList<String> list = AddressDaoImpl.getInstance().showAllAddress(null);
+			String custId = request.getParameter("custId"); 
+			System.out.println(custId);
+			
+			ArrayList<String> list = AddressDaoImpl.getInstance().showAllAddress(custId);
 			request.setAttribute("list", list);
 			
-			return new ModelAndView("delivery.jsp"); 
+			return new ModelAndView("delivery.jsp");
 			
 		}
 }

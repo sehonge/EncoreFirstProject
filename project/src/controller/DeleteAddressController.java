@@ -17,11 +17,13 @@ public class DeleteAddressController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String address = request.getParameter("address");
+		String custId = request.getParameter("custId"); 
+		System.out.println(address + " " + custId);
 		
 		try {
-		boolean del = AddressDaoImpl.getInstance().deleteAddress(null, null);
+		boolean del = AddressDaoImpl.getInstance().deleteAddress(address, custId);
 		
-		ArrayList<String> list = AddressDaoImpl.getInstance().showAllAddress(null);
+		ArrayList<String> list = AddressDaoImpl.getInstance().showAllAddress(custId);
 		request.setAttribute("list", list);
 		
 	} catch (SQLException e) {

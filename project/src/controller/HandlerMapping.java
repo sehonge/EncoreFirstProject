@@ -48,6 +48,8 @@ public class HandlerMapping {
 			controller = new DeleteAddressController();
 		}else if(command.equals("addAddress.do")) {
 			controller = new AddAddressController();
+		}else if(command.equals("addressDisc.do")) {
+			controller = new AddressDiscController();
 		}
 		
 		
