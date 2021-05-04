@@ -5,6 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -57,7 +63,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 	@Override
-	public boolean makeOrder(ArrayList<Menu> list, Customer customer, Shop shop) throws SQLException {
+	public boolean makeOrder(ArrayList<Menu> list, String customerId, String address, int shopId) throws SQLException {
 		
 		boolean flag = false;
 		Connection conn = null;
@@ -65,6 +71,7 @@ public class OrderDaoImpl implements OrderDao {
 		int totalPrice = 0;
 		HashMap<String, Integer> orderList = new HashMap<String, Integer>();
 		int orderIndex = -1;
+		LocalDateTime time = null;
 		ResultSet rs = null;
 		
 		try {
@@ -78,13 +85,15 @@ public class OrderDaoImpl implements OrderDao {
 				else orderList.put(menuId, 1);
 			}
 			
-			String query = "INSERT INTO tb_order (CUST_ID, SHOP_ID, ORDER_ADDR, ORDER_PRICE) VALUES(?, ?, ?, ?)";
+			String query = "INSERT INTO tb_order (CUST_ID, SHOP_ID, ORDER_DATE, ORDER_ADDR, ORDER_PRICE) VALUES(?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query);
+			time = LocalDateTime.now();
 			
-			ps.setString(1, customer.getCustId());
-			ps.setInt(2, shop.getShopId());
-			ps.setString(3, customer.getCustAddr());
-			ps.setInt(4, totalPrice);
+			ps.setString(1, customerId);
+			ps.setInt(2, shopId);
+			ps.setString(3, time.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+			ps.setString(4, address);
+			ps.setInt(5, totalPrice);
 			
 			ps.executeUpdate();
 			
@@ -112,7 +121,7 @@ public class OrderDaoImpl implements OrderDao {
 			String key = iter.next();
 			order_desc(key, orderList.get(key), orderIndex);
 		}
-		spendMoney(customer.getCustId(), totalPrice);
+		spendMoney(customerId, totalPrice);
 		
 		return flag;
 	}
@@ -193,17 +202,18 @@ public class OrderDaoImpl implements OrderDao {
 		OrderDaoImpl test = new OrderDaoImpl();
 		
 		ArrayList<Menu> arr = new ArrayList<Menu>();
-		arr.add(MenuDaoImpl.getInstance().getPizza("P001-L"));
-		arr.add(MenuDaoImpl.getInstance().getPizza("P002-R"));
-		arr.add(MenuDaoImpl.getInstance().getPizza("P002-R"));
+		arr.add(MenuDaoImpl.getInstance().getMenu("P001-L"));
+		arr.add(MenuDaoImpl.getInstance().getMenu("P002-R"));
+		arr.add(MenuDaoImpl.getInstance().getMenu("P002-R"));
+		arr.add(MenuDaoImpl.getInstance().getMenu("S002"));
 		
 		System.out.println(test.makeOrder(
 				arr, 
-				CustomerDaoImpl.getInstance().showCustomer("encore"), 
-				ShopDaoImpl.getInstance().showShop(2)));
+				"encore", 
+				"서울시 성동구",
+				2));
 
 	}
-
-	*/
+*/
 	
 }
