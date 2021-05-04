@@ -44,7 +44,12 @@ public class HandlerMapping {
 			controller = new DeliveryController();
 		}else if(command.equals("register.do")) {
 			controller = new RegisterController();
+		}else if(command.equals("deleteAddress.do")) {
+			controller = new DeleteAddressController();
+		}else if(command.equals("addAddress.do")) {
+			controller = new AddAddressController();
 		}
+		
 		
 		
 		return controller;
