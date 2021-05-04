@@ -82,7 +82,7 @@ $(function(){
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
-			<a href="Index.jsp">8자피자</a>
+			<a href="Main/Index.jsp">8자피자</a>
 		</div>
 		
 		<ul class="navbar__menu">

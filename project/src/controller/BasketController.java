@@ -14,7 +14,7 @@ public class BasketController implements Controller {
 		if(session.getAttribute("rvo") != null) {
 			return new ModelAndView("Order/CartView.jsp");
 		} else {
-			return new ModelAndView("Menu/login.jsp");
+			return new ModelAndView("Main/login.jsp");
 		}
 	}
 
