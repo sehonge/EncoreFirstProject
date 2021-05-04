@@ -198,7 +198,7 @@ function phoneCheck(){
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
-							<input type="text" id="id" name="id" maxlength="16" onkeyup="startRequest()" value="${rvo.custId}" disabled> ${rvo.custId}
+							<input type="text" id="id" name="id" maxlength="16" onkeyup="startRequest()" value="${rvo.custId}" disabled>
 						</span>		
 						<span class="error_next_box"></span>
 					</div>

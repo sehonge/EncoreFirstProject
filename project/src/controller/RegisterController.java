@@ -18,10 +18,8 @@ public class RegisterController implements Controller {
 		String password =  request.getParameter("password");
 		String name =  request.getParameter("name");
 		String address =  request.getParameter("address");
-		String phoneNumber =  request.getParameter("mobile");
+		String phoneNumber =  request.getParameter("custNumber");
 		String email =  request.getParameter("email");
-		String err = "registererrmsg.jsp";
-		String success = "success.jsp";
 		String path = "";
 		
 		Customer pvo = new Customer(id, password, name, address, phoneNumber, email);
@@ -29,18 +27,15 @@ public class RegisterController implements Controller {
 		try {
 			if(CustomerDaoImpl.getInstance().SignUp(id, password, name, address, phoneNumber, email)) {
 				AddressDaoImpl.getInstance().addAddress(address, id);
-				request.setAttribute("success.jsp", success);
-				path = "Main/login.jsp";
+				path = "registerResult.jsp";
 				System.out.println("next : " + path);
 			}else {
-				request.setAttribute("registererrmsg.jsp", err); //단발성 애들
-				path = "Main/register.jsp";
+				path = "registererrmsg.jsp";
             }
         } catch (SQLException e) {
-        	request.setAttribute("errmsg.jsp", err);
-        	path = "Main/register.jsp";
+        	path = "registerResult.jsp";
         }
-		return new ModelAndView(path);
+		return new ModelAndView(path, true);
 	}
 
 }
