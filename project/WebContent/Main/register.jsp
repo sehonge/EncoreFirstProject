@@ -224,8 +224,8 @@ function doAction(){
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="pizzamenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>	
@@ -239,8 +239,8 @@ function doAction(){
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
 	 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+	 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+	 	<li><a href="../showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
 	 </div>
 	
@@ -255,7 +255,7 @@ function doAction(){
 				</ul>
 			</div>
 		
-		<form action="register.do" class="registerFrm" name="registerFrm" onsubmit="return doAction();">
+		<form action="../register.do" class="registerFrm" name="registerFrm" onsubmit="return doAction();">
 			<div class="logo">
 				<h1><i class="fas fa-pizza-slice"></i> 8자피자 회원가입</h1>
 			</div>

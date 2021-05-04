@@ -18,11 +18,11 @@ public class ShowCustomerController implements Controller {
 		else {
 			System.out.println(session.getAttribute("rvo"));
 			String id = request.getParameter("id");
-			String path = "index.jsp"; // �⺻ path
+			String path = "Main/index.jsp"; // �⺻ path
 
 			try {
 				request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
-				path = "Mypage.jsp"; // 이동할 path
+				path = "Main/Mypage.jsp"; // 이동할 path
 			} catch (Exception e) {
 
 			}
