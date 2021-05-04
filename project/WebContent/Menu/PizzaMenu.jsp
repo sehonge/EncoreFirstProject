@@ -25,11 +25,7 @@
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
 			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-<<<<<<< HEAD
 			<li><a href="register.jsp">회원가입</a></li>
-=======
-			<li><a href="Main/register.jsp">회원가입</a></li>
->>>>>>> 546fd7a45f948a9c593c226bbfb0086306855ecf
 			<li><a href="#">장바구니</a></li>
 		</ul>
 		
@@ -49,11 +45,7 @@
 		          <li><a href="Index.jsp">Home</a></li>
 		          <li><a href="pizzaMenu.do">메뉴</a></li>
 		          <li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-<<<<<<< HEAD
 		          <li><a href="register.jsp">회원가입</a></li>
-=======
-		          <li><a href="Main/register.jsp">회원가입</a></li>
->>>>>>> 546fd7a45f948a9c593c226bbfb0086306855ecf
 		          <li><a href="#">장바구니</a></li>
 		     </ul>
 		</div>
@@ -61,6 +53,7 @@
 			<i class="fas fa-book-open"></i>
 		</a>
 	</nav>
+		
 		
 		<!-- contents -->
 		<section id="contents">

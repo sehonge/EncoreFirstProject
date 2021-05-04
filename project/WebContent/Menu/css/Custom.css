@@ -1,31 +1,42 @@
 @charset "UTF-8";
-<!-- header -->
-@charset "UTF-8";
+<!-- RESET -->
+*{
+	margin: 0 auto;
+	padding: 0;
+	font-size: 24px;
+	color: #fff;
+	user-select: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
+
+#wrap{
+	margin: 0 auto;
+	width: 100%;
+}
 
 <!-- header -->
 : root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
-	
-	
 }
-
-
 body{
 	margin : 0;
 	font-family: 'Sunflower', sans-serif;
+	user-select: none;
 }
-
-
 .navbar a {
 	text-decoration: none;
 	color : var(--text-color);
-	
 }
-
-
-
 .navbar{
 	display : flex; 
 	justify-content: space-between;
@@ -33,19 +44,15 @@ body{
 	background-color : lightgrey;
 	padding : 8px 24px;
 }
-
-
 .navbar__logo{
 	font-weight : bold;
 	font-size : 35px;	
-	color : white;
-	
+	color : white;	
 }
 .navbar__logo i{
 	color : #d49466;
 	
 }
-
 .navbar__menu {
 	font-size : 20px;
 	display : flex;
@@ -53,22 +60,14 @@ body{
 	padding-left : 0;
 	
 }
-
 .navbar__menu li {
-	padding : 8px 12px;
-	
+	padding : 8px 12px;	
 }
-
 .navbar__menu li:hover{
 	cursor: pointer;
 	background-color : #91F8D0;
 	border-radius: 10px;
-	
 }
-
-
-
-
 .navbar__toogleBtn {
 	display : none;
 	position : absolute;
@@ -76,22 +75,18 @@ body{
 	font-size : 24px;
 }
 
-
 @media screen and (max-width : 768px) {
 	.navbar {
 		flex-direction: column;
 		align-items: flex-start;
 		padding : 8px 24px;
-	}
-	
+	}	
 	.navbar__menu {
 		display : none;	
 		flex-direction: column;
 		align-items: center;
 		width : 100%;
-	
 	}
-	
 	.navbar__menu li {
 		width : 100%;
 		text-align : center;
@@ -101,37 +96,15 @@ body{
 		justify-content: center;
 		width : 100%;
 	}
-	
 	.navbar__toogleBtn{
 		display : block;
 	}
 	.navbar__menu.active,
 	.navbar__icons.active{
-		display : flex;
-	
+		display : flex;	
 	}	
 }
 
-
-
-
-	<!-- RESET -->
-	*{
-		margin: 0 auto;
-		padding: 0;
-		font-size: 24px;
-		color: #fff;
-	}
-	
-	a{
-		text-decoration: none;
-	}
-	
-	li{
-		list-style: none;
-	}
-	.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
-	
 	
 	<!-- 메뉴 바 -->
 	.menu_wrap{
@@ -150,6 +123,7 @@ body{
 	
 	<!-- 음식 사진 --> 
 	#section {
+		cursor: pointer;
 		margin: 0 auto;
 		width: 1400px; 
 		position: relative;
@@ -157,6 +131,7 @@ body{
 	
 	#article1{
 		width: 700px;
+		height: 700px;
 		float: left;
 		position: relative;
 		
@@ -169,11 +144,7 @@ body{
 	}
 	
 	<!--padding-inline-start: 100px; -->
-	#article1 .imgcut {display: block; text-align: left; padding-right: 50px;}
-	#article1 .imgcut img {position:relative; display: inline-block; padding-bottom: 13px; width: 700px; height: 700px;}
-	#article1 .imgcut span {font-size: 16px; color: #888888;}
-	
-
+	#article1 .imgcut {display: block; text-align: left; padding-right: 50px; width: 700px; height: 700px; padding-bottom: 13px;}
 
 	<!-- 타이틀 -->
 	#article2 .title{
@@ -251,7 +222,19 @@ body{
 	}
     
     <!-- 토핑 -->
-    #article2 .side{}
+    #draggable{
+    	cursor: move;
+    }
+    
+	.side ul {width: 600px;}
+	.side ul li {display: inline-block; margin-left: 10; width: 130px; height: 170px; padding-bottom: 25px;}
+	.side ul li:first-child {margin-left: 0;}
+	.side ul li:nth-child(4n+1) {margin-left: 0;}
+	.side ul li .side_img {width: 130px; height: 130px; line-height:120px; text-align: center;}
+	.side ul li div.side_name {text-align:center; width: 130px; height: 18px; line-height:18px; padding-bottom: 5px; padding-top: 5px;}
+	.side ul li div.side_cost {text-align:center; width: 130px; height: 18px; line-height:18px;}
+	
+    /* #article2 .side{}
 	#article2 .side table{
 		margin-left: auto; 
 		margin-right: auto; 
@@ -274,7 +257,7 @@ body{
     
 	#article2 .side td{
 		text-align: center;
-	}
+	} */
     
      <!-- 수량선택 -->
 	#article2 .qty {
@@ -282,14 +265,15 @@ body{
     } 
 	
     #article2 .qty input{
-    	margin-top: 10px;
     	width: 400px;
     	height: 20px;
     	font-size: 18px;
     	border-radius: 7px;
     	text-align: center;
-    	margin-bottom: 30px;
+    	margin-bottom: 25px;
     }
+   
+     
     
     <!-- 담기 버튼 -->
     #article2 .c .cost_box{
@@ -334,13 +318,9 @@ body{
 	  font-size: 18px;
 	  font-weight: bold;
 	}
-	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
+	
+
+
    	 
    	 
    	 
