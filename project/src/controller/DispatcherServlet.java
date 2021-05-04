@@ -32,7 +32,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String contextPath = request.getContextPath();
 		
-		String command = requestURI.substring(contextPath.length()+6);// *.do
+		String command = requestURI.substring(contextPath.length()+1);// *.do
 		System.out.println("command : " + command);
 		String path = ""; // 기본 페이지
 		ModelAndView mv = null;

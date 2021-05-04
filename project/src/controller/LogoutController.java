@@ -9,23 +9,19 @@ public class LogoutController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String path = "";
-		
-	try {
-		HttpSession session = request.getSession();
-		if(session.getAttribute("rvo") != null ) {
-			session.invalidate();
-			path = "logout.jsp";
+
+		try {
+			HttpSession session = request.getSession();
+			if (session.getAttribute("rvo") != null) {
+				session.invalidate();
+				path = "Main/logout.jsp";
+			}
+
+		} catch (Exception e) {
+
 		}
-		
-	}catch ( Exception e) {
-		
-	}
-	
-	
-	
-	
+
 		return new ModelAndView(path);
-	
 	}
 
 }

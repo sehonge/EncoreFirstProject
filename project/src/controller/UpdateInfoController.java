@@ -14,6 +14,8 @@ public class UpdateInfoController implements Controller{
 		// String id = request.getParameter("id");
 		HttpSession session1  = request.getSession();
 		// System.out.println(session1.getAttribute("rvo"));
+		request.setCharacterEncoding("UTF-8");
+		
 		Customer cs = (Customer) session1.getAttribute("rvo");
 		
 		String id = cs.getCustId();
@@ -38,7 +40,7 @@ public class UpdateInfoController implements Controller{
 			if(session.getAttribute("rvo")!=null) {
 				session.setAttribute("rvo", pvo);
 				System.out.println(pvo);
-				path = "Mypage.jsp"; // 이동할 path
+				path = "Main/Mypage.jsp"; // 이동할 path
 			}
 		}catch(Exception e) {
 			

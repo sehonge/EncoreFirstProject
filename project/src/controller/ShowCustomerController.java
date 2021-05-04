@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.CustomerDaoImpl;
 
@@ -9,19 +10,24 @@ public class ShowCustomerController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = request.getParameter("id");
 
-		String path = "index.jsp"; // �⺻ path
-		try {
-			
-			request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
+		HttpSession session = request.getSession();
 
-			path = "Mypage.jsp"; // 이동할 path
+		if (session.getAttribute("rvo") == null)
+			return new ModelAndView("Main/login.jsp", true);
+		else {
+			System.out.println(session.getAttribute("rvo"));
+			String id = request.getParameter("id");
+			String path = "index.jsp"; // �⺻ path
 
-		} catch (Exception e) {
+			try {
+				request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
+				path = "Mypage.jsp"; // 이동할 path
+			} catch (Exception e) {
 
+			}
+			return new ModelAndView(path);
 		}
-		return new ModelAndView(path);
 	}
 
 }
