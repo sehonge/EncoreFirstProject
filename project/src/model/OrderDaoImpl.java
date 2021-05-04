@@ -196,7 +196,7 @@ public class OrderDaoImpl implements OrderDao {
 		return flag;
 	}	
 		
-	
+	/*
 	public static void main(String[] args) throws SQLException {
 		
 		OrderDaoImpl test = new OrderDaoImpl();
@@ -214,6 +214,6 @@ public class OrderDaoImpl implements OrderDao {
 				2));
 
 	}
-
+*/
 	
 }
