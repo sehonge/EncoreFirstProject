@@ -42,6 +42,8 @@ public class HandlerMapping {
 			controller = new PickupController();
 		}else if(command.equals("deliveryAddress.co")) {
 			controller = new DeliveryController();
+		}else if(command.equals("register.do")) {
+			controller = new RegisterController();
 		}
 		
 		
