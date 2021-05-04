@@ -36,10 +36,8 @@ public class HandlerMapping {
 			controller = new EmailCheckController();
 		}else if(command.equals("sideDisc.do")) {
 			controller = new SideDiscController();
-<<<<<<< HEAD
 		}else if(command.equals("logout.do")) {
 			controller = new LogoutController();
-=======
 		}else if(command.equals("customMenu.do")) {
 			controller = new CustomPizzaController();
 		}else if(command.equals("basket.do")) {
@@ -48,7 +46,6 @@ public class HandlerMapping {
 			controller = new PickupController();
 		}else if(command.equals("register.do")) {
 			controller = new RegisterController();
->>>>>>> upstream/main
 		}
 		
 		

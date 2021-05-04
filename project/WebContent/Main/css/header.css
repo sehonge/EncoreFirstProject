@@ -26,7 +26,7 @@ body{
 	display : flex; 
 	justify-content: space-between;
 	align-items: center;
-	background-color : lightgrey;
+	background: linear-gradient(-150deg,lightgray, gray);
 	padding : 8px 24px;
 }
 
