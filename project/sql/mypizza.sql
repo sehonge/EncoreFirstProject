@@ -134,15 +134,11 @@ INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_
 ​
 ## 토핑 추가
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T001', 3, '새우 토핑', '3000',  '새우 토핑 입니다.', "Menu/img/shrimp.jpg"); 
+			VALUES('T001', 3, '새우 토핑', '2000',  '새우 토핑 입니다.', "Menu/img/shrimp.png"); 
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T002', 3, '옥수수 토핑', '2000', '옥수수 토핑 입니다.', "Menu/img/corn.jpg");    
+			VALUES('T002', 3, '버섯 토핑', '2000', '버섯  토핑 입니다.', "Menu/img/mushroom.png");    
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T003', 3, '베이컨 토핑', '3000', '베이컨 토핑 입니다.', "Menu/img/bacon.jpg");  
+			VALUES('T003', 3, '베이컨 토핑', '2000', '베이컨 토핑 입니다.', "Menu/img/bacon.png");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T004', 3, '랍스터 토핑', '4000', '랍스터 토핑 입니다.', "Menu/img/topping_lobster.jpg");  
-INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T005', 3, '오징어 토핑', '3000', '오징어 토핑 입니다.', "Menu/img/topping_squid.jpg");  
-INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
-			VALUES('T006', 3, '스테이크 토핑', '4000', '스테이크 토핑 입니다.', "Menu/img/topping_stake.jpg");  
+			VALUES('T004', 3, '스테이크 토핑', '2000', '스테이크 토핑 입니다.', "Menu/img/stake.png");  
 		
