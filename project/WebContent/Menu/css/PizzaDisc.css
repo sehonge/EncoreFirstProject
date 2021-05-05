@@ -1,31 +1,43 @@
 @charset "UTF-8";
-<!-- header -->
-@charset "UTF-8";
+<!-- RESET -->
+*{
+	margin: 0 auto;
+	padding: 0;
+	font-size: 24px;
+	color: #fff;
+	user-select: none;
+	/*마우스드레그 막으려면 body에도 넣어주기!!*/
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
+
+#wrap{
+	margin: 0 auto;
+	width: 100%;
+}
 
 <!-- header -->
 : root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
-	
-	
 }
-
-
 body{
 	margin : 0;
 	font-family: 'Sunflower', sans-serif;
+	user-select: none;
 }
-
-
 .navbar a {
 	text-decoration: none;
 	color : var(--text-color);
-	
 }
-
-
-
 .navbar{
 	display : flex; 
 	justify-content: space-between;
@@ -33,19 +45,15 @@ body{
 	background-color : lightgrey;
 	padding : 8px 24px;
 }
-
-
 .navbar__logo{
 	font-weight : bold;
 	font-size : 35px;	
-	color : white;
-	
+	color : white;	
 }
 .navbar__logo i{
 	color : #d49466;
 	
 }
-
 .navbar__menu {
 	font-size : 20px;
 	display : flex;
@@ -53,22 +61,14 @@ body{
 	padding-left : 0;
 	
 }
-
 .navbar__menu li {
-	padding : 8px 12px;
-	
+	padding : 8px 12px;	
 }
-
 .navbar__menu li:hover{
 	cursor: pointer;
 	background-color : #91F8D0;
 	border-radius: 10px;
-	
 }
-
-
-
-
 .navbar__toogleBtn {
 	display : none;
 	position : absolute;
@@ -76,22 +76,18 @@ body{
 	font-size : 24px;
 }
 
-
 @media screen and (max-width : 768px) {
 	.navbar {
 		flex-direction: column;
 		align-items: flex-start;
 		padding : 8px 24px;
-	}
-	
+	}	
 	.navbar__menu {
 		display : none;	
 		flex-direction: column;
 		align-items: center;
 		width : 100%;
-	
 	}
-	
 	.navbar__menu li {
 		width : 100%;
 		text-align : center;
@@ -101,37 +97,15 @@ body{
 		justify-content: center;
 		width : 100%;
 	}
-	
 	.navbar__toogleBtn{
 		display : block;
 	}
 	.navbar__menu.active,
 	.navbar__icons.active{
-		display : flex;
-	
+		display : flex;	
 	}	
 }
 
-
-
-
-	<!-- RESET -->
-	*{
-		margin: 0 auto;
-		padding: 0;
-		font-size: 24px;
-		color: #fff;
-	}
-	
-	a{
-		text-decoration: none;
-	}
-	
-	li{
-		list-style: none;
-	}
-	.clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
-	
 	
 	<!-- 메뉴 바 -->
 	.menu_wrap{
