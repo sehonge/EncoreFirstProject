@@ -1,28 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.Customer"%>
-    
-    <!--  
-    	Ajax로 (비동기)로 -- ID,email 중복체크
-    	idCheckDo?
-    	emailCheckDo? 2개다 만드!?
-    	
-     -->
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
      
-     <!-- 
+
 <c:choose>
-	<c:when test="${!empty vo}">
-		<b>${vo.name}님 로그인 성공!!</b><br>
-		<a href="index.jsp">Home...</a>
-	</c:when>
-	<c:otherwise>
+	<c:when test="${empty rvo}">
 		<script>
 			alert("로그인 부터 진행하시기 바랍니다!");
 			location.href="login.jsp";
 		</script>
-	</c:otherwise>
+	</c:when>
+	
 </c:choose>
- -->
+
  
  
      
@@ -84,7 +75,7 @@ function startRequest() {
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
 	
-	xhr.open("post","idCheck.do", true);
+	xhr.open("post","../idCheck.do", true);
 	
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -101,9 +92,11 @@ function callback (){
 
 			if(flag == 'true') {
 				resultView.innerHTML = "<font color = #D88019><b> 해당 ID 사용 불가 </b></font>";
+				alert("중복된 ID 입니다.");
 				
 			}else {
 				resultView.innerHTML = "<font color = #00E200><b> 해당 ID 사용 가능 </b></font>";
+				alert("사용 가능하신 ID입니다.");
 			}
 			
 			
@@ -112,6 +105,27 @@ function callback (){
 	}
 	
 }
+
+function phoneCheck(){
+	var pattern= /[0-9]{3}-[0-9]{4}-[0-9]{3}/;
+	var custPhone = document.registerFrm.contact.value;
+	var resultView;
+	
+	
+	if (!pattern.test(custPhone)) {
+		resultView = document.getElementById("phoneCheckResult");
+		resultView.innerHTML = "<font color = red><b> 올바른 전화번호 양식을 입력해주세요! </b></font>";
+		return;
+	
+	}
+	else{
+		resultView = document.getElementById("phoneCheckResult");
+		resultView.innerHTML = "<font color = #00E200><b> 올바른 전화번호 양식입니다. </b></font>";
+	} 
+		
+}
+
+
 
 
 </script>
@@ -140,7 +154,7 @@ function callback (){
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="pizzamenu.do">메뉴</a></li>
+			<li><a href="../pizzamenu.do">메뉴</a></li>
 			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
@@ -157,7 +171,7 @@ function callback (){
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
 	 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+	 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
 	 	<li><a href="Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
 	 </div>
@@ -174,7 +188,7 @@ function callback (){
 				</ul>
 			</div>
 		
-		<form action="update.do" class="registerFrm" name="registerFrm">
+		<form action="../updateInfo.do" class="registerFrm" name="registerFrm" method="post">
 			<div class="logo">
 				<h1><i class="fas fa-pizza-slice"></i> 회원정보수정</h1>
 			</div>
@@ -184,7 +198,7 @@ function callback (){
 							<label for="id">아이디</label>
 						</h3>
 						<span class="id_box">
-							<input type="text" id="id" maxlength="16" onkeyup="startRequest()" value="${rvo.custId}" disabled>
+							<input type="text" id="id" name="id" maxlength="16" onkeyup="startRequest()" value="${rvo.custId}" disabled>
 						</span>		
 						<span class="error_next_box"></span>
 					</div>
@@ -194,7 +208,7 @@ function callback (){
 							<label for="password"> 비밀번호, 비밀번호 확인 </label>
 						</h3>
 						<span class="pass_box">
-							<input type="password" id="password" name="password" maxlength="20" required value="${rvo.custPw}" disabled>
+							<input type="password" id="password" name="pw" maxlength="20" required value="${rvo.custPw}" disabled>
 						</span>
 					</div>
 					
@@ -203,7 +217,7 @@ function callback (){
 							<label for="name">이름</label>
 						</h3>
 						<span class="name_box">
-							<input type="text" id="name" maxlength="20" value="${rvo.custName}" disabled>
+							<input type="text" id="name" name="name" maxlength="20" value="${rvo.custName}" disabled>
 						</span>
 						<span class="error_next_box"></span>
 					</div>
@@ -213,18 +227,20 @@ function callback (){
 	 						<label for="address">주소</label>
 	 					</h3>
 	 					<span>
-	 						<input type="text" placeholder="변경하실 주소" required>
+	 						<input type="text" placeholder="변경하실 주소" name="address" required>
 	 					</span>
 	 				</div>
 	 				
-	 				<div>
+	 			<div>
 	 					<h3>
-	 						<label for="phoneNo">휴대전화</label>
+	 						<label for="phoneNo">휴대전화 (-까지 입력해주세요.)</label>
 	 					</h3>
 	 					<span class="mobile_box">
-	 						<input type="tel" id="mobile" maxlength="11" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{3}" required>
+	 						<input type="tel" id="mobile" maxlength="13" placeholder="010-0000-0000" name="contact" onkeyup="phoneCheck()" required>
 	 					</span>
+	 					<div id="phoneCheckResult"></div>
 	 				</div>
+	 				
 	 				
 	 				<div>
 	 					<h3>

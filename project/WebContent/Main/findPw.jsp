@@ -34,8 +34,9 @@ function startRequest() {
 	xhr.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded;charset=utf-8");
 
-	xhr.send("custId=" + custId);
-}
+	xhr.send("id=" + custId);
+} //startRequest
+
 
 function callback() {
 	if (xhr.readyState == 4) {
@@ -43,10 +44,15 @@ function callback() {
 			var custPw = xhr.responseText;
 			resultView = document.getElementById("passResultView");
 			resultView.innerHTML = "<font color='green'><B>"+custPw+"</b></font>";
+			if (custPw.length == "0"){
+				resultView.innerHTML = "<font color='red'><B>입력하신 ID가 존재하지 않습니다.</b></font>";
+			}
+		
 			
 		}
+
 	}
-}
+} // callback
 
 </script>
 
@@ -89,7 +95,7 @@ function callback() {
 		 <ul>
 		 	<li><h2>퀵메뉴</h2></li>
 		 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-		 	<li><a href="front.do?command=logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+		 	<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
 		 	<li><a href="Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
 		 </ul>	
 	 </div>
@@ -120,7 +126,7 @@ function callback() {
 			<div>
 				<form name="custIdForm">
 				<h3> ID를 입력해주세요 </h3>
-				<span><input type="text" placeholder="ID 입력" name="custId"></span>
+				<span><input type="text" placeholder="ID 입력" id="custId" name="custId"></span>
 				 PW찾기 <input type="button" value="click" onclick="startRequest()">
 				</form>
 			</div>

@@ -12,11 +12,9 @@ public class BasketController implements Controller {
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("rvo") != null) {
-			
-			
 			return new ModelAndView("Order/CartView.jsp");
 		} else {
-			return new ModelAndView("Menu/login.jsp");
+			return new ModelAndView("Main/login.jsp", true);
 		}
 	}
 

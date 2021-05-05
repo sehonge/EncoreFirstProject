@@ -36,9 +36,11 @@ $(function(){
 });// ready
 
 // 비동기
+	var result = true;
+	var result2 = true;
 	var xhr;
 	var resultView;
-	var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{4,}$/;
+	var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d$@$!%*#?&]{4,}$/;
 	// 시작/^(영어)(숫자)(특수문자)/끝 
 	// (?=. 뒤따라오나요? 
 	// [A-Za-z\d$@$!%*#?&] 중 하나를 {몇개 이상?}
@@ -46,40 +48,53 @@ $(function(){
 	function startRequest() {
 		var custId = document.registerFrm.custId.value; 
 		// alert(custId);
-		resultView = document.getElementById("idCheckResult");
+		
+		resultView2 = document.getElementById("idCheckResult2");
 		
 		if (!pattern.test(custId)) {
-			resultView.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자, 영문의 조합 입니다. </font>"
-			
-			
+			resultView2.innerHTML = "<font color = red> ID는 4글자 이상이며 적어도 1개 이상의 특수문자와 숫자, 영문의 조합 입니다. </font>"
 			return;
+		} else{
+			resultView2.innerHTML = "<font color = #00E200> 중복을 확인해주세요. </font>"
+			
 		}
-
 		
+		
+	} /// request 
+	
+	
+	function startRequest2() {
+		var custEmail = document.registerFrm.email.value; 
+		// alert(custId);
+		resultView = document.getElementById("idCheckResult");
+	
 		// if가 true가 아니라면 비동기 통신으로 로직을 전개.
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = callback;
+		xhr2 = new XMLHttpRequest();
+		xhr2.onreadystatechange = callback2;
 		
-		xhr.open("post","idCheck.do", true);
+		xhr2.open("post","emailCheck.do", true);
 		
-    	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    	xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-		xhr.send("custId="+custId); // Parameter 명 정하기.
-	}
+		xhr2.send("email="+custEmail); // Parameter 명 정하기.
+		
+	} /// request2
 	
 	
-	function callback (){
-		if(xhr.readyState == 4 ){
-			if ( xhr.status == 200 ){
-				var flag = xhr.responseText; // String 으로 넘어온다는거.
+	function callback2 (){
+		if(xhr2.readyState == 4 ){
+			if ( xhr2.status == 200 ){
+				var flag = xhr2.responseText; // String 으로 넘어온다는거.
 				
-				resultView = document.getElementById("idCheckResult");
+				resultView = document.getElementById("emailCheckResult");
 
 				if(flag == 'true') {
-					resultView.innerHTML = "<font color = red><b> 이미 존재하는 ID입니다. </b></font>";
+					resultView.innerHTML = "<font color = red><b> 이미 존재하는 E-Mail입니다. </b></font>";
+					result = false;
 					
 				}else {
-					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
+					resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 E-Mail입니다. </b></font>";
+					result = true;
 				}
 				
 				
@@ -87,8 +102,8 @@ $(function(){
 			}
 		}
 		
-	}
-
+	} // callback2
+		
 
 function passCheck() {
 	//비밀번호가 일치하지 않으면 페이지 이동 안되도록...
@@ -107,7 +122,7 @@ function passCheck() {
 		resultView.innerHTML="<font color = #00E200><b> 두 비밀번호가 동일합니다.</b></font>";
 	}
 	
-}
+} // passCheck
 
 function phoneCheck(){
 	var pattern= /[0-9]{3}-[0-9]{4}-[0-9]{3}/;
@@ -118,6 +133,7 @@ function phoneCheck(){
 	if (!pattern.test(custPhone)) {
 		resultView = document.getElementById("phoneCheckResult");
 		resultView.innerHTML = "<font color = red><b> 올바른 전화번호 양식을 입력해주세요! </b></font>";
+		
 		return;
 	
 	}
@@ -126,7 +142,60 @@ function phoneCheck(){
 		resultView.innerHTML = "<font color = #00E200><b> 올바른 전화번호 양식입니다. </b></font>";
 	} 
 		
+} // phoneCheck
+
+
+// 중복확인 
+function IdCheck() {
+	
+	var custId = document.registerFrm.custId.value; 
+	
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = callback;
+	
+	xhr.open("post","idCheck.do", true);
+	
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+
+	xhr.send("id="+custId); // Parameter 명 정하기.
+	
 }
+function callback (){
+	if(xhr.readyState == 4 ){
+		if ( xhr.status == 200 ){
+			var flag = xhr.responseText; // String 으로 넘어온다는거.
+			
+			resultView = document.getElementById("idCheckResult");
+
+			if(flag == 'true') {
+				resultView.innerHTML = "<font color = red><b> 이미 존재하는 ID입니다. </b></font>";
+				result2 = false;
+				
+				
+			}else {
+				resultView.innerHTML = "<font color = #00E200><b> 사용 가능하신 ID입니다. </b></font>";
+				result2 = true;
+			}
+			
+			
+			
+		}
+	}
+	
+} // callback
+
+var finalresult = false;
+
+function doAction(){
+	if (result && result2) {
+		finalresult = true;
+	}else{
+		finalresult = false;
+	}
+	
+	return finalresult;
+	
+} // register.do 로 못가게 만들어야해
 
 	
 	
@@ -186,7 +255,7 @@ function phoneCheck(){
 				</ul>
 			</div>
 		
-		<form action="../register.do" class="registerFrm" name="registerFrm">
+		<form action="../register.do" class="registerFrm" name="registerFrm" onsubmit="return doAction();">
 			<div class="logo">
 				<h1><i class="fas fa-pizza-slice"></i> 8자피자 회원가입</h1>
 			</div>
@@ -197,7 +266,8 @@ function phoneCheck(){
 						</h3>
 						<span class="id_box">
 							<input type="text" id="id" name="custId" maxlength="16" onkeyup="startRequest()" required>
-							<input type="button" value="중복확인" id="checkButton" onclick="startRequest()">
+							<input type="button" value="중복확인" id="checkButton" onclick="IdCheck()">
+							<span id="idCheckResult2"></span>
 						</span>
 						<div id="idCheckResult"></div>		
 					</div>
@@ -218,7 +288,7 @@ function phoneCheck(){
 							<label for="name">이름</label>
 						</h3>
 						<span class="name_box">
-							<input type="text" id="name" maxlength="20">
+							<input type="text" id="name" name="name" maxlength="20">
 						</span>
 						<span class="error_next_box"></span>
 					</div>
@@ -228,7 +298,7 @@ function phoneCheck(){
 	 						<label for="address">주소</label>
 	 					</h3>
 	 					<span>
-	 						<input type="text">
+	 						<input type="text" name="address">
 	 					</span>
 	 				</div>
 	 				
@@ -248,9 +318,9 @@ function phoneCheck(){
 	 					</h3>
 	 					<span class="mobile_box">
 	 						<input type="email" id="email" placeholder="E-Mail" name="email" required>
-	 						<input type="button" value="email Check" onclick="" id="checkButton">
-	 						
+	 						<input type="button" value="email Check" onclick="startRequest2()" id="checkButton">
 	 					</span>
+	 					<div id="emailCheckResult"></div>
 	 				</div>
 	 				
 	 				<div class="btn_area">

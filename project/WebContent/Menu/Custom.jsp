@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,8 +86,8 @@
 			<div class="size">
 				<h2 align="left">사이즈 선택</h2>
 				<!-- label안에 input을 넣으면 텍스트를 클릭해도 선택이 된다! -->
-				<label class="radio"><input id="L" type="radio" name="size" value="L"><span>L(+6900원)</span></label>
-				<label class="radio"><input id="M" type="radio" name="size" value="M"><span>M</span></label>
+				<label class="radio"><input id="L" type="radio" name="size" value="L"><span>L(+5900원)</span></label>
+				<label class="radio"><input id="R" type="radio" name="size" value="R"><span>R</span></label>
 			</div>
 			
 			<!-- 토핑 -->

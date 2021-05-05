@@ -28,7 +28,7 @@ public class LoginController implements Controller{
 					path = "Main/Index.jsp";
 					
 				}else {
-					path = "Main/register.jsp";
+					path = "Main/error.jsp";
 	            }
 	        } catch (SQLException e) {
 	        	path = "Main/login.jsp";

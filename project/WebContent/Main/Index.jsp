@@ -85,7 +85,7 @@ $(function(){
 		 	<li><h2>퀵메뉴</h2></li>
 		 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
 		 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-		 	<li><a href="Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
+		 	<li><a href="../showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 		 </ul>	
 	 </div>
 	

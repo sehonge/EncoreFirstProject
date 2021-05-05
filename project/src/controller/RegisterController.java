@@ -15,11 +15,11 @@ public class RegisterController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = request.getParameter("id");
+		String id = request.getParameter("custId");
 		String password =  request.getParameter("password");
 		String name =  request.getParameter("name");
 		String address =  request.getParameter("address");
-		String phoneNumber =  request.getParameter("phoneNumber");
+		String phoneNumber =  request.getParameter("custNumber");
 		String email =  request.getParameter("email");
 		String path = "";
 		PrintWriter out = response.getWriter();

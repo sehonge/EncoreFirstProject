@@ -266,36 +266,9 @@ body{
     	text-align: center;
     }
     
-    <!-- 사이드 음료 -->
-    #article2 .side{}
-	#article2 .side table{
-		margin-left: auto; 
-		margin-right: auto; 
-		display: inline-block;
-	 	width: 130px;
-	 	text-align: center;
-	 	border-spacing: 7px;
-	 	padding-bottom: 20px;
-	 	<!-- table-layout: fixed; 테이블 >= 이미지 크기 -->
-	 }
-	 
-    #article2 .side table img{
-    	text-align: center;
-    	width: 130px; <!-- max-width: 100%; 테이블 사이즈에 이미지 맞추기 -->
-    }
     
-    #article2 .side th{
-    	width: 130px;
-    	height: 50px;
-    }
-    
-	#article2 .side td{
-		text-align: center;
-	}
-    
-    
-    <!-- 담기 버튼 -->
-    #article2 .c .cost_box{
+    <!-- 담기 버튼 -->   
+    #article2 .c .cost_box{ 	
    		width: 550px; 
    		height: 74px; 
    		inline-height: 74px; 
@@ -311,7 +284,7 @@ body{
    		padding-right: 50px;
     }
     
-    #article2 .c .cost_box .cost{
+    .cost{
 		line-height: 1.5;
  		display: inline-block;
   		vertical-align: middle;
@@ -333,8 +306,7 @@ body{
 	}
 	
 	#article2 .c .cost_box a span{
-	  
-	  font-size: 18px;
+	  font-size: 20px;
 	  font-weight: bold;
 	}
 	 
