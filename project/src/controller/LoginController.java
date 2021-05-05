@@ -16,7 +16,6 @@ public class LoginController implements Controller{
 		@Override
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
-			PrintWriter out= response.getWriter();
 			String id = request.getParameter("custId");
 			String password = request.getParameter("custPw");
 			String path = "";

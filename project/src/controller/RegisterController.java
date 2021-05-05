@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,19 +22,20 @@ public class RegisterController implements Controller {
 		String phoneNumber =  request.getParameter("custNumber");
 		String email =  request.getParameter("email");
 		String path = "";
+		PrintWriter out = response.getWriter();
 		
 		Customer pvo = new Customer(id, password, name, address, phoneNumber, email);
 		System.out.println(pvo);
 		try {
 			if(CustomerDaoImpl.getInstance().SignUp(id, password, name, address, phoneNumber, email)) {
 				AddressDaoImpl.getInstance().addAddress(address, id);
-				path = "registerResult.jsp";
+				path = "Main/login.jsp";
 				System.out.println("next : " + path);
 			}else {
-				path = "registererrmsg.jsp";
+				path = "Main/register.jsp";
             }
         } catch (SQLException e) {
-        	path = "registerResult.jsp";
+        	path = "Main/register.jsp";
         }
 		return new ModelAndView(path, true);
 	}

@@ -44,8 +44,16 @@ public class HandlerMapping {
 			controller = new BasketController();
 		}else if(command.equals("pickUpAddress.co")) {
 			controller = new PickupController();
+		}else if(command.equals("deliveryAddress.co")) {
+			controller = new DeliveryController();
 		}else if(command.equals("register.do")) {
 			controller = new RegisterController();
+		}else if(command.equals("deleteAddress.do")) {
+			controller = new DeleteAddressController();
+		}else if(command.equals("addAddress.do")) {
+			controller = new AddAddressController();
+		}else if(command.equals("addressDisc.do")) {
+			controller = new AddressDiscController();
 		}
 		
 		
