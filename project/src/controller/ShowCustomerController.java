@@ -12,6 +12,7 @@ public class ShowCustomerController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		HttpSession session = request.getSession();
+		System.out.println("hi");
 
 		if (session.getAttribute("rvo") == null)
 			return new ModelAndView("Main/login.jsp", true);
@@ -26,7 +27,7 @@ public class ShowCustomerController implements Controller {
 			} catch (Exception e) {
 
 			}
-			return new ModelAndView(path);
+			return new ModelAndView(path, true);
 		}
 	}
 
