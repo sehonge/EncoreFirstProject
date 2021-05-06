@@ -115,7 +115,7 @@
 			<li><a href="../pizzaMenu.do">메뉴</a></li>
 			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="basket.do">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -181,7 +181,7 @@
 					<div class="cost_line">
 					<span class="costall">총 금액</span><span id="cost">20000원 입니다.</span><br/>
 				    <span class="topping">*토핑금액</span><span id="costT">0원 입니다.</span></div>
-					<a href="bascket.do" class="button" style="float: right; width: 150px; height: 50px; line-height: 50px; text-align: center; background-color: #ec4a4f; border: none; color: white; border-radius: 10px;"><span>담기</span></a>
+					<a href="basket.do" class="button" style="float: right; width: 150px; height: 50px; line-height: 50px; text-align: center; background-color: #ec4a4f; border: none; color: white; border-radius: 10px;"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
