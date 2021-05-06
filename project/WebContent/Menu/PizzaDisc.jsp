@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	//피자 가격 계산하기
+	
+	var size;
+	
 	function calc(){		
 		var amount = $("#qty").val();
 	 	
@@ -18,14 +21,58 @@
  	  	
  		if(document.getElementById('btn_L').checked){
 	  		var costL = pizzaL*amount;
+	  		var size ="L";
  	  		$("#cost").html(costL+"원 입니다.");
+ 	  		return size
  	  	}else if(document.getElementById('btn_M').checked){
  	  		var costR = pizzaR*amount;	
+ 	  		var size ="R";
  	  		$("#cost").html(costR+"원 입니다.");
+ 	  		return size
  	  	}else{
  	  		alert("피자 크기와 수량을 입력해주세요!");
  	  	}
- 	};
+ 	}; // calc
+ 	
+ 	$(function(){
+		$('#cartIn').click(function(){
+			var key = '${pizzaL.menuId}';
+			// alert(key);
+			var url = '${pizzaL.pictureUrl}';
+			var name = '${pizzaL.menuName}';
+			var size = calc();
+			var eachprice = "";
+			var price = '${pizzaL.menuPrice}';
+			var amount = $("#qty").val();
+			var id = '${rvo.custId}';
+
+			alert(id);
+			
+			if (id.length =="0"){
+				alert("로그인을 하셔야 장바구니 확인이 가능합니다");
+				location.href="Main/login.jsp";
+				return false
+			}else {
+				if(localStorage.getItem(key)!=null){
+					var data = localStorage.getItem(key).split(",");
+					alert("이미 저장된 품목입니다.")			
+				}else{
+					alert("장바구니에 성공적으로 담겼습니다.")
+				}
+				
+						
+				var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
+				localStorage.setItem(key,value);
+				return true
+			}
+			
+
+			var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
+			localStorage.setItem(key,value);	
+			
+		}); // 장바구니 담기
+		
+	}); // ready
 </script>
 <style type="text/css">
 	@import url("Menu/css/PizzaDisc.css");
@@ -83,7 +130,7 @@
 			</div>
 			
 			<!-- 주문 버튼 -->		
-			<div class="size">
+			<div class="size" id="size">
 				<h2 align="left" style="color: #404040; margin-bottom: 10px; padding-top: 15px;">사이즈 선택</h2>
 				<label class="radio"><input id="btn_L" type="radio" class="checks" name="size" value="L" checked="checked" onchange="calc()"><span>L ${pizzaL.menuPrice}원</span></label>
 				<label class="radio"><input id="btn_M" type="radio" class="checks" name="size" value="R" onchange="calc()"><span>R ${pizzaR.menuPrice}원</span></label>
@@ -100,7 +147,7 @@
 			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="costall">총 금액</span><span id="cost">${pizzaL.menuPrice}원 입니다.</span>
-					<a href="bascket.do" class="button"><span>담기</span></a>
+					<a href="bascket.do" class="button" id="cartIn"><span>담기</span></a>
 				</div>
 			</div>
 		</div>

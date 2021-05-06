@@ -2,23 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- 
-<c:choose>
 
-	<c:when test="${!empty vo}">
-		<b>${vo.name}님 로그인 성공!!</b><br>
-		<a href="index.jsp">Home...</a>
-	</c:when>
-	
-	<c:otherwise>
-		<script>
-			alert("로그인 부터 진행하시기 바랍니다!");
-			location.href="login.jsp";
-		</script>
-	</c:otherwise>
-	
-</c:choose>
- -->
 
 <c:choose>
 	<c:when test="${!empty rvo}">

@@ -8,8 +8,6 @@
 }
 
 
-
-
 body{
 	margin : 0;
 	font-family: 'Sunflower', sans-serif;
@@ -28,7 +26,7 @@ body{
 	display : flex; 
 	justify-content: space-between;
 	align-items: center;
-	background-color : lightgrey;
+	background: linear-gradient(-150deg,lightgray, gray);
 	padding : 8px 24px;
 }
 
@@ -45,7 +43,6 @@ body{
 }
 
 .navbar__menu {
-	color:black;
 	font-size : 20px;
 	display : flex;
 	list-style : none;
@@ -65,20 +62,8 @@ body{
 	
 }
 
-.navbar__icons {
-	
-	list-style : none;
-	color : black;
-	display : flex;
-	padding-left : 0;
-	
-}
 
-.navbar__icons li{
-	font-size : 24px;
-	padding : 8px 12px;
-	
-}
+
 
 .navbar__toogleBtn {
 	display : none;
