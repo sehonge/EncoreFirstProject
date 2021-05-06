@@ -23,6 +23,34 @@
 		   alert("사이드 종류와 수량을 입력해주세요!");
 		}
 	};
+	
+	$(function(){
+		$('#cartIn').click(function(){
+			var key = '${side.menuId}';
+			// alert(key);
+			var url = '${side.pictureUrl}';
+			var name = '${side.menuName}';
+			var size = '';
+			var eachprice ='';
+			var price = '${side.menuPrice}';
+			var amount = $("#qty").val();
+			// alert(amount);
+			
+			if(localStorage.getItem(key)!=null){
+				var data = localStorage.getItem(key).split(",");
+				alert("이미 저장된 품목입니다.")			
+			}else{
+				alert("장바구니에 성공적으로 담겼습니다.")
+			}
+			
+					
+			var value = url+","+name+","+size+","+amount+","+eachprice+","+price;
+			localStorage.setItem(key,value);	
+			
+		}); // 장바구니 담기
+		
+	}); // ready
+	
 </script>
 <link rel="stylesheet" type="text/css" href="Menu/css/SideDisc.css">
 <link rel="shortcut icon" href="#">
@@ -115,7 +143,7 @@
 			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="costall">총 금액</span><span id="cost">${side.menuPrice}원 입니다.</span>
-					<a href="bascket.do" class="button"><span>담기</span></a>
+					<a href="bascket.do" class="button" id="cartIn"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
