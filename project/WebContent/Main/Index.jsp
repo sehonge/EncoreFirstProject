@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,14 +63,23 @@ $(function(){
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
-			<a href="Index.jsp">8자피자</a>
+			<a href="../Main/Index.jsp">8자피자</a>
 		</div>
 		
 		<ul class="navbar__menu">
 			<li><a href="../pizzaMenu.do">메뉴</a></li>
-			<li><a href="../showCustomer.do">마이페이지</a></li>
-			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="../basket.do">장바구니</a></li>
+
+			<c:choose>
+				<c:when test="${!empty rvo}">
+					<li><a href="../showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="../showCustomer.do?id=">마이페이지</a></li>
+				</c:otherwise>
+			</c:choose>
+			
+			<li><a href="../bakset.do">장바구니</a></li>
+
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -80,9 +90,18 @@ $(function(){
 	 <div id="quick">
 		 <ul>
 		 	<li><h2>퀵메뉴</h2></li>
-		 	<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-		 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-		 	<li><a href="../showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+		 <c:choose>
+		 	<c:when test="${!empty rvo}">
+		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
+			 	<li><a href="../showCustomer.do?id=${rvo.custId}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+			 </c:when>
+			 <c:otherwise>	
+		 		<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
+		 		<li><a href="register.jsp"><i class="fas fa-registered">회원가입</i></a></li>
+		 	</c:otherwise>
+		 </c:choose>
+		 
 		 </ul>	
 	 </div>
 	
