@@ -45,7 +45,8 @@
 			var price = '${pizzaL.menuPrice}';
 			var amount = $("#qty").val();
 			var id = '${rvo.custId}';
-			// alert(id);
+
+			alert(id);
 			
 			if (id.length =="0"){
 				alert("로그인을 하셔야 장바구니 확인이 가능합니다");
@@ -64,6 +65,10 @@
 				localStorage.setItem(key,value);
 				return true
 			}
+			
+
+			var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
+			localStorage.setItem(key,value);	
 			
 		}); // 장바구니 담기
 		

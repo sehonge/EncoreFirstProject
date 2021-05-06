@@ -37,6 +37,9 @@
 			var price = '${side.menuPrice}';
 			var amount = $("#qty").val();
 			var id = '${rvo.custId}';
+
+			alert(id);
+
 			
 			if (id.length =="0"){
 				alert("로그인을 하셔야 장바구니 확인이 가능합니다");
@@ -56,7 +59,9 @@
 				return true
 			}
 			
-				
+
+			var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
+			localStorage.setItem(key,value);	
 			
 		}); // 장바구니 담기
 		
