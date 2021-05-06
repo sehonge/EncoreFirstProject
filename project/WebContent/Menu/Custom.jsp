@@ -103,7 +103,7 @@
 <link rel="shortcut icon" href="#">
 </head>
 <body>
-	<!-- nav -->
+	
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
@@ -112,16 +112,14 @@
 		
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.do">회원가입</a></li>
-			<li><a href="bakset.do">장바구니</a></li>
+			<li><a href="showCustomer.do">마이페이지</a></li>
+			<li><a href="basket.do">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
 		</a>
-	</nav>
-		
+	</nav>		
 		
 	<!-- 메뉴 -->
 	<div class="menu_wrap">
@@ -132,8 +130,7 @@
 				<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 			</ul>
 		</div>
-	</div>
-			
+	</div>			
 			
 	<section id="section" style="margin: 0 auto; width: 1300px; position: relative;">	
 		<!-- 피자 이미지 -->
@@ -173,6 +170,7 @@
 						</li>	
 						</c:forEach>
 					</ul>
+			</div>
 					
 			<!-- 결제 -->
 			<div class="c">

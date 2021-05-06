@@ -62,16 +62,12 @@ $(function(){
 					<li><a href="../showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="../showCustomer.do?id=">마이페이지</a></li>
+					<li><a href="../showCustomer.do">마이페이지</a></li>
 				</c:otherwise>
 			</c:choose>
 			
-			<li><a href="../bakset.do">장바구니</a></li>
+			<li><a href="../basket.do">장바구니</a></li>
 		</ul>
-		
-	
-
-		
 		
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
@@ -85,7 +81,7 @@ $(function(){
 		 <c:choose>
 		 	<c:when test="${!empty rvo}">
 		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
-			 	<li><a href="../showCustomer.do?id=${rvo.custId}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 	<li><a href="../showCustomer.do}"><i class="fas fa-info-circle">마이페이지</i></a></li>
 			 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
 			 </c:when>
 			 <c:otherwise>	
@@ -95,13 +91,7 @@ $(function(){
 		 </c:choose>
 		 
 		 </ul>	
-	 </div>
-	
-	<div>
-		
-		
-	</div>
-	
+	 </div>	
 	
 	<div class="columns">
 			

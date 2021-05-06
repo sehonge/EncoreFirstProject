@@ -1,12 +1,5 @@
 @charset "UTF-8";
-<!-- RESET -->
-*{
-	margin: 0 auto;
-	padding: 0;
-	font-size: 24px;
-	color: #fff;
-	user-select: none;
-}
+
 
 a{
 	text-decoration: none;
@@ -22,8 +15,8 @@ li{
 	width: 100%;
 }
 
-<!-- header -->
-: root {
+
+\: root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
@@ -106,7 +99,6 @@ body{
 }
 
 	
-	<!-- 메뉴 바 -->
 	.menu_wrap{
 		position: relative;
         height: 80px; line-height: 0px;
@@ -121,7 +113,6 @@ body{
 
 
 	
-	<!-- 음식 사진 --> 
 	#section {
 		cursor: pointer;
 		margin: 0 auto;
@@ -143,10 +134,15 @@ body{
 		
 	}
 	
-	<!--padding-inline-start: 100px; -->
-	#article1 .imgcut {display: block; text-align: left; padding-right: 50px; width: 700px; height: 700px; padding-bottom: 13px;}
+	#article1 .imgcut {
+	display: block; 
+	text-align: left; 
+	padding-right: 50px; 
+	width: 700px; 
+	height: 700px; 
+	padding-bottom: 13px;
+	}
 
-	<!-- 타이틀 -->
 	#article2 .title{
 		
 	}
@@ -173,9 +169,6 @@ body{
 		margin-bottom: 15px;
 	}
 	
-	
-
-	<!-- 사이즈 선택 -->
 	#article2 .size{
 		
 	}
@@ -221,8 +214,6 @@ body{
 	    color: #fff
 	}
     
-    <!-- 토핑 -->
-
     .ui-draggable-dragging {
     position: absolute;
 	}
@@ -235,33 +226,7 @@ body{
 	.side ul li div.side_name {text-align:center; width: 130px; height: 18px; line-height:18px; padding-bottom: 5px; padding-top: 5px;}
 	.side ul li div.side_cost {text-align:center; width: 130px; height: 18px; line-height:18px;}
 	
-    /* #article2 .side{}
-	#article2 .side table{
-		margin-left: auto; 
-		margin-right: auto; 
-		display: inline-block;
-	 	width: 130px;
-	 	text-align: center;
-	 	border-spacing: 7px;
-	 	<!-- table-layout: fixed; 테이블 >= 이미지 크기 -->
-	 }
-	 
-    #article2 .side table img{
-    	text-align: center;
-    	width: 130px; <!-- max-width: 100%; 테이블 사이즈에 이미지 맞추기 -->
-    }
-    
-    #article2 .side th{
-    	width: 130px;
-    	height: 30px;
-    }
-    
-	#article2 .side td{
-		text-align: center;
-	} */
-    
-     <!-- 수량선택 -->
-	#article2 .qty {
+    #article2 .qty {
 
     } 
 	
@@ -276,7 +241,6 @@ body{
    
      
     
-    <!-- 담기 버튼 -->
     #article2 .c .cost_box{
    		width: 550px; 
    		height: 74px; 
@@ -340,15 +304,4 @@ body{
 
    	 
    	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-	
+   	

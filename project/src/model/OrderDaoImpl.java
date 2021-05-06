@@ -63,9 +63,8 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 	@Override
-	public boolean makeOrder(ArrayList<Menu> list, String customerId, String address, int shopId) throws SQLException {
+	public int makeOrder(ArrayList<Menu> list, String customerId, String address, int shopId) throws SQLException {
 		
-		boolean flag = false;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		int totalPrice = 0;
@@ -97,7 +96,6 @@ public class OrderDaoImpl implements OrderDao {
 			
 			ps.executeUpdate();
 			
-			flag = true;
 		} finally {
 			closeAll(ps, conn);
 		}
@@ -123,7 +121,7 @@ public class OrderDaoImpl implements OrderDao {
 		}
 		spendMoney(customerId, totalPrice);
 		
-		return flag;
+		return orderIndex;
 	}
 
 	@Override
@@ -194,6 +192,29 @@ public class OrderDaoImpl implements OrderDao {
 		}
 		
 		return flag;
+	}
+
+	@Override
+	public Order showOrder(int orderId) throws SQLException {
+		
+		Order ret = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			String query = "SELECT * FROM tb_order WHERE ORDER_ID=?";
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, orderId);
+			rs = ps.executeQuery();
+			if (rs.next())
+				ret = new Order(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6));
+		} finally {
+			closeAll(rs, ps, conn);
+		}
+		
+		return null;
 	}	
 		
 	/*

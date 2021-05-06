@@ -15,6 +15,9 @@ public class CustomPizzaController implements Controller {
 		
 		ArrayList<Menu> list = MenuDaoImpl.getInstance().getAllTopping();
 		
+		//for(Menu m : list)
+		//	System.out.println(m);
+		
 		request.setAttribute("list", list);
 		
 		return new ModelAndView("Menu/Custom.jsp");
