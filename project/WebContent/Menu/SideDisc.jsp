@@ -34,7 +34,8 @@
 			var eachprice ='';
 			var price = '${side.menuPrice}';
 			var amount = $("#qty").val();
-			// alert(amount);
+			var id = '${rvo.custId}';
+			alert(id);
 			
 			if(localStorage.getItem(key)!=null){
 				var data = localStorage.getItem(key).split(",");
@@ -44,7 +45,7 @@
 			}
 			
 					
-			var value = url+","+name+","+size+","+amount+","+eachprice+","+price;
+			var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
 			localStorage.setItem(key,value);	
 			
 		}); // 장바구니 담기
