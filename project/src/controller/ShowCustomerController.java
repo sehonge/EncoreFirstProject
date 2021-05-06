@@ -26,7 +26,7 @@ public class ShowCustomerController implements Controller {
 			} catch (Exception e) {
 
 			}
-			return new ModelAndView(path);
+			return new ModelAndView(path, true);
 		}
 	}
 
