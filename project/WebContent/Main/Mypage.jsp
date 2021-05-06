@@ -82,7 +82,7 @@ $(function(){
 				</c:otherwise>
 			</c:choose>
 			
-			<li><a href="../bakset.do">장바구니</a></li>
+			<li><a href="../basket.do">장바구니</a></li>
 		</ul>
 		
 
@@ -119,7 +119,7 @@ $(function(){
 				<ul><br>
 					<li><h4><span id="menu1">회원 공간</span></h4></li>
 					<li><a href="updateInfo.jsp"> 회원정보수정 </a></li>
-					<li><a href="#"> 장바구니 </a></li>
+					<li><a href="../basket.do"> 장바구니 </a></li>
 					<li><a href="../pizzaMenu.do"> 메뉴 </a></li>
 				</ul>
 				
@@ -137,34 +137,13 @@ $(function(){
 				
 				<ul>
 					<li><h4><span id="menu3"> 주문내역 및 장바구니 </span></h4></li>					
-					
 				</ul>
-			</div>
-		
+			</div>		
 	</div>
 	
 	<div class ="columns2">
-		<div class ="wrap2">
-		
-		</div>
-	
-	
+		<div class ="wrap2"></div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	<hr>
 	<footer id="footer">
