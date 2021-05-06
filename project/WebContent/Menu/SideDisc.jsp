@@ -23,54 +23,6 @@
 		   alert("사이드 종류와 수량을 입력해주세요!");
 		}
 	};
-	
-	$(function(){
-		$('#cartIn').click(function(){
-			
-			
-			var key = '${side.menuId}';
-			// alert(key);
-			var url = '${side.pictureUrl}';
-			var name = '${side.menuName}';
-			var size = '';
-			var eachprice ='';
-			var price = '${side.menuPrice}';
-			var amount = $("#qty").val();
-			var id = '${rvo.custId}';
-
-			alert(id);
-
-			
-			if (id.length =="0"){
-				alert("로그인을 하셔야 장바구니 확인이 가능합니다");
-				location.href="Main/login.jsp";
-				return false
-			}else {
-				if(localStorage.getItem(key)!=null){
-					var data = localStorage.getItem(key).split(",");
-					alert("이미 저장된 품목입니다.")			
-				}else{
-					alert("장바구니에 성공적으로 담겼습니다.")
-				}
-				
-						
-				var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
-				localStorage.setItem(key,value);
-				return true
-			}
-			
-
-			var value = url+","+name+","+size+","+amount+","+eachprice+","+price+","+id;
-			localStorage.setItem(key,value);	
-			
-		}); // 장바구니 담기
-		
-	}); // ready
-	
-	
-
-	
-	
 </script>
 <link rel="stylesheet" type="text/css" href="Menu/css/SideDisc.css">
 <link rel="shortcut icon" href="#">
@@ -80,14 +32,14 @@
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
-			<a href="Index.jsp">8자피자</a>
+			<a href="Main/Index.jsp">8자피자</a>
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="../pizzaMenu.do">메뉴</a></li>
-			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="pizzaMenu.do">메뉴</a></li>
+			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="register.do">회원가입</a></li>
+			<li><a href="bascket.do">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -143,7 +95,7 @@
 			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="costall">총 금액</span><span id="cost">${side.menuPrice}원 입니다.</span>
-					<a href="bascket.do" class="button" id="cartIn"><span>담기</span></a>
+					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
