@@ -14,7 +14,6 @@
 	
 </c:choose>
 
- 
 <!DOCTYPE html>
 <html>
 <head>
