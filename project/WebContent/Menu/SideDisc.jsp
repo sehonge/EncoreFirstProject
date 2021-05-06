@@ -64,8 +64,8 @@
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
 			<li><a href="#">장바구니</a></li>
 		</ul>
@@ -123,7 +123,7 @@
 			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
 					<span class="costall">총 금액</span><span id="cost">${side.menuPrice}원 입니다.</span>
-					<a href="basket.do" class="button" id="cartIn"><span>담기</span></a>
+					<a href="bascket.do" class="button" id="cartIn"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
