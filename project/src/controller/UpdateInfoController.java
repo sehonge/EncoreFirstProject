@@ -30,7 +30,7 @@ public class UpdateInfoController implements Controller{
 		//2.
 		Customer pvo = new Customer(id, pw, name, address, contact, email);
 		System.out.println("customer 객체 " + pvo);
-		String path="updateInfo.jsp"; // 기본 path
+		String path="Main/updateInfo.jsp"; // 기본 path
 		try{			
 			// System.out.println("ID는"+id);
 			// System.out.println(address);

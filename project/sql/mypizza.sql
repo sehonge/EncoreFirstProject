@@ -141,4 +141,10 @@ INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_
 			VALUES('T003', 3, '베이컨 토핑', '2000', '베이컨 토핑 입니다.', "Menu/img/bacon.png");
 INSERT INTO MENU (MENU_ID, MENU_TYPE, MENU_NAME, MENU_PRICE, MENU_DESC, PICTURE_URL) 
 			VALUES('T004', 3, '스테이크 토핑', '2000', '스테이크 토핑 입니다.', "Menu/img/stake.png");  
+			
+
+			
+## 05.06 추가
+alter table tb_order drop foreign key tb_order_ibfk_3;
+alter table tb_order modify shop_id int null
 		
