@@ -26,55 +26,44 @@
  	    helper: "clone",
  	    start: function() {counts[0]++;}
  	 });
+    
+ 	 //2.드레그 .. 이미지
+      $("#article1").droppable({
+ 	      drop: function(e, ui){
+               if(ui.draggable.hasClass("side_img")) {
+ 		            $(this).append($(ui.helper).clone());
+ 		        	//Pointing to the dragImg class in dropHere and add new class.
+ 		    	    $("#article1 .side_img").addClass("item-"+counts[0]);
+ 		  	        $("#article1 .img").addClass("imgSize-"+counts[0]);
+ 		    	                
+ 		    	    //Remove the current class (ui-draggable and dragImg)
+ 		    	    $("#article1 .item-"+counts[0]).removeClass("side_img ui-draggable ui-draggable-dragging");
+ 		
+ 					$(".item-"+counts[0]).dblclick(function() {
+ 					   		$(this).remove();
+ 					});     
+ 					make_draggable($(".item-"+counts[0])); 
+ 					$("#article1-"+counts[0]).resizable(resizeOpts);     
+   	     	  }
+          }
+  	  });
 
-    $("#article1").droppable({
-	      drop: function(e, ui){
-             if(ui.draggable.hasClass("side_img")) {
-	        		var cost = counts[0]*2000;
-	        		
-            	 	refreshPositions: true
-	        		
-		            $(this).append($(ui.helper).clone());
-		        	//Pointing to the dragImg class in dropHere and add new class.
-		    	    $("#article1 .side_img").addClass("item-"+counts[0]);
-		  	        $("#article1 .img").addClass("imgSize-"+counts[0]);	  	      	
-		  	      	
-		    	    //Remove the current class
-		    	    $("#article1 .item-"+counts[0]).removeClass("side_img ui-draggable ui-draggable-dragging");
-					
-					$(".item-"+counts[0]).dblclick(function() {
-					   	$(this).remove();
-					   	counts[0] --;
-					});
-					
-					make_draggable($(".item-"+counts[0])); 
-			        $(".imgSize-"+counts[0]).resizable(resizeOpts);   
-			        $("#costT").html(cost+"원 입니다.");
- 	     	  }
-        }
-	  });
-
-   	var zIndex = 0;
-   	function make_draggable(elements){	
-   		elements.draggable({
-   			containment:'parent',
-   			start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
-   			stop:function(e,ui){}
-   			});
-   		}      
-	});
+     	var zIndex = 0;
+     	function make_draggable(elements){	
+     		elements.draggable({
+     			containment:'parent',
+     			start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
+     			stop:function(e,ui){}
+     		});
+     	}      
+});
 
  
  //3.가격 계산하기
  function calc(){		
-  	var pizzaL = 20000;
-  	var pizzaR = 14000;
-  	
-  	var testString = $("#costT").html();	// 원래 문자열
-  	console.log(testString);	
-  	var sidecost = testString.replace(/[^0-9]/g,"");// 숫자가 아닌 문자열을 매칭하는 정규식			
-  	console.log(sidecost);				
-  	
+  	var pizzaL = 20000
+  	var pizzaR = 14000
+  	var sideCost = 2000
   	
  	if(document.getElementById('btn_L').checked){
  		 //L을 클릭했을 때 dough_L를 보여줌
@@ -82,7 +71,7 @@
          $("#dough_M").hide();
          
       	 //가격 계산
-         var costL = pizzaL+parseInt(sidecost);
+         var costL = pizzaL+sideCost;
  		 $("#cost").html(costL+"원 입니다.");
    		
    	}else if(document.getElementById('btn_R').checked){
@@ -91,7 +80,7 @@
          $("#dough_L").hide();
          
     	 //가격 계산
-   		 var costR = pizzaR+parseInt(sidecost);
+   		 var costR = pizzaR;	
    		 $("#cost").html(costR+"원 입니다.");
   		
    	}else{q
@@ -104,6 +93,7 @@
 <link rel="shortcut icon" href="#">
 </head>
 <body>
+
 	<!-- nav -->
 	<nav class="navbar">
 		<div class="navbar__logo">
@@ -115,7 +105,7 @@
 			<li><a href="../pizzaMenu.do">메뉴</a></li>
 			<li><a href="../showCustomer.do?id=${vo.id}">마이페이지</a></li>
 			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="basket.do">장바구니</a></li>
+			<li><a href="#">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -168,20 +158,54 @@
 					<ul style="padding: 0px;">
 						<c:forEach items="${list}" var="list">
 						<li>
-							<div class="side_img"><img id="foodimage" alt="foodimage" src="${list.pictureUrl}" draggable="true"  ondragstart="calc()"></div>
+							<div class="side_img"><img id="foodimage" alt="foodimage" src="${list.pictureUrl}"></div>
 							<div class="side_name">${list.menuName}</div>
 							<div class="side_cost">${list.menuPrice}원</div>
 						</li>	
 						</c:forEach>
 					</ul>
-					
+				<%-- <table>	
+					<thead>
+						<tr>
+							<c:forEach items="${list}" var="list">
+							<th>
+								<div class="dragtarget">
+									<div class="dragInner" draggable="true">
+										<img id="sideimg" src="${list.pictureUrl}">
+									</div>
+								</div>
+							</th>
+							</c:forEach>
+							
+						
+					</thead>
+					<tbody>
+						<tr>
+							<c:forEach items="${list}" var="list">
+							<td>${list.menuName}</td>
+							</c:forEach>
+						</tr>
+						<tr>
+							<c:forEach items="${list}" var="list">
+							<td>${list.menuPrice}</td>
+							</c:forEach>
+						</tr>
+					</tbody>
+				</table> --%>
+			</div>
+			
+			<!-- 수량선택 -->
+			<!-- <div class="qty">
+				<h2>수량 선택</h2>
+                <input type="number" id="qty" value="1" min="1" max="9" onchange="calc()" 
+                style="width: 400px; height:50px; text-align: center; border-radius:50px; font-size: 20px;">
+			</div> -->
+				
 			<!-- 결제 -->
 			<div class="c">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
-					<div class="cost_line">
-					<span class="costall">총 금액</span><span id="cost">20000원 입니다.</span><br/>
-				    <span class="topping">*토핑금액</span><span id="costT">0원 입니다.</span></div>
-					<a href="basket.do" class="button" style="float: right; width: 150px; height: 50px; line-height: 50px; text-align: center; background-color: #ec4a4f; border: none; color: white; border-radius: 10px;"><span>담기</span></a>
+					<span class="costall">총 금액</span><span id="cost">20000원 입니다.</span>
+					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>

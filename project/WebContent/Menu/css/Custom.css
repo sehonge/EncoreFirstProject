@@ -119,7 +119,7 @@ body{
 	.menu_wrap .menu ul li a:hover{color: red;}
 	.menu_wrap .menu ul li span {font-size: 25px; color: #777777;}
 
-
+}
 	
 	<!-- 음식 사진 --> 
 	#section {
@@ -222,11 +222,10 @@ body{
 	}
     
     <!-- 토핑 -->
-
-    .ui-draggable-dragging {
-    position: absolute;
-	}
-	
+    #draggable{
+    	cursor: move;
+    }
+    
 	.side ul {width: 600px;}
 	.side ul li {display: inline-block; margin-left: 10; width: 130px; height: 170px; padding-bottom: 25px;}
 	.side ul li:first-child {margin-left: 0;}
@@ -292,9 +291,7 @@ body{
    		padding-left: 20px; 
    		padding-right: 50px;
     }
-    .cost_line{
-    	float: left;
-    }
+    
     #article2 .c .cost_box .cost{
 		line-height: 1.5;
  		display: inline-block;
@@ -303,22 +300,8 @@ body{
      	color: black; 
      	font-weight: bold;
     }
-    #article2 .c .cost_box .topping{
-   		color: #808080; 
-   		font-weight: bold;
-   		font-size: 15px;
-   		padding-left: 20px; 
-   		padding-right: 50px;
-    }
-    #costT{
- 		display: inline-block;
-  		vertical-align: middle;
-     	font-size: 15px;
-     	color: #808080; 
-     	font-weight: bold;
-    }
-    
-	#article2 .c .cost_box .button {
+   
+	#article2 .c .cost_box a {
 	  float: right;
 	  width: 150px;
 	  height: 50px;
