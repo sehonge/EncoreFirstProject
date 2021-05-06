@@ -31,14 +31,6 @@ $(function(){
 });// ready
 
 
-// 비동기로 구현해야 할 것 같은 느낌.
-// login 실패시 -> login.jsp 아래에 존재하지 않는 아이디입니다 를 추가후 
-// 비동기로 구현..? 
-			
-
-
-
-
 </script>
 
 </head>
@@ -112,17 +104,6 @@ $(function(){
 	
 	
 	<div class="columns">
-		<div class="menu">
-				<ul><br>
-					<li><h4><span id="menu1">회원 공간</span></h4></li>
-					<li><a href="login.jsp"> 로그인 </a></li>
-					<li><a href="register.jsp"> 회원가입 </a></li>
-					<li><a href="showCustomer.do?id=${rvo.custId}">마이페이지</a>
-					<li><a href="findId.jsp"> 아이디 찾기 </a></li>
-					<li><a href="findPw.jsp"> PW 찾기 </a></li>
-					<li><a href="updateInfo.jsp"> 회원정보수정 </a></li>
-				</ul>
-			</div>
 			
 	  	<form action="../login.do" class="wrap" name="loginFrm">
 	  	

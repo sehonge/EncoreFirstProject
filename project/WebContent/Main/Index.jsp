@@ -68,6 +68,7 @@ $(function(){
 		
 		<ul class="navbar__menu">
 			<li><a href="../pizzaMenu.do">메뉴</a></li>
+
 			<c:choose>
 				<c:when test="${!empty rvo}">
 					<li><a href="../showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
@@ -78,6 +79,7 @@ $(function(){
 			</c:choose>
 			
 			<li><a href="../bakset.do">장바구니</a></li>
+
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
