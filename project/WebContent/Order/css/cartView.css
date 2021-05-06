@@ -6,7 +6,7 @@ html{
 	
 body {
   background-color: #fff;
-  color: #666;
+  color: black;
 }
 
 strong {
@@ -35,6 +35,7 @@ input,
   font-weight:bold;
   background-color: #666;
   color: #fff;
+  border: 1px solid #666;
 }
 
 .checkout-cta:hover,
@@ -113,6 +114,7 @@ label {
   border-bottom: 1px solid #ccc;
   margin-top: 1.625rem;
   text-align:center;
+  vertical-align:middle;
   padding:0;
 }
 
@@ -196,6 +198,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .product-details {
+  color: #666;
   padding: 0 1.5rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -222,17 +225,18 @@ input[type=number]::-webkit-outer-spin-button {
 	border: 1px solid #aaa;
 	outline:0 none;
 	border-radius:3px;
-	padding:4px 5px;
+	padding:4px 6px;
 	background-color: #666;
 	color:white;
 }
 
 .bottomBtn-cont{
+	margin-left:5px;
 	border: 1px solid #aaa;
 	cursor:pointer;
 	outline:0 none;
 	border-radius:3px;
-	padding:4px 5px;
+	padding:4px 6px;
 }
 
 aside {
@@ -242,6 +246,7 @@ aside {
 }
 
 .summary {
+  color: #666;
   background-color: #eee;
   border: 1px solid #aaa;
   border-radius:10px;
@@ -333,16 +338,6 @@ aside {
   border-radius:5px;
 }
 
-.summary-delivery-selection {
-  background-color: #ccc;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  display: block;
-  font-size: 0.625rem;
-  height: 34px;
-  width: 100%;
-}
-
 @media screen and (max-width: 640px) {
   aside,
   .basket,
@@ -390,3 +385,5 @@ aside {
     width: 28%;
   }
 }
+
+/*source: https://codepen.io/khurramalvi/pen/EKRQJZ*/

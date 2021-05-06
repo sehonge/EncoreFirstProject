@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,41 +10,64 @@
 <title> 8자피자 우리모두</title>
 <script src="https://kit.fontawesome.com/8ab89a6252.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-	@import url("css/cartView.css");
-	@import url("css/header.css");
-	@import url("../Main/css/sidebar.css");
-	@import url("../Main/css/footer.css");
-	
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/sidebar.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/cartView.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/footer.css">
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/Order/js/cartView.js"></script>
+<style type="text/css">
+	#footer{
+		clear:both;
+	}
+
 </style>
-<script type="text/javascript" src="js/cartView.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$(window).scroll(function(){
+		var scrollTop = $(document).scrollTop();
+		if (scrollTop < 130) {
+		 scrollTop = 130;
+		}
+		$("#quick").stop();
+		$("#quick").animate( { "top" : scrollTop });
+		});
+
+});
+</script>
 </head>
 <body>
 <!-- header -->
 <nav class="navbar">
 	<div class="navbar__logo">
 		<i class="fas fa-pizza-slice"></i>
-		<a href="../Main/Index.jsp">8자피자</a>
+		<a href="${pageContext.request.contextPath}/Main/Index.jsp">8자피자</a>
 	</div>
 	
 	<ul class="navbar__menu">
-		<li><a href="../pizzaMenu.do">메뉴</a></li>
-		<li><a href="../showCustomer.do">마이페이지</a></li>
-		<li><a href="cartView.jsp">장바구니</a></li>
+		<li><a href="${pageContext.request.contextPath}/PizzaMenu.do">메뉴</a></li>
+		<li><a href="${pageContext.request.contextPath}/showCustomer.do?id=${vo.id}">마이페이지</a></li>
+		<li><a href="${pageContext.request.contextPath}/Main/register.jsp">회원가입</a></li>
+		<li><a href="${pageContext.request.contextPath}/Order/cartView.jsp">장바구니</a></li>
 	</ul>
 	
+	<a href="#" class="navbar__toogleBtn">
+		<i class="fas fa-book-open"></i>
+	</a>
 </nav>
 
 <div id="quick">
 	 <ul>
 	 	<li><h2>퀵메뉴</h2></li>
-	 	<li><a href="../Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="../Main/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="../Main/Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
+	 	<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
+	 	<li><a href="${pageContext.request.contextPath}/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+	 	<li><a href="${pageContext.request.contextPath}/Main/Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
 	 </ul>	
  </div>
  
 <!-- main -->
+<div id="custId" class='hide'>${rvo.custId}</div>
 <h1 style="margin-left:10%; color:black;">장바구니</h1>
 <main>
     <div class="basket">
@@ -62,7 +83,7 @@
       <div id="basketList"></div>
       <div class="bottomBtn">
 	   	<button class="bottomBtn-remove">선택 제품 삭제</button>
-	   	<button class="bottomBtn-cont" onclick="location.href='../Menu/PizzaMenu.jsp'">계속 메뉴 고르기</button>
+	   	<button class="bottomBtn-cont" onclick="location.href='${pageContext.request.contextPath}/PizzaMenu.do'">계속 메뉴 고르기</button>
 	  </div>
     </div>
  
@@ -85,7 +106,7 @@
   
   <!-- footer -->
   <footer id="footer">
-		<br><br><br><br>
+		<br><br><br><br><br><br><br><br>
 		<hr>
         <div class="container">
             <div class="row">

@@ -42,9 +42,9 @@ public class HandlerMapping {
 			controller = new CustomPizzaController();
 		}else if(command.equals("basket.do")) {
 			controller = new BasketController();
-		}else if(command.equals("pickUpAddress.co")) {
+		}else if(command.equals("pickUpAddress.do")) {
 			controller = new PickupController();
-		}else if(command.equals("deliveryAddress.co")) {
+		}else if(command.equals("deliveryAddress.do")) {
 			controller = new DeliveryController();
 		}else if(command.equals("register.do")) {
 			controller = new RegisterController();
