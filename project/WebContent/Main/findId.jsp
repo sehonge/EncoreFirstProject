@@ -15,8 +15,7 @@
 <script src="js/index.js" defer></script>
 <script type="text/javascript">
 	$(function() {
-		
-
+		   
 	});// ready
 
 	// 비동기 구현

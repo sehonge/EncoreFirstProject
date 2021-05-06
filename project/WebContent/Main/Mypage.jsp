@@ -18,11 +18,6 @@
 	</c:otherwise>
 </c:choose>
  
-
-<!--  vo 객체를 여기다가 쏴주면 
-	추후 진행 --> 
-
-   
 <!DOCTYPE html>
 <html>
 <head>

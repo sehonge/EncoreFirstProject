@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <!--<%@page import="model.Customer"%>  -->
-
-<!--  객체 정보 받고  -->
-    
     
 <!DOCTYPE html>
 <html>
