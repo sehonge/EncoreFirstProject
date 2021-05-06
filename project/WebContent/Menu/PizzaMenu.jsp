@@ -24,9 +24,10 @@
 		
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.do">회원가입</a></li>
-			<li><a href="bascket.do">장바구니</a></li>
+
+			<li><a href="showCustomer.do">마이페이지</a></li>
+			<li><a href="register.jsp">회원가입</a></li>
+			<li><a href="#">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
