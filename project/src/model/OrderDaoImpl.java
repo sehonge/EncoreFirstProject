@@ -102,7 +102,7 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			conn = getConnection();
 
-			String query = "SELECT ORDER_ID FROM tb_order";
+			String query = "SELECT ORDER_ID FROM tb_order order by order_ID desc limit 1";
 			ps = conn.prepareStatement(query);
 
 			rs = ps.executeQuery();
