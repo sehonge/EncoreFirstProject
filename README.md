@@ -18,7 +18,8 @@
 ### 간트 차트
 ![image](https://user-images.githubusercontent.com/46814964/115572495-e7d5bc00-a2fa-11eb-9c2a-894987a824f3.png)
 
-[회의록](https://github.com/sehonge/EncoreFirstProject/issues)
+<br/>
+[](https://github.com/sehonge/EncoreFirstProject/issues/9)
 <br/><br/>
 [SRS 및 Usecase Diagram](https://github.com/sehonge/EncoreFirstProject/wiki)
 
