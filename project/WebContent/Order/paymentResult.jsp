@@ -16,7 +16,7 @@
 <script src="https://kit.fontawesome.com/8ab89a6252.js" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/sidebar.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/footer.css">
 
@@ -148,6 +148,7 @@ $(function(){
 		$("#quick").animate( { "top" : scrollTop });
 		});
 	
+	
 	loadPage();
 	
 	$("#dialog").dialog({
@@ -183,8 +184,8 @@ $(function(){
 
 function loadPage(){
 	var html = "";
-	var totalPrice = 0;
 	var custId = $('#custId').text();
+	var totalPrice = $('#finalPrice').text().toString();
 	for(var key in localStorage){
 		if(key=='length') break; 
 		var data = localStorage.getItem(key).split(",");
@@ -198,6 +199,7 @@ function loadPage(){
 
 		}
 	}
+	$('.payment').children().children().text(totalPrice.substr(0,totalPrice.length-3)+","+totalPrice.substr(-3,3)+'원');
 	$('#tableLabel').after(html);
 }
 
@@ -205,35 +207,55 @@ function loadPage(){
 </head>
 <body>
 <!-- header -->
-<nav class="navbar">
-	<div class="navbar__logo">
-		<i class="fas fa-pizza-slice"></i>
-		<a href="${pageContext.request.contextPath}/Main/Index.jsp">8자피자</a>
-	</div>
-	
-	<ul class="navbar__menu">
-		<li><a href="${pageContext.request.contextPath}/PizzaMenu.do">메뉴</a></li>
-		<li><a href="${pageContext.request.contextPath}/showCustomer.do?id=${vo.id}">마이페이지</a></li>
-		<li><a href="${pageContext.request.contextPath}/Main/register.jsp">회원가입</a></li>
-		<li><a href="${pageContext.request.contextPath}/Order/cartView.jsp">장바구니</a></li>
-	</ul>
-	
-	<a href="#" class="navbar__toogleBtn">
-		<i class="fas fa-book-open"></i>
-	</a>
-</nav>
+	<nav class="navbar">
+		<div class="navbar__logo">
+			<i class="fas fa-pizza-slice"></i>
+			<a href="${pageContext.request.contextPath}/Main/Index.jsp">8자피자</a>
+		</div>
+		
+		<ul class="navbar__menu">
+			<li><a href="${pageContext.request.contextPath}/pizzaMenu.do">메뉴</a></li>
 
-<div id="quick">
-	 <ul>
-	 	<li><h2>퀵메뉴</h2></li>
-	 	<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a class="logout" href="${pageContext.request.contextPath}/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="${pageContext.request.contextPath}/Main/Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
-	 </ul>	
- </div>
+			<c:choose>
+				<c:when test="${!empty rvo}">
+					<li><a href="${pageContext.request.contextPath}/showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="${pageContext.request.contextPath}/showCustomer.do">마이페이지</a></li>
+				</c:otherwise>
+			</c:choose>
+			
+			<li><a href="${pageContext.request.contextPath}/basket.do">장바구니</a></li>
+
+		</ul>
+		
+		<a href="#" class="navbar__toogleBtn">
+			<i class="fas fa-book-open"></i>
+		</a>
+	</nav>
+	
+	 <div id="quick">
+		 <ul>
+		 	<li><h2>퀵메뉴</h2></li>
+		 <c:choose>
+		 	<c:when test="${!empty rvo}">
+		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
+			 	<li><a href="${pageContext.request.contextPath}/showCustomer.do"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 	<li><a class="logout" href="${pageContext.request.contextPath}/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+			 </c:when>
+			 <c:otherwise>	
+		 		<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
+		 		<li><a href="${pageContext.request.contextPath}/Main/register.jsp"><i class="fas fa-registered">회원가입</i></a></li>
+		 	</c:otherwise>
+		 </c:choose>
+		 
+		 </ul>	
+	 </div>
+
 
 <!-- main -->
 <div id="custId" style="display:none;">${rvo.custId}</div>
+<div id="finalPrice" style="display:none;">${order.orderPrice}</div>
 <h1 align="center">결제가 완료 되었습니다!<br>감사합니다.</h1>
 <hr align="center" width="30%"><br>
 <div align="center">
@@ -243,6 +265,8 @@ function loadPage(){
 	<button onclick="location.href='${pageContext.request.contextPath}/Main/Index.jsp'">홈으로</button><br/><br/>
 	<button class="logout">로그아웃</button>
 </div>
+
+    
 
 <div id="dialog" title="주문 내역">
     <div id="invoice-POS">
@@ -264,6 +288,7 @@ function loadPage(){
     </div>
     
     <hr style="border: 2px dashed black;" />
+
     
     <div id="bot">
 
@@ -280,7 +305,7 @@ function loadPage(){
 							<tr class="tabletitle" style="text-align:center;border-top:2px dashed black;">
 								<td></td>
 								<td class="Rate" style="text-align:right;"><h4>판매총액 :</h4></td>
-								<td class="payment"><h4>${order.orderPrice}원</h4></td>
+								<td class="payment"><font color="red" size="4.5rem"><strong></strong></font></td>
 							</tr>
 
 						</table>

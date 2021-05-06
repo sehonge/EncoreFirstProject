@@ -12,9 +12,9 @@
 <script src="https://kit.fontawesome.com/8ab89a6252.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/sidebar.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/addAddress.css">
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/Order/css/addAddress.css"> -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/Main/css/footer.css">
 
 <style>
@@ -22,7 +22,89 @@
     	margin: 0 auto;
     	width: 100%;
 	}
-
+	#section{
+	  margin-left:10%; 
+	  width:70%;
+	}	
+	
+	#showList,#addList{
+	  border-radius:0;
+	  border: 1px solid #666;
+	  padding:6px 0;
+	  width:120px;
+	  margin-left: 0px;
+	     margin-right: 0px; 
+	     margin-bottom:15px;
+	     float: left;
+	     cursor:pointer;
+	     
+	}
+	
+	#addList{
+	  background-color: #666;
+	  color: #fff;	
+	}
+	
+	#showList:hover{
+	  background-color: #666;
+	  color: #fff;		  
+	}
+	
+	table{
+	  border-top: 2px solid darkgray;
+	  border-bottom: 1px solid #ccc;
+	  width:100%;
+	  border-collapse: collapse;
+	}	
+	
+	tr{
+	  height:40px;
+	}
+	
+	tr td font{
+	  font-weight:bold;
+	}
+	
+	
+	#addrTb{
+	   width:10%; 
+	   background-color:#F8F8F8;
+	   padding-left:10px;
+	}
+	
+	#addrTbIn{
+	  width:90%;
+	}
+	
+	tr td input{
+	  width:95%;
+	  margin:0 10px;
+	  padding:5px 5px;
+	  border-radius:5px;
+	  border:1px solid #ccc;
+	}
+	
+	#confirm{
+	  float:right;
+	 
+	}
+	
+	#confirm button{
+	  cursor:pointer;
+	  font-size: 1rem;
+	  font-weight:bold;
+	  background-color: #666;
+	  color: #fff;	
+	  border-radius:5px;
+	  border: 1px solid #666;
+	  padding: 0.625rem 0;
+	  width:250px;
+	}
+	
+	#confirm button:hover{
+	  background-color:#91F8D0;
+	  color:black;
+	}	
     #footer {
 	  position:absolute;
 	  left:0;
@@ -78,32 +160,51 @@
 </head>
 <body>
 <!-- header -->
-<nav class="navbar">
-	<div class="navbar__logo">
-		<i class="fas fa-pizza-slice"></i>
-		<a href="${pageContext.request.contextPath}/Main/Index.jsp">8자피자</a>
-	</div>
+	<nav class="navbar">
+		<div class="navbar__logo">
+			<i class="fas fa-pizza-slice"></i>
+			<a href="${pageContext.request.contextPath}/Main/Index.jsp">8자피자</a>
+		</div>
+		
+		<ul class="navbar__menu">
+			<li><a href="${pageContext.request.contextPath}/pizzaMenu.do">메뉴</a></li>
+
+			<c:choose>
+				<c:when test="${!empty rvo}">
+					<li><a href="${pageContext.request.contextPath}/showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="${pageContext.request.contextPath}/showCustomer.do">마이페이지</a></li>
+				</c:otherwise>
+			</c:choose>
+			
+			<li><a href="${pageContext.request.contextPath}/basket.do">장바구니</a></li>
+
+		</ul>
+		
+		<a href="#" class="navbar__toogleBtn">
+			<i class="fas fa-book-open"></i>
+		</a>
+	</nav>
 	
-	<ul class="navbar__menu">
-		<li><a href="${pageContext.request.contextPath}/Menu/PizzaMenu.jsp">메뉴</a></li>
-		<li><a href="${pageContext.request.contextPath}/Main/Mypage.jsp">마이페이지</a></li>
-		<li><a href="${pageContext.request.contextPath}/Main/register.jsp">회원가입</a></li>
-		<li><a href="${pageContext.request.contextPath}/Order/cartView.jsp">장바구니</a></li>
-	</ul>
+	 <div id="quick">
+		 <ul>
+		 	<li><h2>퀵메뉴</h2></li>
+		 <c:choose>
+		 	<c:when test="${!empty rvo}">
+		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
+			 	<li><a href="${pageContext.request.contextPath}/showCustomer.do"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 	<li><a href="${pageContext.request.contextPath}/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+			 </c:when>
+			 <c:otherwise>	
+		 		<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
+		 		<li><a href="${pageContext.request.contextPath}/Main/register.jsp"><i class="fas fa-registered">회원가입</i></a></li>
+		 	</c:otherwise>
+		 </c:choose>
+		 
+		 </ul>	
+	 </div>
 
-	<a href="#" class="navbar__toogleBtn">
-		<i class="fas fa-book-open"></i>
-	</a>	
-</nav>
-
-<div id="quick">
-	 <ul>
-	 	<li><h2>퀵메뉴</h2></li>
-	 	<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-	 	<li><a href="${pageContext.request.contextPath}/Main/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-	 	<li><a href="${pageContext.request.contextPath}/Main/Mypage.jsp"><i class="fas fa-info-circle">마이페이지</i></a></li>
-	 </ul>	
- </div>
  
 <!-- main -->
 <h1 style="margin-left:10%">배달 주소 추가</h1>

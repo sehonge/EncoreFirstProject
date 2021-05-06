@@ -76,7 +76,7 @@ $(function(){
 	  //form.appendChild(objs4);
 	  
 	  form.setAttribute('method', 'post');
-	  form.setAttribute('action', "/project/project/makeOrder.do"); //use /project/project 
+	  form.setAttribute('action', "/project/makeOrder.do"); //
 	  document.body.appendChild(form);
 	  form.submit();
 	});

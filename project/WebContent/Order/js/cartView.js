@@ -22,7 +22,7 @@ $(function() {
 
 	  if($('.basket-product').length == 0){
 	  	alert('메뉴를 먼저 선택하세요.');
-	  	location.href='/project/project/pizzaMenu.do';/*"/project/project/pizzaMenu.do"*/
+	  	location.href='/project/pizzaMenu.do';/*"/project/pizzaMenu.do"*/
 	  	return false;
 	  }
 	  
