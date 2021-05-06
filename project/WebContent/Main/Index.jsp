@@ -72,9 +72,6 @@ $(function(){
 			<li><a href="../bakset.do">장바구니</a></li>
 		</ul>
 		
-
-		
-		
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
 		</a>
