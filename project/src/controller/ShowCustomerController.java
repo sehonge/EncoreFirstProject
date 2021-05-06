@@ -18,15 +18,15 @@ public class ShowCustomerController implements Controller {
 		else {
 			System.out.println(session.getAttribute("rvo"));
 			String id = request.getParameter("id");
-			String path = "Main/index.jsp"; // �⺻ path
+			String path = "Main/index.jsp"; // 占썩본 path
 
 			try {
 				request.setAttribute("info", CustomerDaoImpl.getInstance().showCustomer(id));
-				path = "Main/Mypage.jsp"; // 이동할 path
+				path = "Main/Mypage.jsp"; // �씠�룞�븷 path
 			} catch (Exception e) {
 
 			}
-			return new ModelAndView(path);
+			return new ModelAndView(path, true);
 		}
 	}
 

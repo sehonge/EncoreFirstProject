@@ -73,22 +73,38 @@
 		</div>
 
 		<ul class="navbar__menu">
-			<li><a href="pizzamenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.jsp">회원가입</a></li>
-			<li><a href="#">장바구니</a></li>
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<c:choose>
+				<c:when test="${!empty rvo}">
+					<li><a href="../showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="../showCustomer.do?id=">마이페이지</a></li>
+				</c:otherwise>
+			</c:choose>
+			
+			<li><a href="../bakset.do">장바구니</a></li>
 		</ul>
 
 
-
-		<div id="quick">
-			<ul>
-				<li><h2>퀵메뉴</h2></li>
-				<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-				<li><a href="logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-				<li><a href="showCustomer.do?id=${vo.id}"><i class="fas fa-info-circle">마이페이지</i></a></li>
-			</ul>
-		</div>
+		
+	 <div id="quick">
+		 <ul>
+		 	<li><h2>퀵메뉴</h2></li>
+		 <c:choose>
+		 	<c:when test="${!empty rvo}">
+		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
+			 	<li><a href="../showCustomer.do?id=${rvo.custId}"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 	<li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+			 </c:when>
+			 <c:otherwise>	
+		 		<li><a href="login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
+		 		<li><a href="register.jsp"><i class="fas fa-registered">회원가입</i></a></li>
+		 	</c:otherwise>
+		 </c:choose>
+		 
+		 </ul>	
+	 </div>
 
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-book-open"></i>
 		</a>
