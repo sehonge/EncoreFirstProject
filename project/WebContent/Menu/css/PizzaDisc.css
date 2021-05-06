@@ -1,12 +1,7 @@
 @charset "UTF-8";
-
+<!-- RESET -->
 *{
-	margin: 0 auto;
-	padding: 0;
-	font-size: 24px;
-	color: #fff;
 	user-select: none;
-	/*마우스드레그 막으려면 body에도 넣어주기!!*/
 }
 
 a{
@@ -23,8 +18,8 @@ li{
 	width: 100%;
 }
 
-
-\: root {
+<!-- header -->
+: root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
@@ -107,6 +102,7 @@ body{
 }
 
 	
+	<!-- 메뉴 바 -->
 	.menu_wrap{
 		position: relative;
         height: 80px; line-height: 0px;
@@ -119,6 +115,9 @@ body{
 	.menu_wrap .menu ul li a:hover{color: red;}
 	.menu_wrap .menu ul li span {font-size: 25px; color: #777777;}
 
+}
+	
+	<!-- 음식 사진 --> 
 	#section {
 		margin: 0 auto;
 		width: 1400px; 
@@ -138,10 +137,14 @@ body{
 		
 	}
 	
+	<!--padding-inline-start: 100px; -->
 	#article1 .imgcut {display: block; text-align: left; padding-right: 50px;}
 	#article1 .imgcut img {position:relative; display: inline-block; padding-bottom: 13px; width: 700px; height: 700px;}
 	#article1 .imgcut span {font-size: 16px; color: #888888;}
 	
+
+
+	<!-- 타이틀 -->
 	#article2 .title{
 		
 	}
@@ -169,6 +172,8 @@ body{
 	}
 	
 	
+
+	<!-- 사이즈 선택 -->
 	#article2 .size{
 		
 	}
@@ -216,6 +221,8 @@ body{
 	}
 	
 
+
+    <!-- 수량선택 -->
 	#article2 .qty {
 
     } 
@@ -228,7 +235,8 @@ body{
     	text-align: center;
     }
     
-     
+    
+    <!-- 담기 버튼 -->   
     #article2 .c .cost_box{ 	
    		width: 550px; 
    		height: 74px; 

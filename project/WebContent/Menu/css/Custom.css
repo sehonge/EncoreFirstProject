@@ -1,5 +1,8 @@
 @charset "UTF-8";
-
+<!-- RESET -->
+*{
+	user-select: none;
+}
 
 a{
 	text-decoration: none;
@@ -15,8 +18,8 @@ li{
 	width: 100%;
 }
 
-
-\: root {
+<!-- header -->
+: root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
@@ -99,6 +102,7 @@ body{
 }
 
 	
+	<!-- 메뉴 바 -->
 	.menu_wrap{
 		position: relative;
         height: 80px; line-height: 0px;
@@ -113,6 +117,7 @@ body{
 
 
 	
+	<!-- 음식 사진 --> 
 	#section {
 		cursor: pointer;
 		margin: 0 auto;
@@ -134,15 +139,10 @@ body{
 		
 	}
 	
-	#article1 .imgcut {
-	display: block; 
-	text-align: left; 
-	padding-right: 50px; 
-	width: 700px; 
-	height: 700px; 
-	padding-bottom: 13px;
-	}
+	<!--padding-inline-start: 100px; -->
+	#article1 .imgcut {padding-right: 50px; width: 700px; height: 700px; padding-bottom: 13px;}
 
+	<!-- 타이틀 -->
 	#article2 .title{
 		
 	}
@@ -169,10 +169,8 @@ body{
 		margin-bottom: 15px;
 	}
 	
-	#article2 .size{
-		
-	}
-	
+
+	<!-- 사이즈 선택 -->
 	h2{
 		color: #404040; 
 		margin-bottom: 13px;
@@ -214,6 +212,7 @@ body{
 	    color: #fff
 	}
     
+    <!-- 토핑 -->
     .ui-draggable-dragging {
     position: absolute;
 	}
@@ -225,23 +224,68 @@ body{
 	.side ul li .side_img {width: 130px; height: 130px; line-height:120px; text-align: center;}
 	.side ul li div.side_name {text-align:center; width: 130px; height: 18px; line-height:18px; padding-bottom: 5px; padding-top: 5px;}
 	.side ul li div.side_cost {text-align:center; width: 130px; height: 18px; line-height:18px;}
-	
-    #article2 .qty {
 
-    } 
+	.container {
+	  display: block;
+	  position: relative;
+	  padding-left: 35px;
+	  cursor: pointer;
+	  font-size: 18px;
+	  -webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+	}
 	
-    #article2 .qty input{
-    	width: 400px;
-    	height: 20px;
-    	font-size: 18px;
-    	border-radius: 7px;
-    	text-align: center;
-    	margin-bottom: 25px;
-    }
-   
-     
-    
-    #article2 .c .cost_box{
+	.container input {
+	  position: absolute;
+	  opacity: 0;
+	  cursor: pointer;
+	  height: 0;
+	  width: 0;
+	}
+	
+	.checkmark {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 25px;
+	  width: 25px;
+	  background-color: #eee;
+	}
+	
+	.container:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+	
+	.container input:checked ~ .checkmark {
+	  background-color: #ec4a4f;
+	}
+	
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+	
+	.container input:checked ~ .checkmark:after {
+	  display: block;
+	}
+	
+	.container .checkmark:after {
+	  left: 9px;
+	  top: 5px;
+	  width: 5px;
+	  height: 10px;
+	  border: solid white;
+	  border-width: 0 3px 3px 0;
+	  -webkit-transform: rotate(45deg);
+	  -ms-transform: rotate(45deg);
+	  transform: rotate(45deg);
+	}
+	
+    <!-- 담기 버튼 -->   
+    #article2 .c .cost_box{ 
    		width: 550px; 
    		height: 74px; 
    		inline-height: 74px; 
@@ -256,10 +300,8 @@ body{
    		padding-left: 20px; 
    		padding-right: 50px;
     }
-    .cost_line{
-    	float: left;
-    }
-    #article2 .c .cost_box .cost{
+    
+    .cost{
 		line-height: 1.5;
  		display: inline-block;
   		vertical-align: middle;
@@ -267,22 +309,8 @@ body{
      	color: black; 
      	font-weight: bold;
     }
-    #article2 .c .cost_box .topping{
-   		color: #808080; 
-   		font-weight: bold;
-   		font-size: 15px;
-   		padding-left: 20px; 
-   		padding-right: 50px;
-    }
-    #costT{
- 		display: inline-block;
-  		vertical-align: middle;
-     	font-size: 15px;
-     	color: #808080; 
-     	font-weight: bold;
-    }
-    
-	#article2 .c .cost_box .button {
+   
+	.button {
 	  float: right;
 	  width: 150px;
 	  height: 50px;
@@ -294,9 +322,8 @@ body{
 	  border-radius: 10px;
 	}
 	
-	#article2 .c .cost_box a span{
-	  
-	  font-size: 18px;
+	.button span{
+	  font-size: 20px;
 	  font-weight: bold;
 	}
 	
@@ -304,4 +331,15 @@ body{
 
    	 
    	 
-   	
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+	

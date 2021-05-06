@@ -12,68 +12,20 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <title>Insert title here</title>
 <script type="text/javascript">
- $(function(){ 
-	//1. 기본 페이지 L사이즈를 디폴트
-	 $("#dough_L").show();
-	 $("#dough_M").hide();
-	 
-	//2.드레그 .. 이미지 복사 (http://jsfiddle.net/wJUHF/7/)
-	 var counts = 0;
- 	 var resizeOpts = { 
- 	    handles: "all" ,autoHide:true
- 	 }; 
- 	 $(".side_img").draggable({
- 	    helper: "clone",
- 	    start: function() {counts++;}
- 	 });
-  	
-    $("#article1").droppable({
-	      drop: function(e, ui){
-             if(ui.draggable.hasClass("side_img")) {
-	        		var cost = counts*2000;
-	        		
-            	 	refreshPositions: true
-		            $(this).append($(ui.helper).clone());
-	        		
-		        	//Pointing to the dragImg class in dropHere and add new class.
-		    	    $("#article1 .side_img").addClass("item-"+counts);
-		  	        $("#article1 .img").addClass("imgSize-"+counts);	  	      	
-		  	        
-		    	    //Remove the current class
-		    	    $("#article1 .item-"+counts).removeClass("side_img ui-draggable ui-draggable-dragging");   	    
-		    	    
-					$(".item-"+counts).dblclick(function() {
-					   	$(this).remove();
-					   	counts --;
-					});
-				 
-					make_draggable($(".item-"+counts)); 
-			        $(".imgSize-"+counts).resizable(resizeOpts);
-			        $("#costT").html(cost+"원 입니다.");
- 	     	  }
-        }
-	  });
-  	
-   	var zIndex = 0;
-   	function make_draggable(elements){	
-   		elements.draggable({
-   			containment:'parent',
-   			start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
-   			stop:function(e,ui){}
-   			});
-   		}      
-	});
+$(function(){ 
+   //1. 기본 페이지 L사이즈를 디폴트
+   $("#dough_L").show();
+   $("#dough_M").hide();
+});
 
- 
- //3.가격 계산하기
+ //2.가격 계산하기
  function calc(){		
   	var pizzaL = 20000;
   	var pizzaR = 14000;
-  			
-  	var testString = $("#costT").html();	// 원래 문자열
-  	console.log(testString);	
-  	var sidecost = testString.replace(/[^0-9]/g,"");// 숫자가 아닌 문자열을 매칭하는 정규식			
-  	console.log(sidecost);	
+  	var toppingAll = $('input:checkbox[id="checkbox"]:checked').length
+  	console.log(toppingAll)
+  	var toppingCost = toppingAll*2000
+  	console.log(toppingCost)
   	
  	if(document.getElementById('btn_L').checked){
  		 //L을 클릭했을 때 dough_L를 보여줌
@@ -81,7 +33,7 @@
          $("#dough_M").hide();
          
       	 //가격 계산
-         var costL = pizzaL+parseInt(sidecost);
+         var costL = pizzaL+toppingCost
  		 $("#cost").html(costL+"원 입니다.");
    		
    	}else if(document.getElementById('btn_R').checked){
@@ -90,20 +42,19 @@
          $("#dough_L").hide();
          
     	 //가격 계산
-   		 var costR = pizzaR+parseInt(sidecost);
+   		 var costR = pizzaR+toppingCost
    		 $("#cost").html(costR+"원 입니다.");
   		
-   	}else{q
-   		 alert("피자 크기와 수량을 입력해주세요!");
+   	}else{
+   		 alert("원하시는 피자 크기와 토핑을 입력해주세요!");
    	}
  }; 
- 
 </script>
 <link rel="stylesheet" type="text/css" href="Menu/css/Custom.css">
 <link rel="shortcut icon" href="#">
 </head>
 <body>
-	
+	<!-- nav -->
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
@@ -112,14 +63,16 @@
 		
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
-			<li><a href="showCustomer.do">마이페이지</a></li>
-			<li><a href="basket.do">장바구니</a></li>
+			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
+			<li><a href="register.do">회원가입</a></li>
+			<li><a href="bakset.do">장바구니</a></li>
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
 			<i class="fas fa-book-open"></i>
 		</a>
-	</nav>		
+	</nav>
+		
 		
 	<!-- 메뉴 -->
 	<div class="menu_wrap">
@@ -130,7 +83,8 @@
 				<li><a href="customMenu.do"><span>나만의 피자</span></a></li>
 			</ul>
 		</div>
-	</div>			
+	</div>
+			
 			
 	<section id="section" style="margin: 0 auto; width: 1300px; position: relative;">	
 		<!-- 피자 이미지 -->
@@ -160,28 +114,31 @@
 			
 			<!-- 토핑 -->
 			<div class="side">
-				<h2>토핑</h2><span style="color: #888888;">*토핑은 도우위에서 더블 클릭하여 취소할 수 있습니다!</span>
+				<h2 style="padding-top: 10px;">토핑</h2>
 					<ul style="padding: 0px;">
 						<c:forEach items="${list}" var="list">
 						<li>
-							<div class="side_img"><img id="foodimage" alt="foodimage" src="${list.pictureUrl}" draggable="true"  ondragstart="calc()"></div>
+							<div class="side_img"><img id="foodimage" alt="foodimage" src="${list.pictureUrl}"></div>
 							<div class="side_name">${list.menuName}</div>
 							<div class="side_cost">${list.menuPrice}원</div>
+							<label class="container">토핑 추가
+							  <input type="checkbox" id="checkbox" onchange="calc()">
+							  <span class="checkmark"></span>
+							</label>
 						</li>	
 						</c:forEach>
 					</ul>
 			</div>
-					
+
 			<!-- 결제 -->
-			<div class="c">
+			<div class="c" style="padding-top: 50px;">
 				<div class="cost_box" style="width: 550px; height: 74px; inline-height: 74px; background-color: #f9f9f9;">
-					<div class="cost_line">
-					<span class="costall">총 금액</span><span id="cost">20000원 입니다.</span><br/>
-				    <span class="topping">*토핑금액</span><span id="costT">0원 입니다.</span></div>
-					<a href="basket.do" class="button" style="float: right; width: 150px; height: 50px; line-height: 50px; text-align: center; background-color: #ec4a4f; border: none; color: white; border-radius: 10px;"><span>담기</span></a>
+					<span class="costall">총 금액</span><span id="cost">20000원 입니다.</span>
+					<a href="bascket.do" class="button"><span>담기</span></a>
 				</div>
 			</div>
 		</div>
+	  </div>
 	</section>
 </body>
 </html>

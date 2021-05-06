@@ -1,10 +1,6 @@
 @charset "UTF-8";
 <!-- RESET -->
 *{
-	margin: 0 auto;
-	padding: 0;
-	font-size: 24px;
-	color: #fff;
 	user-select: none;	/*마우스드레그 막으려면 body에도 넣어주기!!*/
 }
 
