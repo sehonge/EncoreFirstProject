@@ -15,6 +15,8 @@ public class RegisterController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("custId");
 		String password =  request.getParameter("password");
 		String name =  request.getParameter("name");
@@ -23,6 +25,7 @@ public class RegisterController implements Controller {
 		String email =  request.getParameter("email");
 		String path = "";
 		PrintWriter out = response.getWriter();
+		
 		
 		Customer pvo = new Customer(id, password, name, address, phoneNumber, email);
 		System.out.println(pvo);

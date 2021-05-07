@@ -1,5 +1,5 @@
 @charset "UTF-8";
-<!-- RESET -->
+
 *{
 	margin: 0 auto;
 	padding: 0;
@@ -19,8 +19,8 @@ li{
 .clearfix::before, .clearfix::after{display: block; content: ''; clear: both;}
 	
 	
-<!-- header -->
-: root {
+
+\: root {
 	--text-color :#f0f4f5;
 	--background-color : #263343;
 	--accent-color : #d49466;
@@ -102,7 +102,7 @@ body{
 	}	
 }
 	
-	<!-- 메뉴 바 -->
+
 	.menu_wrap{
 		position: relative;
         height: 80px; line-height: 0px;
@@ -115,9 +115,7 @@ body{
 	.menu_wrap .menu ul li a:hover{color: red;}
 	.menu_wrap .menu ul li span {font-size: 25px; color: #777777;}
 
-}
-	
-	<!-- 음식 사진 --> 
+
 	#section {
 		margin: 0 auto;
 		width: 1400px; 
@@ -137,14 +135,14 @@ body{
 		
 	}
 	
-	<!--padding-inline-start: 100px; -->
+
 	#article1 .imgcut {display: block; text-align: left; padding-right: 50px;}
 	#article1 .imgcut img {position:relative; display: inline-block; padding-bottom: 13px; width: 700px; height: 700px;}
 	#article1 .imgcut span {font-size: 16px; color: #888888;}
 	
 
 
-	<!-- 타이틀 -->
+
 	#article2 .title{
 		
 	}
@@ -173,7 +171,7 @@ body{
 	
 	
 
-	<!-- 사이즈 선택 -->
+
 	#article2 .size{
 		
 	}
@@ -221,7 +219,6 @@ body{
 	}
 	
 
-    <!-- 수량선택 -->
 	#article2 .qty {
 
     } 
@@ -235,8 +232,7 @@ body{
     }
 
     
-    
-    <!-- 담기 버튼 -->  
+     
     .c{
    		padding-top: 50px;
     }

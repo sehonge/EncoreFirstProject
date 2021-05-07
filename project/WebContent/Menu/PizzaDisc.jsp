@@ -76,16 +76,19 @@
 <link rel="shortcut icon" href="#">
 </head>
 <body>
-	<!-- nav -->
+	
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<i class="fas fa-pizza-slice"></i>
 			<a href="Main/Index.jsp">8자피자</a>
 		</div>
 		
-		<ul class="navbar__menu">
-			<li><a href="../pizzaMenu.do">메뉴</a></li>
-			<li><a href="../showCustomer.do">마이페이지</a></li>
+		<ul class="navbar__menu" style="font-size : 20px;
+	display : flex;
+	list-style : none;
+	padding-left : 0;">
+			<li><a href="pizzaMenu.do">메뉴</a></li>
+			<li><a href="showCustomer.do">마이페이지</a></li>
 			<li><a href="basket.do">장바구니</a></li>
 		</ul>
 		
@@ -119,7 +122,10 @@
 		<div id="article2" class="clearfix">
 			<!-- 피자 타이틀 -->
 			<div class="title">
-				<div class="name">${pizzaL.menuName}</div>
+				<div class="name" style="font-size: 35px;
+		color: black;
+		font-weight: bolder;
+		padding-top: 10px;">${pizzaL.menuName}</div>
 				<p>${pizzaL.menuDesc}</p>
 				<hr/>
 			</div>
@@ -135,7 +141,7 @@
 			<div class="qty_box">
 				<h2>수량 선택</h2>
                 <input type="number" id="qty" value="1" min="1" max="9" onchange="calc()" 
-                style="width: 400px; height:50px; text-align: center; border-radius:50px; font-size: 20px;">
+                style="width: 400px; color:black; height:50px; text-align: center; border-radius:50px; font-size: 20px;">
 			</div>
 			
 			<!-- 결제 -->

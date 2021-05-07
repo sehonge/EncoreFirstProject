@@ -27,7 +27,7 @@
 
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = callback;
-		xhr.open("post", "findId.do", true);
+		xhr.open("post", "../findId.do", true);
 
 		xhr.setRequestHeader("Content-Type",
 				"application/x-www-form-urlencoded;charset=utf-8");

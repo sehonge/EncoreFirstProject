@@ -64,7 +64,6 @@ $(function(){
 		<ul class="navbar__menu">
 			<li><a href="pizzaMenu.do">메뉴</a></li>
 			<li><a href="showCustomer.do?id=${vo.id}">마이페이지</a></li>
-			<li><a href="register.do">회원가입</a></li>
 			<li><a href="bakset.do">장바구니</a></li>
 		</ul>
 		

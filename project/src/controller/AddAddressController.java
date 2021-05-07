@@ -15,6 +15,7 @@ public class AddAddressController implements Controller{
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session =request.getSession();
 		Customer c = (Customer) session.getAttribute("rvo");
 		String custId = c.getCustId();

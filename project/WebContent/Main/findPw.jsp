@@ -29,7 +29,7 @@ function startRequest() {
 
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = callback;
-	xhr.open("post", "findPw.do", true);
+	xhr.open("post", "../findPw.do", true);
 
 	xhr.setRequestHeader("Content-Type",
 			"application/x-www-form-urlencoded;charset=utf-8");

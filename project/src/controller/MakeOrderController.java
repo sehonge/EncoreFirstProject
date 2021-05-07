@@ -21,6 +21,7 @@ public class MakeOrderController implements Controller{
 
 				try {
 					// 로그인 되어있는 Customer 객체 생성
+					request.setCharacterEncoding("UTF-8");
 					HttpSession session = request.getSession();
 					Customer cust = (Customer) session.getAttribute("rvo");
 

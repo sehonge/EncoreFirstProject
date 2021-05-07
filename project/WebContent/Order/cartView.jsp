@@ -46,19 +46,9 @@ $(function(){
 		</div>
 		
 		<ul class="navbar__menu">
-			<li><a href="${pageContext.request.contextPath}/pizzaMenu.do">메뉴</a></li>
-
-			<c:choose>
-				<c:when test="${!empty rvo}">
-					<li><a href="${pageContext.request.contextPath}/showCustomer.do?id=${rvo.custId}">마이페이지</a></li>
-				</c:when>
-				<c:otherwise>
-					<li><a href="${pageContext.request.contextPath}/showCustomer.do">마이페이지</a></li>
-				</c:otherwise>
-			</c:choose>
-			
+			<li><a href="../pizzaMenu.do">메뉴</a></li>
+			<li><a href="../showCustomer.do">마이페이지</a></li>			
 			<li><a href="${pageContext.request.contextPath}/basket.do">장바구니</a></li>
-
 		</ul>
 		
 		<a href="#" class="navbar__toogleBtn">
@@ -69,17 +59,10 @@ $(function(){
 	 <div id="quick">
 		 <ul>
 		 	<li><h2>퀵메뉴</h2></li>
-		 <c:choose>
-		 	<c:when test="${!empty rvo}">
-		 		<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
-			 	<li><a href="${pageContext.request.contextPath}/showCustomer.do"><i class="fas fa-info-circle">마이페이지</i></a></li>
-			 	<li><a href="${pageContext.request.contextPath}/logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
-			 </c:when>
-			 <c:otherwise>	
-		 		<li><a href="${pageContext.request.contextPath}/Main/login.jsp"><i class="fas fa-sign-in-alt">로그인</i></a></li>
-		 		<li><a href="${pageContext.request.contextPath}/Main/register.jsp"><i class="fas fa-registered">회원가입</i></a></li>
-		 	</c:otherwise>
-		 </c:choose>
+		 	<li><i class="fas fa-trophy">${rvo.custName} 님</i></li>
+			 <li><a href="../showCustomer.do"><i class="fas fa-info-circle">마이페이지</i></a></li>
+			 <li><a href="../logout.do"><i class="fas fa-sign-out-alt">로그아웃</i></a></li>
+			 
 		 
 		 </ul>	
 	 </div>
