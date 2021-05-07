@@ -8,14 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.AddressDaoImpl;
+import model.Customer;
 
 public class AddAddressController implements Controller{
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		HttpSession session =request.getSession();
+		Customer c = (Customer) session.getAttribute("rvo");
+		String custId = c.getCustId();
 		String address = request.getParameter("address");
-		String custId = request.getParameter("custId"); 
 		
 		try {
 		boolean add = AddressDaoImpl.getInstance().addAddress(address, custId);
@@ -25,7 +28,6 @@ public class AddAddressController implements Controller{
 		
 	} catch (SQLException e) {
 	}
-	return new ModelAndView("delivery.jsp"); 
+	return new ModelAndView("deliveryAddress.do"); 
 	}
 }
-

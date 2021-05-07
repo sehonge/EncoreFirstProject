@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.AddressDaoImpl;
+import model.Customer;
 import model.CustomerDaoImpl;
 import model.Shop;
 import model.ShopDaoImpl;
@@ -21,13 +22,15 @@ public class DeliveryController implements Controller{
 		@Override
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
-			String custId = request.getParameter("custId"); 
+			HttpSession session =request.getSession();
+			Customer c = (Customer) session.getAttribute("rvo");
+			String custId = c.getCustId();
 			System.out.println(custId);
 			
 			ArrayList<String> list = AddressDaoImpl.getInstance().showAllAddress(custId);
-			request.setAttribute("list", list);
+			request.setAttribute("DAList", list);
 			
-			return new ModelAndView("delivery.jsp");
+			return new ModelAndView("Order/delivery.jsp");
 			
 		}
 }

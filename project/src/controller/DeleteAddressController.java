@@ -7,17 +7,21 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import model.AddressDaoImpl;
+import model.Customer;
 
 public class DeleteAddressController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		HttpSession session =request.getSession();
+		Customer c = (Customer) session.getAttribute("rvo");
+		String custId = c.getCustId();
 		String address = request.getParameter("address");
-		String custId = request.getParameter("custId"); 
+
 		System.out.println(address + " " + custId);
 		
 		try {
@@ -28,6 +32,6 @@ public class DeleteAddressController implements Controller {
 		
 	} catch (SQLException e) {
 	}
-	return new ModelAndView("delivery.jsp"); 
+	return new ModelAndView("deliveryAddress.do"); 
 	}
 }

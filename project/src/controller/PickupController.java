@@ -19,8 +19,8 @@ public class PickupController implements Controller{
 		public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
 			ArrayList<Shop> list = ShopDaoImpl.getInstance().getAllShop();
-			request.setAttribute("list", list);
+			request.setAttribute("PAList", list);
 			
-			return new ModelAndView("pickup.jsp"); 
+			return new ModelAndView("Order/pickup.jsp"); 
 		}
 }

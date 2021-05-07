@@ -8,9 +8,6 @@ var fadeTime = 200;
 
 $(function() {
 	
-	//localStorage.setItem('P004-L', 'Menu/img/pizza_blackking.jpg,블랙킹 피자,L,2,24000,48000');
-	//localStorage.setItem('S002', 'Menu/img/tomato_spaghetti.jpg,토마토 스파게티,NULL,2,5000,10000');
-	
 	refreshPage();
 	
 	$('.quantity input').change(function() { 
@@ -22,6 +19,13 @@ $(function() {
 	});
 	
 	$('.checkout-cta').on('click',function(){
+
+	  if($('.basket-product').length == 0){
+	  	alert('메뉴를 먼저 선택하세요.');
+	  	location.href='/project/pizzaMenu.do';/*"/project/pizzaMenu.do"*/
+	  	return false;
+	  }
+	  
 	  saveCheckout();
       location.href='orderType.jsp';
 	});
@@ -29,44 +33,49 @@ $(function() {
 
 /* refreshPage */
 function refreshPage(){
+	//localStorage.setItem('P004-L', 'Menu/img/pizza_blackking.jpg,블랙킹 피자,L,2,24000,48000,date');
+	//localStorage.setItem('S002', 'Menu/img/tomato_spaghetti.jpg,토마토 스파게티,NULL,2,5000,10000,date');
 	var basketItems = "";
 	var summaryItems = "";
 	var totalPrice = 0;
+	var custId = $('#custId').text();
 	for(var key in localStorage){
 		if(key=='length') break; 
 		var data = localStorage.getItem(key).split(",");
-		basketItems += 
-		'<div class=basket-product>'+
-      	  '<div class=select>'+
-      	    '<input type=checkbox name=deleteCart value='+key+'>'+
-      	  '</div>'+
-          '<div class=item>'+
-            '<div class=product-image>'+
-              '<img src=../'+data[0]+' class=product-frame>'+
-            '</div>'+
-            '<div class=product-details>'+
-              '<p><strong>'+data[1]+'</strong></p>'+
-              '<p id=size>사이즈 - '+data[2]+'</p>'+
-            '</div>'+
-          '</div>'+
-          '<div class=hide>'+data[4]+'</div>'+
-          '<div class=quantity>'+
-            '<input type=number value='+data[3]+' min=1 max=9 class=quantity-field>'+
-          '</div>'+
-          '<div class=subtotal><font color=red size=5em>'+(data[5].substr(0,data[5].length-3)+','+data[5].substr(-3,3))+'</font></div>'+
-        '</div>';
-		
-		summaryItems +=
-		'<div class=summary-list>'+
-		  '<ul>'+
-            '<li class=summary-pizza>'+data[1]+'</li>'+
-            '<li class=summary-size>'+data[2]+'</li>'+
-            '<li class=summary-quantity>'+data[3]+'</li>'+
-            '<li class=summary-subtotal id=basket-subtotal>'+(data[5].substr(0,data[5].length-3)+','+data[5].substr(-3,3))+'</li>'+
-          '</ul>'+
-		'</div><br/>';
-		
-		totalPrice += parseInt(data[5]);
+		if(localStorage.getItem(key).endsWith(custId)){
+			basketItems += 
+			'<div class=basket-product>'+
+	      	  '<div class=select>'+
+	      	    '<input type=checkbox name=deleteCart value='+key+'>'+
+	      	  '</div>'+
+	          '<div class=item>'+
+	            '<div class=product-image>'+
+	              '<img src=../'+data[0]+' class=product-frame>'+
+	            '</div>'+
+	            '<div class=product-details>'+
+	              '<p><strong>'+data[1]+'</strong></p>'+
+	              '<p id=size>사이즈 - '+data[2]+'</p>'+
+	            '</div>'+
+	          '</div>'+
+	          '<div class=hide>'+data[4]+'</div>'+
+	          '<div class=quantity>'+
+	            '<input type=number value='+data[3]+' min=1 max=9 class=quantity-field>'+
+	          '</div>'+
+	          '<div class=subtotal><font color=red size=5em>'+(data[5].substr(0,data[5].length-3)+','+data[5].substr(-3,3))+'</font></div>'+
+	        '</div>';
+			
+			summaryItems +=
+			'<div class=summary-list>'+
+			  '<ul>'+
+	            '<li class=summary-pizza>'+data[1]+'</li>'+
+	            '<li class=summary-size>'+data[2]+'</li>'+
+	            '<li class=summary-quantity>'+data[3]+'</li>'+
+	            '<li class=summary-subtotal id=basket-subtotal>'+(data[5].substr(0,data[5].length-3)+','+data[5].substr(-3,3))+'</li>'+
+	          '</ul>'+
+			'</div><br/>';
+			
+			totalPrice += parseInt(data[5]);
+		}
 	}
 
 	$('#basketList').append(basketItems);
@@ -168,7 +177,7 @@ $(function() {
 });
 
 function saveCheckout(){
-	
+	var custId = $('#custId').text();
 	for(var key in localStorage){
 		if(key=='length') break;
 		var data = localStorage.getItem(key).split(",");
@@ -177,7 +186,8 @@ function saveCheckout(){
 				//alert(key);
 				localStorage.setItem(key, data[0]+','+data[1]+','+data[2]+','+
 				$('.basket-product').eq(i).find('.quantity input').val()+','+data[4]+','+
-				$('.basket-product').eq(i).find('.subtotal').children().text().replace(',',''));
+				$('.basket-product').eq(i).find('.subtotal').children().text().replace(',','')+','+
+				data[6]);
 			}
 		}
 	}
