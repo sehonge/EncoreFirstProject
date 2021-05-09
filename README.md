@@ -20,7 +20,15 @@
 
 <br/>
 
+### Project Architecture
+
+![image](https://user-images.githubusercontent.com/46814964/117577140-89467580-b123-11eb-8bf2-ef765532749a.png)
+
+<br/>
+
 [FRONT UI 설계](https://github.com/sehonge/EncoreFirstProject/issues/9)
 <br/><br/>
 [SRS 및 Usecase Diagram](https://github.com/sehonge/EncoreFirstProject/wiki)
 
+
+<br/>
